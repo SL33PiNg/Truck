@@ -1,4 +1,4 @@
-﻿Imports System.Data.Odbc
+﻿Imports Oracle.ManagedDataAccess.Client
 
 Public Class SearchTruck
 
@@ -35,8 +35,8 @@ Public Class SearchTruck
             Exit Sub
         End If
 
-        Dim rs As OdbcDataReader
-        Dim cmd As New OdbcCommand()
+        Dim rs As OracleDataReader
+        Dim cmd As New OracleCommand()
 
         Select Case cbTypeSearch.Text
             Case "หมายเลขทะเบียนตัวถัง"

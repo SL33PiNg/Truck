@@ -1,4 +1,4 @@
-﻿Imports System.Data.Odbc
+﻿Imports Oracle.ManagedDataAccess.Client
 
 Public Class Driver
     Private Function SP_DATA(ByVal STR_DATA As String) As String
@@ -8,7 +8,7 @@ Public Class Driver
 
     Private Sub cmdAdd_Click(sender As Object, e As EventArgs) Handles cmdAdd.Click
         Dim Statement As String = "SELECT * FROM RELATION_TRUCK_DRIVER WHERE TRUCK_NO = '" & Truck.txtTruck_No.Text & "' AND DRIVER_NO = '" & SP_DATA(ListDriver.Text) & "'"
-        Dim cmd As New OdbcCommand(Statement, ConnMyDB)
+        Dim cmd As New OracleCommand(Statement, ConnMyDB)
         BS = cmd.ExecuteReader()
         If BS.HasRows Then
             MessageBox.Show("มีพนักงานขับรถคนนี้ในความสัมพันธ์แล้ว")
@@ -17,7 +17,7 @@ Public Class Driver
         End If
         BS.Close()
 
-        Dim transaction As OdbcTransaction = ConnMyDB.BeginTransaction()
+        Dim transaction As OracleTransaction = ConnMyDB.BeginTransaction()
         cmd.Transaction = transaction
         Try
             cmd.CommandText = "INSERT INTO RELATION_TRUCK_DRIVER (TRUCK_NO, DRIVER_NO) VALUES ('" & Truck.txtTruck_No.Text & "','" & SP_DATA(ListDriver.Text) & "')"
@@ -33,8 +33,8 @@ Public Class Driver
     End Sub
 
     Private Sub cmdDel_Click(sender As Object, e As EventArgs) Handles cmdDel.Click
-        Dim transaction As OdbcTransaction = ConnMyDB.BeginTransaction()
-        Dim cmd As New OdbcCommand("DELETE FROM RELATION_TRUCK_DRIVER WHERE TRUCK_NO = '" & Truck.txtTruck_No.Text & "' AND DRIVER_NO = '" & SP_DATA(ListMain.Text) & "'", ConnMyDB)
+        Dim transaction As OracleTransaction = ConnMyDB.BeginTransaction()
+        Dim cmd As New OracleCommand("DELETE FROM RELATION_TRUCK_DRIVER WHERE TRUCK_NO = '" & Truck.txtTruck_No.Text & "' AND DRIVER_NO = '" & SP_DATA(ListMain.Text) & "'", ConnMyDB)
         cmd.Transaction = transaction
         Try
             cmd.ExecuteNonQuery()
@@ -54,7 +54,7 @@ Public Class Driver
 
     Private Sub Show_Main()
         Dim Statement As String = "SELECT a.*, b.name, b.lastname FROM (SELECT a.truck_no, a.driver_no FROM relation_truck_driver a WHERE a.truck_no='" & Truck.txtTruck_No.Text & "') a INNER JOIN driver b ON a.driver_no = b.driver_no WHERE a.truck_no = '" & Truck.txtTruck_No.Text & "'"
-        Dim cmd As New OdbcCommand(Statement, ConnMyDB)
+        Dim cmd As New OracleCommand(Statement, ConnMyDB)
         BS = cmd.ExecuteReader()
         If Not BS.HasRows Then
             ListMain.Items.Clear()
@@ -71,7 +71,7 @@ Public Class Driver
 
     Private Sub Show_Driver(ByVal STR_SQL As String)
         Dim Statement As String = "SELECT * FROM (SELECT DRIVER_NO, NAME || '  ' || LASTNAME NAME_DRIVER FROM DRIVER ORDER BY NAME) WHERE DRIVER_NO IS NOT NULL " & STR_SQL
-        Dim cmd As New OdbcCommand(Statement, ConnMyDB)
+        Dim cmd As New OracleCommand(Statement, ConnMyDB)
         BS = cmd.ExecuteReader()
         If Not BS.HasRows Then
             ListDriver.Items.Clear()

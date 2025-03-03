@@ -1,4 +1,4 @@
-﻿Imports System.Data.Odbc
+﻿Imports Oracle.ManagedDataAccess.Client
 
 Public Class Login
     Public LoginSucceeded As Boolean
@@ -86,18 +86,18 @@ Public Class Login
     End Sub
     Public Function CHECK_LOGIN_FRM_LOGIN(STR_USER As String, STR_PASSWORD As String) As Boolean
         CHECK_LOGIN_FRM_LOGIN = False
-        Dim CHECK_RS As OdbcDataReader
+        Dim CHECK_RS As OracleDataReader
         Dim CHECK_Statement As String
 
-        Dim cmd As New OdbcCommand()
+        Dim cmd As New OracleCommand()
 
         Try
             ConnMyDB.Open()
             CHECK_Statement = "SELECT NAME, GROUP_NAME, PASSWORD_EXPIRE FROM OPERATOR1 WHERE UPPER(USERNAME) = @username AND TRIM(PASSWORD) = @password"
             cmd.Connection = ConnMyDB
             cmd.CommandText = CHECK_Statement
-            cmd.Parameters.AddWithValue("@username", STR_USER.ToUpper())
-            cmd.Parameters.AddWithValue("@password", Trim(encode(Trim(STR_PASSWORD.ToUpper()))))
+            cmd.Parameters.Add("@username", STR_USER.ToUpper())
+            cmd.Parameters.Add("@password", Trim(encode(Trim(STR_PASSWORD.ToUpper()))))
 
             CHECK_RS = cmd.ExecuteReader()
 

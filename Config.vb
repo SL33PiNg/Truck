@@ -1,4 +1,5 @@
-﻿Imports System.Data.Odbc
+﻿Imports Oracle.ManagedDataAccess.Client
+Imports Oracle.ManagedDataAccess.Client
 
 Public Class Config
     Private Sub cmdSave_Click(sender As Object, e As EventArgs) Handles cmdSave.Click
@@ -6,18 +7,19 @@ Public Class Config
             Exit Sub
         End If
 
-        Using transaction As OdbcTransaction = ConnMyDB.BeginTransaction()
+        Using transaction As OracleTransaction = ConnMyDB.BeginTransaction()
             Try
-                Dim cmd As New OdbcCommand("UPDATE truck_config SET num_date1 = ?, num_date2 = ?", ConnMyDB, transaction)
-                cmd.Parameters.AddWithValue("@num_date1", Val(txt1.Text))
-                cmd.Parameters.AddWithValue("@num_date2", Val(txt2.Text))
+                Dim cmd As New OracleCommand("UPDATE truck_config SET num_date1 = ?, num_date2 = ?", ConnMyDB)
+
+                cmd.Parameters.Add("@num_date1", Val(txt1.Text))
+                cmd.Parameters.Add("@num_date2", Val(txt2.Text))
                 cmd.Transaction = transaction
                 cmd.ExecuteNonQuery()
 
                 cmd.CommandText = "UPDATE truck SET date1 = CAL_EXPIRE - ?, date2 = CAL_EXPIRE - ?"
                 cmd.Parameters.Clear()
-                cmd.Parameters.AddWithValue("@date1", Val(txt1.Text))
-                cmd.Parameters.AddWithValue("@date2", Val(txt2.Text))
+                cmd.Parameters.Add("@date1", Val(txt1.Text))
+                cmd.Parameters.Add("@date2", Val(txt2.Text))
                 cmd.Transaction = transaction
                 cmd.ExecuteNonQuery()
 
@@ -46,10 +48,10 @@ Public Class Config
 
     Private Function check_dates() As Boolean
         Dim _check_dates As Boolean = False
-        Dim rs_ch As OdbcDataReader
+        Dim rs_ch As OracleDataReader
         Dim Statement_ch As String = "SELECT NUM_DATE1, NUM_DATE2 FROM TRUCK_CONFIG"
 
-        Using cmd As New OdbcCommand(Statement_ch, ConnMyDB)
+        Using cmd As New OracleCommand(Statement_ch, ConnMyDB)
             rs_ch = cmd.ExecuteReader()
             If Not rs_ch.HasRows Then
                 _check_dates = True

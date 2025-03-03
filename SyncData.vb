@@ -1,6 +1,6 @@
 ﻿' filepath: /d:/work/ข้อมูลรถบรรทุกก๊าซ/SyncData.vb
 
-Imports System.Data.Odbc
+Imports Oracle.ManagedDataAccess.Client
 
 Public Class SyncData
     Private Sub cmdOK_Click(sender As Object, e As EventArgs) Handles cmdOK.Click
@@ -32,8 +32,8 @@ Public Class SyncData
                                   "INNER JOIN MASTER.sap_tu_master_data c ON b.tu_no = c.tu_no " &
                                   "WHERE a.veh_type IN ('A110', 'A130') AND a.veh_no = @veh_no"
 
-        Using cmd As New OdbcCommand(Statement, ConnMyDBMaster)
-            cmd.Parameters.AddWithValue("@veh_no", txtSearchData.Text)
+        Using cmd As New OracleCommand(Statement, ConnMyDBMaster)
+            cmd.Parameters.Add("@veh_no", txtSearchData.Text)
             rs = cmd.ExecuteReader()
 
             If Not rs.HasRows Then
@@ -95,8 +95,8 @@ Public Class SyncData
                                   "INNER JOIN MASTER.sap_tu_master_data c ON b.tu_no = c.tu_no " &
                                   "WHERE a.veh_type IN ('A110', 'A130') AND a.veh_no = @veh_no"
 
-        Using cmd As New OdbcCommand(Statement, ConnMyDBMaster)
-            cmd.Parameters.AddWithValue("@veh_no", ID)
+        Using cmd As New OracleCommand(Statement, ConnMyDBMaster)
+            cmd.Parameters.Add("@veh_no", ID)
             rs = cmd.ExecuteReader()
 
             If Not rs.HasRows Then
@@ -133,8 +133,8 @@ Public Class SyncData
 
             If Trim(rs("carrier").ToString()) <> "PHTDPRT" Then
                 Dim Statement2 As String = "SELECT COMPANY_NO, COMPANY_NAME FROM COMPANY WHERE TRIM(COMPANY_NO) = @company_no"
-                Using cmd2 As New OdbcCommand(Statement2, ConnMyDB)
-                    cmd2.Parameters.AddWithValue("@company_no", Trim(rs("carrier").ToString()))
+                Using cmd2 As New OracleCommand(Statement2, ConnMyDB)
+                    cmd2.Parameters.Add("@company_no", Trim(rs("carrier").ToString()))
                     rs2 = cmd2.ExecuteReader()
 
                     If Not rs2.HasRows Then
@@ -154,8 +154,8 @@ Public Class SyncData
 
             Dim Statement3 As String = "SELECT * FROM TRUCK WHERE TRUCK_NO = @truck_no"
 
-            Using cmd3 As New OdbcCommand(Statement3, ConnMyDB)
-                cmd3.Parameters.AddWithValue("@truck_no", str_tu_no)
+            Using cmd3 As New OracleCommand(Statement3, ConnMyDB)
+                cmd3.Parameters.Add("@truck_no", str_tu_no)
                 rs2 = cmd3.ExecuteReader()
 
                 If Not rs2.HasRows Then
@@ -163,21 +163,21 @@ Public Class SyncData
                                                     "CAPACITY, CAPACITY_85, BLACKLIST, BLACKLIST_FROM, BLACKLIST_DETIAL, CREATE_DATE, UPDATE_DATE, LAST_USE, CALIBRATION_NO) " &
                                                     "VALUES (@truck_no, @veh_no, @truck_no, @cal_date_from, @cal_date_to, @company, @capacity, @capacity_85, @blacklist, @blacklist_from, @blacklist_detail, @create_date, @update_date, @last_use, @calibration_no)"
 
-                    Using cmdInsert As New OdbcCommand(InsertStatement, ConnMyDB)
-                        cmdInsert.Parameters.AddWithValue("@truck_no", str_tu_no)
-                        cmdInsert.Parameters.AddWithValue("@veh_no", ID)
-                        cmdInsert.Parameters.AddWithValue("@cal_date_from", Convert.ToDateTime(rs("calibration_date_from")).ToString("dd/MM/yyyy"))
-                        cmdInsert.Parameters.AddWithValue("@cal_date_to", Convert.ToDateTime(rs("calibration_date_to")).ToString("dd/MM/yyyy"))
-                        cmdInsert.Parameters.AddWithValue("@company", COMPANY_N)
-                        cmdInsert.Parameters.AddWithValue("@capacity", If(IsDBNull(rs("tu_max_volume")), 0, rs("tu_max_volume")))
-                        cmdInsert.Parameters.AddWithValue("@capacity_85", Math.Round((Math.Round(If(rs("tu_max_volume") <> "", rs("tu_max_volume"), 0)) / 1.84) * 0.85))
-                        cmdInsert.Parameters.AddWithValue("@blacklist", If(IsDBNull(rs("veh_status")), "N", If(Trim(rs("veh_status").ToString()) = "", "N", "Y")))
-                        cmdInsert.Parameters.AddWithValue("@blacklist_from", If(IsDBNull(rs("veh_status")), "0", If(Trim(rs("veh_status").ToString()) = "", "0", "3")))
-                        cmdInsert.Parameters.AddWithValue("@blacklist_detail", If(IsDBNull(rs("veh_status")), "", If(Trim(rs("veh_status").ToString()) = "", "", "Black List From SAP")))
-                        cmdInsert.Parameters.AddWithValue("@create_date", DateTime.Now)
-                        cmdInsert.Parameters.AddWithValue("@update_date", DateTime.Now)
-                        cmdInsert.Parameters.AddWithValue("@last_use", DateTime.Now)
-                        cmdInsert.Parameters.AddWithValue("@calibration_no", If(IsDBNull(rs("calibration_no")), "", rs("calibration_no").ToString()))
+                    Using cmdInsert As New OracleCommand(InsertStatement, ConnMyDB)
+                        cmdInsert.Parameters.Add("@truck_no", str_tu_no)
+                        cmdInsert.Parameters.Add("@veh_no", ID)
+                        cmdInsert.Parameters.Add("@cal_date_from", Convert.ToDateTime(rs("calibration_date_from")).ToString("dd/MM/yyyy"))
+                        cmdInsert.Parameters.Add("@cal_date_to", Convert.ToDateTime(rs("calibration_date_to")).ToString("dd/MM/yyyy"))
+                        cmdInsert.Parameters.Add("@company", COMPANY_N)
+                        cmdInsert.Parameters.Add("@capacity", If(IsDBNull(rs("tu_max_volume")), 0, rs("tu_max_volume")))
+                        cmdInsert.Parameters.Add("@capacity_85", Math.Round((Math.Round(If(rs("tu_max_volume") <> "", rs("tu_max_volume"), 0)) / 1.84) * 0.85))
+                        cmdInsert.Parameters.Add("@blacklist", If(IsDBNull(rs("veh_status")), "N", If(Trim(rs("veh_status").ToString()) = "", "N", "Y")))
+                        cmdInsert.Parameters.Add("@blacklist_from", If(IsDBNull(rs("veh_status")), "0", If(Trim(rs("veh_status").ToString()) = "", "0", "3")))
+                        cmdInsert.Parameters.Add("@blacklist_detail", If(IsDBNull(rs("veh_status")), "", If(Trim(rs("veh_status").ToString()) = "", "", "Black List From SAP")))
+                        cmdInsert.Parameters.Add("@create_date", DateTime.Now)
+                        cmdInsert.Parameters.Add("@update_date", DateTime.Now)
+                        cmdInsert.Parameters.Add("@last_use", DateTime.Now)
+                        cmdInsert.Parameters.Add("@calibration_no", If(IsDBNull(rs("calibration_no")), "", rs("calibration_no").ToString()))
 
                         Dim tra = ConnMyDB.BeginTransaction()
                         Try
@@ -205,17 +205,17 @@ Public Class SyncData
                                                     "CAL_DATE = @cal_date_from, CAL_EXPIRE = @cal_date_to, CALIBRATION_NO = @calibration_no " &
                                                     "WHERE TRUCK_NO = @truck_no"
 
-                    Using cmdUpdate As New OdbcCommand(UpdateStatement, ConnMyDB)
-                        cmdUpdate.Parameters.AddWithValue("@company", COMPANY_N)
-                        cmdUpdate.Parameters.AddWithValue("@capacity", If(IsDBNull(rs("tu_max_volume")), DBNull.Value, rs("tu_max_volume")))
-                        cmdUpdate.Parameters.AddWithValue("@capacity_85", Math.Round((Math.Round(If(rs("tu_max_volume") <> "", rs("tu_max_volume"), 0)) / 1.84) * 0.85))
-                        cmdUpdate.Parameters.AddWithValue("@blacklist", If(IsDBNull(rs("veh_status")), "N", If(Trim(rs("veh_status").ToString()) = "", "N", "Y")))
-                        cmdUpdate.Parameters.AddWithValue("@blacklist_from", "3")
-                        cmdUpdate.Parameters.AddWithValue("@blacklist_detail", If(IsDBNull(rs("veh_status")), "Cancel Black List From SAP", If(Trim(rs("veh_status").ToString()) = "", "Cancel Black List From SAP", "Black List From SAP")))
-                        cmdUpdate.Parameters.AddWithValue("@cal_date_from", Convert.ToDateTime(rs("calibration_date_from")).ToString("dd/MM/yyyy"))
-                        cmdUpdate.Parameters.AddWithValue("@cal_date_to", Convert.ToDateTime(rs("calibration_date_to")).ToString("dd/MM/yyyy"))
-                        cmdUpdate.Parameters.AddWithValue("@calibration_no", If(IsDBNull(rs("calibration_no")), "", rs("calibration_no").ToString()))
-                        cmdUpdate.Parameters.AddWithValue("@truck_no", str_tu_no)
+                    Using cmdUpdate As New OracleCommand(UpdateStatement, ConnMyDB)
+                        cmdUpdate.Parameters.Add("@company", COMPANY_N)
+                        cmdUpdate.Parameters.Add("@capacity", If(IsDBNull(rs("tu_max_volume")), DBNull.Value, rs("tu_max_volume")))
+                        cmdUpdate.Parameters.Add("@capacity_85", Math.Round((Math.Round(If(rs("tu_max_volume") <> "", rs("tu_max_volume"), 0)) / 1.84) * 0.85))
+                        cmdUpdate.Parameters.Add("@blacklist", If(IsDBNull(rs("veh_status")), "N", If(Trim(rs("veh_status").ToString()) = "", "N", "Y")))
+                        cmdUpdate.Parameters.Add("@blacklist_from", "3")
+                        cmdUpdate.Parameters.Add("@blacklist_detail", If(IsDBNull(rs("veh_status")), "Cancel Black List From SAP", If(Trim(rs("veh_status").ToString()) = "", "Cancel Black List From SAP", "Black List From SAP")))
+                        cmdUpdate.Parameters.Add("@cal_date_from", Convert.ToDateTime(rs("calibration_date_from")).ToString("dd/MM/yyyy"))
+                        cmdUpdate.Parameters.Add("@cal_date_to", Convert.ToDateTime(rs("calibration_date_to")).ToString("dd/MM/yyyy"))
+                        cmdUpdate.Parameters.Add("@calibration_no", If(IsDBNull(rs("calibration_no")), "", rs("calibration_no").ToString()))
+                        cmdUpdate.Parameters.Add("@truck_no", str_tu_no)
                         Dim tra = ConnMyDB.BeginTransaction()
                         Try
                             cmdUpdate.Transaction = tra

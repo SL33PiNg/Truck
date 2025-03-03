@@ -1,4 +1,4 @@
-﻿Imports System.Data.Odbc
+﻿Imports Oracle.ManagedDataAccess.Client
 'Imports CrystalDecisions.CrystalReports.Engine
 'Imports CrystalDecisions.Shared
 
