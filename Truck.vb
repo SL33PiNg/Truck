@@ -19,13 +19,11 @@ Public Class Truck
 
         Cal_Date.Value = DateTime.Now
         Cal_Expire.Value = DateTime.Now
-        'SetWindowPos(Me.Handle, New IntPtr(-1), 0, 0, 0, 0, 3)
-        'SetWindowPos(Me.Handle, New IntPtr(-2), 0, 0, 0, 0, 3)
+
         Me.ContextMenuStrip = New ContextMenuStrip()
         Me.Show()
 
-        'OptionButtonMove_Color("Load")
-        'OptionButton_Click("Cancle")
+        OptionButton_Click("Cancle")
         Cal_Date.Value = DateTime.Now
         Cal_Expire.Value = DateTime.Now
         If Process.GetProcessesByName(Process.GetCurrentProcess().ProcessName).Length > 1 Then

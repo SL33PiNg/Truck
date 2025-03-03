@@ -88,13 +88,13 @@ Public Class Login
         CHECK_LOGIN_FRM_LOGIN = False
         Dim CHECK_RS As OleDbDataReader
         Dim CHECK_Statement As String
-        Dim conn As New OleDbConnection("Your Connection String Here")
+
         Dim cmd As New OleDbCommand()
 
         Try
-            conn.Open()
+            ConnMyDB.Open()
             CHECK_Statement = "SELECT NAME, GROUP_NAME, PASSWORD_EXPIRE FROM OPERATOR1 WHERE UPPER(USERNAME) = @username AND TRIM(PASSWORD) = @password"
-            cmd.Connection = conn
+            cmd.Connection = ConnMyDB
             cmd.CommandText = CHECK_Statement
             cmd.Parameters.AddWithValue("@username", STR_USER.ToUpper())
             cmd.Parameters.AddWithValue("@password", Trim(encode(Trim(STR_PASSWORD.ToUpper()))))
@@ -119,7 +119,7 @@ Public Class Login
         Catch ex As Exception
             MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         Finally
-            conn.Close()
+            ConnMyDB.Close()
         End Try
 
         Return CHECK_LOGIN_FRM_LOGIN

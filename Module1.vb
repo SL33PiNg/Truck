@@ -28,7 +28,6 @@ Module Module1
     Public Statement7 As String 'สำหรับการประกาศ Statament7
     Public Statement8 As String 'สำหรับการประกาศ Statament8
     Public blnNewData As Boolean
-    Private Declare Function GetComputerName Lib "kernel32" Alias "GetComputerNameA" (ByVal sBuffer As StringBuilder, ByRef lSize As Integer) As Integer
     Public name_user As String
     Public PRIORITY As String
 
@@ -164,10 +163,7 @@ Module Module1
     End Function
 
     Function get_name_pc() As String
-        Dim pcname As New StringBuilder(32)
-        Dim size As Integer = 32
-        GetComputerName(pcname, size)
-        Return pcname.ToString().Trim()
+        Return Environment.MachineName
     End Function
 
     Sub Add_Event_lpg(str_Message As String, STR_USER As String, str_Device As String, str_Truck As String, str_Location As String, str_Process As String, str_Card As Integer)
