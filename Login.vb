@@ -1,4 +1,4 @@
-﻿Imports System.Data.OleDb
+﻿Imports System.Data.Odbc
 
 Public Class Login
     Public LoginSucceeded As Boolean
@@ -86,10 +86,10 @@ Public Class Login
     End Sub
     Public Function CHECK_LOGIN_FRM_LOGIN(STR_USER As String, STR_PASSWORD As String) As Boolean
         CHECK_LOGIN_FRM_LOGIN = False
-        Dim CHECK_RS As OleDbDataReader
+        Dim CHECK_RS As OdbcDataReader
         Dim CHECK_Statement As String
 
-        Dim cmd As New OleDbCommand()
+        Dim cmd As New OdbcCommand()
 
         Try
             ConnMyDB.Open()

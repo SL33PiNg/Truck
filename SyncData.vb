@@ -1,6 +1,6 @@
 ﻿' filepath: /d:/work/ข้อมูลรถบรรทุกก๊าซ/SyncData.vb
 
-Imports System.Data.OleDb
+Imports System.Data.Odbc
 
 Public Class SyncData
     Private Sub cmdOK_Click(sender As Object, e As EventArgs) Handles cmdOK.Click
@@ -32,7 +32,7 @@ Public Class SyncData
                                   "INNER JOIN MASTER.sap_tu_master_data c ON b.tu_no = c.tu_no " &
                                   "WHERE a.veh_type IN ('A110', 'A130') AND a.veh_no = @veh_no"
 
-        Using cmd As New OleDbCommand(Statement, ConnMyDBMaster)
+        Using cmd As New OdbcCommand(Statement, ConnMyDBMaster)
             cmd.Parameters.AddWithValue("@veh_no", txtSearchData.Text)
             rs = cmd.ExecuteReader()
 
@@ -95,7 +95,7 @@ Public Class SyncData
                                   "INNER JOIN MASTER.sap_tu_master_data c ON b.tu_no = c.tu_no " &
                                   "WHERE a.veh_type IN ('A110', 'A130') AND a.veh_no = @veh_no"
 
-        Using cmd As New OleDbCommand(Statement, ConnMyDBMaster)
+        Using cmd As New OdbcCommand(Statement, ConnMyDBMaster)
             cmd.Parameters.AddWithValue("@veh_no", ID)
             rs = cmd.ExecuteReader()
 
@@ -133,7 +133,7 @@ Public Class SyncData
 
             If Trim(rs("carrier").ToString()) <> "PHTDPRT" Then
                 Dim Statement2 As String = "SELECT COMPANY_NO, COMPANY_NAME FROM COMPANY WHERE TRIM(COMPANY_NO) = @company_no"
-                Using cmd2 As New OleDbCommand(Statement2, ConnMyDB)
+                Using cmd2 As New OdbcCommand(Statement2, ConnMyDB)
                     cmd2.Parameters.AddWithValue("@company_no", Trim(rs("carrier").ToString()))
                     rs2 = cmd2.ExecuteReader()
 
@@ -154,7 +154,7 @@ Public Class SyncData
 
             Dim Statement3 As String = "SELECT * FROM TRUCK WHERE TRUCK_NO = @truck_no"
 
-            Using cmd3 As New OleDbCommand(Statement3, ConnMyDB)
+            Using cmd3 As New OdbcCommand(Statement3, ConnMyDB)
                 cmd3.Parameters.AddWithValue("@truck_no", str_tu_no)
                 rs2 = cmd3.ExecuteReader()
 
@@ -163,7 +163,7 @@ Public Class SyncData
                                                     "CAPACITY, CAPACITY_85, BLACKLIST, BLACKLIST_FROM, BLACKLIST_DETIAL, CREATE_DATE, UPDATE_DATE, LAST_USE, CALIBRATION_NO) " &
                                                     "VALUES (@truck_no, @veh_no, @truck_no, @cal_date_from, @cal_date_to, @company, @capacity, @capacity_85, @blacklist, @blacklist_from, @blacklist_detail, @create_date, @update_date, @last_use, @calibration_no)"
 
-                    Using cmdInsert As New OleDbCommand(InsertStatement, ConnMyDB)
+                    Using cmdInsert As New OdbcCommand(InsertStatement, ConnMyDB)
                         cmdInsert.Parameters.AddWithValue("@truck_no", str_tu_no)
                         cmdInsert.Parameters.AddWithValue("@veh_no", ID)
                         cmdInsert.Parameters.AddWithValue("@cal_date_from", Convert.ToDateTime(rs("calibration_date_from")).ToString("dd/MM/yyyy"))
@@ -205,7 +205,7 @@ Public Class SyncData
                                                     "CAL_DATE = @cal_date_from, CAL_EXPIRE = @cal_date_to, CALIBRATION_NO = @calibration_no " &
                                                     "WHERE TRUCK_NO = @truck_no"
 
-                    Using cmdUpdate As New OleDbCommand(UpdateStatement, ConnMyDB)
+                    Using cmdUpdate As New OdbcCommand(UpdateStatement, ConnMyDB)
                         cmdUpdate.Parameters.AddWithValue("@company", COMPANY_N)
                         cmdUpdate.Parameters.AddWithValue("@capacity", If(IsDBNull(rs("tu_max_volume")), DBNull.Value, rs("tu_max_volume")))
                         cmdUpdate.Parameters.AddWithValue("@capacity_85", Math.Round((Math.Round(If(rs("tu_max_volume") <> "", rs("tu_max_volume"), 0)) / 1.84) * 0.85))

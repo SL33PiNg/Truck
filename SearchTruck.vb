@@ -1,4 +1,4 @@
-﻿Imports System.Data.OleDb
+﻿Imports System.Data.Odbc
 
 Public Class SearchTruck
 
@@ -35,8 +35,8 @@ Public Class SearchTruck
             Exit Sub
         End If
 
-        Dim rs As OleDbDataReader
-        Dim cmd As New OleDbCommand()
+        Dim rs As OdbcDataReader
+        Dim cmd As New OdbcCommand()
 
         Select Case cbTypeSearch.Text
             Case "หมายเลขทะเบียนตัวถัง"

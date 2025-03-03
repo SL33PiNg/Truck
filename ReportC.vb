@@ -1,4 +1,4 @@
-﻿Imports System.Data.OleDb
+﻿Imports System.Data.Odbc
 
 Public Class ReportC
     Private Sub cmb1_Click(sender As Object, e As EventArgs) Handles cmb1.Click
@@ -116,8 +116,8 @@ Public Class ReportC
         End If
 
         Module1.ConnMyDB.Open()
-        Using cmd As New OleDbCommand(STR_SQL, Module1.ConnMyDB)
-            Using adapter As New OleDbDataAdapter(cmd)
+        Using cmd As New OdbcCommand(STR_SQL, Module1.ConnMyDB)
+            Using adapter As New OdbcDataAdapter(cmd)
                 adapter.Fill(rs_report)
             End Using
         End Using
@@ -241,9 +241,9 @@ Public Class ReportC
                       "ack_name2, ack_name3, ack1, ack2, ack3, comment_1, comment_2, comment_3 FROM truck ORDER BY " & str_sort
         End If
 
-        Using conn As New OleDbConnection("Your Connection String Here")
+        Using conn As New OdbcConnection("Your Connection String Here")
             conn.Open()
-            Using cmd As New OleDbCommand(STR_SQL, conn)
+            Using cmd As New OdbcCommand(STR_SQL, conn)
                 cmd.ExecuteNonQuery()
             End Using
         End Using
@@ -332,7 +332,7 @@ Public Class ReportC
 
 
         Module1.ConnMyDB.Open()
-        Using cmd As New OleDbCommand(str_sqls, Module1.ConnMyDB)
+        Using cmd As New OdbcCommand(str_sqls, Module1.ConnMyDB)
             cmd.ExecuteNonQuery()
         End Using
         Module1.ConnMyDB.Close()
@@ -345,8 +345,8 @@ Public Class ReportC
         Dim rs_ch As New DataTable
         Dim Statement_ch As String = "SELECT NUM_DATE1, NUM_DATE2 FROM TRUCK_CONFIG"
         Module1.ConnMyDB.Open()
-        Using cmd As New OleDbCommand(Statement_ch, Module1.ConnMyDB)
-            Using adapter As New OleDbDataAdapter(cmd)
+        Using cmd As New OdbcCommand(Statement_ch, Module1.ConnMyDB)
+            Using adapter As New OdbcDataAdapter(cmd)
                 adapter.Fill(rs_ch)
             End Using
         End Using
@@ -375,7 +375,7 @@ Public Class ReportC
 
 
         Module1.ConnMyDB.Open()
-        Using cmd As New OleDbCommand(str_sqls, Module1.ConnMyDB)
+        Using cmd As New OdbcCommand(str_sqls, Module1.ConnMyDB)
             cmd.ExecuteNonQuery()
         End Using
         Module1.ConnMyDB.Close()

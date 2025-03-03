@@ -1,4 +1,4 @@
-﻿Imports System.Data.OleDb
+﻿Imports System.Data.Odbc
 
 Public Class Company
     Private Sub Company_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
@@ -11,7 +11,7 @@ Public Class Company
 
     Private Sub Show_Company(STR_SQL As String)
         Dim Statement As String = "SELECT * FROM COMPANY WHERE COMPANY_NAME IS NOT NULL " & STR_SQL & " ORDER BY COMPANY_NAME"
-        Dim cmd As New OleDbCommand(Statement, ConnMyDB)
+        Dim cmd As New OdbcCommand(Statement, ConnMyDB)
 
         Try
             ConnMyDB.Open()

@@ -1,23 +1,23 @@
 ﻿' filepath: /d:/work/ข้อมูลรถบรรทุกก๊าซ/Module1.vb
-Imports System.Data.OleDb
+Imports System.Data.Odbc
 Imports System.Text
 
 Module Module1
 
-    Public ConnMyDB As New OleDbConnection() 'สร้าง Connection เพื่อเชื่อมต่อกับฐานข้อมูล TAS
-    Public ConnMyDBOutBound As New OleDbConnection() 'สร้าง Connection เพื่อเชื่อมต่อกับฐานข้อมูล OutBound
-    Public ConnMyDBMaster As New OleDbConnection() 'สร้าง Connection เพื่อเชื่อมต่อกับฐานข้อมูล Master Data
-    Public rs As OleDbDataReader 'สร้างการเชื่อมต่อเข้ากับตาราง (ตัวหลัก)
-    Public rs2 As OleDbDataReader
-    Public rs3 As OleDbDataReader
-    Public rs4 As OleDbDataReader
-    Public DS As New OleDbDataAdapter() 'สร้างการเชื่อมต่อเข้ากับตาราง (ตัวรอง 1)
-    Public ES As New OleDbDataAdapter() 'สร้างการเชื่อมต่อเข้ากับตาราง (ตัวรอง 2)
-    Public JS As New OleDbDataAdapter() 'สร้างการเชื่อมต่อเข้ากับตาราง (ตัวรอง 3)
-    Public KS As New OleDbDataAdapter() 'สร้างการเชื่อมต่อเข้ากับตาราง (ตัวรอง 4)
-    Public BS As OleDbDataReader 'สร้างการเชื่อมต่อเข้ากับตาราง (ตัวรอง 5)
-    Public GS As New OleDbDataAdapter() 'สร้างการเชื่อมต่อเข้ากับตาราง (ตัวรอง 6)
-    Public FS As New OleDbDataAdapter() 'สร้างการเชื่อมต่อเข้ากับตาราง (ตัวรอง 7)
+    Public ConnMyDB As New OdbcConnection() 'สร้าง Connection เพื่อเชื่อมต่อกับฐานข้อมูล TAS
+    Public ConnMyDBOutBound As New OdbcConnection() 'สร้าง Connection เพื่อเชื่อมต่อกับฐานข้อมูล OutBound
+    Public ConnMyDBMaster As New OdbcConnection() 'สร้าง Connection เพื่อเชื่อมต่อกับฐานข้อมูล Master Data
+    Public rs As OdbcDataReader 'สร้างการเชื่อมต่อเข้ากับตาราง (ตัวหลัก)
+    Public rs2 As OdbcDataReader
+    Public rs3 As OdbcDataReader
+    Public rs4 As OdbcDataReader
+    Public DS As OdbcDataReader  'สร้างการเชื่อมต่อเข้ากับตาราง (ตัวรอง 1)
+    Public ES As OdbcDataReader  'สร้างการเชื่อมต่อเข้ากับตาราง (ตัวรอง 2)
+    Public JS As OdbcDataReader  'สร้างการเชื่อมต่อเข้ากับตาราง (ตัวรอง 3)
+    Public KS As OdbcDataReader  'สร้างการเชื่อมต่อเข้ากับตาราง (ตัวรอง 4)
+    Public BS As OdbcDataReader 'สร้างการเชื่อมต่อเข้ากับตาราง (ตัวรอง 5)
+    Public GS As OdbcDataReader  'สร้างการเชื่อมต่อเข้ากับตาราง (ตัวรอง 6)
+    Public FS As OdbcDataReader  'สร้างการเชื่อมต่อเข้ากับตาราง (ตัวรอง 7)
 
     Public Statement As String 'สำหรับการประกาศ Statament
     Public Statement2 As String 'สำหรับการประกาศ Statament2
@@ -46,7 +46,7 @@ Module Module1
     Function OpenDataBaseMasterData() As Boolean
         OpenDataBaseMasterData = False
         Try
-            ConnMyDBMaster = New OleDbConnection("Provider=MSDASQL.1;Persist Security Info=False;User ID=dbl_tas;Password=cdbl_tas;Data Source=SAP_CONNECT")
+            ConnMyDBMaster = New OdbcConnection("Provider=MSDASQL.1;Persist Security Info=False;User ID=dbl_tas;Password=cdbl_tas;Data Source=SAP_CONNECT")
             ConnMyDBMaster.Open()
             OpenDataBaseMasterData = True
         Catch ex As Exception
@@ -63,7 +63,7 @@ Module Module1
 
     Public Sub OpenDataBase()
         Try
-            ConnMyDB = New OleDbConnection("Provider=MSDASQL.1;Persist Security Info=False;User ID=TASLPGSK;Password=PASSWORDTASLPGSK;Data Source=TASLPGSK_CONNECT")
+            ConnMyDB = New OdbcConnection("Provider=MSDASQL.1;Persist Security Info=False;User ID=TASLPGSK;Password=PASSWORDTASLPGSK;Data Source=TASLPGSK_CONNECT")
             ConnMyDB.Open()
         Catch ex As Exception
             MsgBox("Error : " & ex.Message)
@@ -115,7 +115,7 @@ Module Module1
     Public Function CHECK_LOGIN() As Boolean
         CHECK_LOGIN = False
         Try
-            Dim CHECK_RS As New OleDbDataAdapter("SELECT * FROM OPERATOR1 WHERE COMPUTER_NAME = '" & get_name_pc() & "'", ConnMyDB)
+            Dim CHECK_RS As New OdbcDataAdapter("SELECT * FROM OPERATOR1 WHERE COMPUTER_NAME = '" & get_name_pc() & "'", ConnMyDB)
             Dim dt As New DataTable()
             CHECK_RS.Fill(dt)
             If dt.Rows.Count <= 0 Then
@@ -137,7 +137,7 @@ Module Module1
     Public Function CHECK_PRIORITY(STR_P As String, str_Process As String, STR_LIST As String) As Boolean
         CHECK_PRIORITY = False
         Try
-            Dim CHECK_P As New OleDbDataAdapter("SELECT * FROM SET_PRIORITY1 WHERE GROUP_NAME = '" & STR_P & "' AND NAME= '" & STR_LIST & "'", ConnMyDB)
+            Dim CHECK_P As New OdbcDataAdapter("SELECT * FROM SET_PRIORITY1 WHERE GROUP_NAME = '" & STR_P & "' AND NAME= '" & STR_LIST & "'", ConnMyDB)
             Dim dt As New DataTable()
             CHECK_P.Fill(dt)
             If dt.Rows.Count <= 0 Then
@@ -167,12 +167,12 @@ Module Module1
     End Function
 
     Sub Add_Event_lpg(str_Message As String, STR_USER As String, str_Device As String, str_Truck As String, str_Location As String, str_Process As String, str_Card As Integer)
-        Using tra As OleDbTransaction = ConnMyDB.BeginTransaction()
+        Using tra As OdbcTransaction = ConnMyDB.BeginTransaction()
             Try
                 Dim str_sqlex As String = "insert into t_event (e_no,e_date,e_message,e_user,e_device,e_truck,e_location,e_process,e_card) values " &
                                           " ((select nvl(max(e_no),0)+1 from t_event),sysdate,'" & str_Message & "','" & STR_USER & "','" & str_Device & "','" &
                                           str_Truck & "','" & str_Location & "','" & str_Process & "'," & str_Card & ")"
-                Dim cmd As New OleDbCommand(str_sqlex, ConnMyDB)
+                Dim cmd As New OdbcCommand(str_sqlex, ConnMyDB)
                 cmd.Transaction = tra
                 cmd.ExecuteNonQuery()
                 tra.Commit()
@@ -219,7 +219,7 @@ Module Module1
     Function CHECK_P(strUser As String, strPass As String) As Boolean
         CHECK_P = False
         Try
-            Dim CHECK_RS As New OleDbDataAdapter("select p_code from t_plant", ConnMyDB)
+            Dim CHECK_RS As New OdbcDataAdapter("select p_code from t_plant", ConnMyDB)
             Dim dt As New DataTable()
             CHECK_RS.Fill(dt)
             If dt.Rows.Count <= 0 Then Exit Function

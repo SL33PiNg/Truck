@@ -1,4 +1,4 @@
-﻿Imports System.Data.OleDb
+﻿Imports System.Data.Odbc
 'Imports CrystalDecisions.CrystalReports.Engine
 'Imports CrystalDecisions.Shared
 
