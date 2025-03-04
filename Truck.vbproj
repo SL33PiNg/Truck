@@ -6,7 +6,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{E7F13AEB-3627-479A-AB91-0C5C3D3847BD}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <StartupObject>Truck.Truck</StartupObject>
+    <StartupObject>Truck.ReportC</StartupObject>
     <RootNamespace>Truck</RootNamespace>
     <AssemblyName>Truck</AssemblyName>
     <FileAlignment>512</FileAlignment>

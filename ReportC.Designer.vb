@@ -47,8 +47,6 @@ Partial Class ReportC
         Me.cmdVR = New System.Windows.Forms.Button()
         Me.cmdPrint_report = New System.Windows.Forms.Button()
         Me.grdComment = New System.Windows.Forms.DataGridView()
-        Me.cmd1 = New System.Windows.Forms.Button()
-        Me.cmd2 = New System.Windows.Forms.Button()
         Me.mBypass = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.Locks = New System.Windows.Forms.ToolStripMenuItem()
         Me.mb1 = New System.Windows.Forms.ToolStripMenuItem()
@@ -58,6 +56,8 @@ Partial Class ReportC
         Me.P_1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.P_2 = New System.Windows.Forms.ToolStripMenuItem()
         Me.P_3 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.cmd1 = New System.Windows.Forms.Button()
+        Me.cmd2 = New System.Windows.Forms.Button()
         Me.mBypass1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.cmb1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.cmb2 = New System.Windows.Forms.ToolStripMenuItem()
@@ -338,26 +338,6 @@ Partial Class ReportC
         Me.grdComment.Size = New System.Drawing.Size(898, 442)
         Me.grdComment.TabIndex = 9
         '
-        'cmd1
-        '
-        Me.cmd1.Font = New System.Drawing.Font("AngsanaUPC", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmd1.Location = New System.Drawing.Point(471, 686)
-        Me.cmd1.Name = "cmd1"
-        Me.cmd1.Size = New System.Drawing.Size(145, 38)
-        Me.cmd1.TabIndex = 10
-        Me.cmd1.Text = "ปลดล็อกการแจ้งเตือน"
-        Me.cmd1.UseVisualStyleBackColor = True
-        '
-        'cmd2
-        '
-        Me.cmd2.Font = New System.Drawing.Font("AngsanaUPC", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmd2.Location = New System.Drawing.Point(621, 686)
-        Me.cmd2.Name = "cmd2"
-        Me.cmd2.Size = New System.Drawing.Size(130, 38)
-        Me.cmd2.TabIndex = 11
-        Me.cmd2.Text = "พิมพ์ใบแจ้งเตือน"
-        Me.cmd2.UseVisualStyleBackColor = True
-        '
         'mBypass
         '
         Me.mBypass.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.Locks, Me.P_main})
@@ -414,6 +394,26 @@ Partial Class ReportC
         Me.P_3.Name = "P_3"
         Me.P_3.Size = New System.Drawing.Size(182, 22)
         Me.P_3.Text = "พิมพ์ใบแจ้งเตือนครั้งที่ 3"
+        '
+        'cmd1
+        '
+        Me.cmd1.Font = New System.Drawing.Font("AngsanaUPC", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cmd1.Location = New System.Drawing.Point(471, 686)
+        Me.cmd1.Name = "cmd1"
+        Me.cmd1.Size = New System.Drawing.Size(145, 38)
+        Me.cmd1.TabIndex = 10
+        Me.cmd1.Text = "ปลดล็อกการแจ้งเตือน"
+        Me.cmd1.UseVisualStyleBackColor = True
+        '
+        'cmd2
+        '
+        Me.cmd2.Font = New System.Drawing.Font("AngsanaUPC", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cmd2.Location = New System.Drawing.Point(621, 686)
+        Me.cmd2.Name = "cmd2"
+        Me.cmd2.Size = New System.Drawing.Size(130, 38)
+        Me.cmd2.TabIndex = 11
+        Me.cmd2.Text = "พิมพ์ใบแจ้งเตือน"
+        Me.cmd2.UseVisualStyleBackColor = True
         '
         'mBypass1
         '

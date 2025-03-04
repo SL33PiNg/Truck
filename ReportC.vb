@@ -1,4 +1,5 @@
-﻿Imports Oracle.ManagedDataAccess.Client
+﻿Imports CrystalDecisions.CrystalReports.Engine
+Imports Oracle.ManagedDataAccess.Client
 
 Public Class ReportC
     Private Sub cmb1_Click(sender As Object, e As EventArgs) Handles cmb1.Click
@@ -266,12 +267,29 @@ Public Class ReportC
         dt1.Value = Now
         dt2.Value = Now
         dtMonth.Value = Now
+
+        'Mock grid
+        grdComment.Columns.Clear()
+        grdComment.Columns.Add("ลำดับ", "ลำดับ")
+        grdComment.Columns.Add("ทะเบียนรถ", "ทะเบียนรถ")
+        grdComment.Columns.Add("ชื่อบริษัท", "ชื่อบริษัท")
+        Dim row As New DataGridViewRow()
+        row.CreateCells(grdComment)
+        row.Cells(0).Value = "1"
+        row.Cells(1).Value = "1234"
+        row.Cells(2).Value = "Company 1"
+        grdComment.Rows.Add(row)
+        Dim row2 As New DataGridViewRow()
+        row2.CreateCells(grdComment)
+        row2.Cells(0).Value = "2"
+        row2.Cells(1).Value = "5678"
+        row2.Cells(2).Value = "Company 2"
+        grdComment.Rows.Add(row2)
+
     End Sub
 
-    Private Sub grdComment_MouseDown(sender As Object, e As MouseEventArgs) Handles grdComment.MouseDown
-        If e.Button = MouseButtons.Right Then
-            Me.ContextMenuStrip = Me.mBypass
-        End If
+    Private Sub grdComment_MouseDown(sender As Object, e As MouseEventArgs)
+
     End Sub
 
     Private Sub mb1_Click(sender As Object, e As EventArgs) Handles mb1.Click
@@ -309,23 +327,23 @@ Public Class ReportC
     End Sub
 
     Private Sub save_printManual(STR_S As Integer)
-        Dim Crystal As Object
-        Dim report As Object
+
         Dim str_sqls As String
 
         If MessageBox.Show("คุณต้องการพิมพ์ใบแจ้งเตือนครั้งที่ " & STR_S & " ใช้หรือไม่", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) <> DialogResult.Yes Then
             Exit Sub
         End If
 
-        'print
-        Crystal = CreateObject("CrystalRuntime.Application.9")
-        report = Crystal.OpenReport(Application.StartupPath & "\REPORT\" & "TruckAlarm.rpt")
-        report.ParameterFields.GetItemByName("str1").AddCurrentValue(STR_S.ToString()) 'ครั้งที่
-        report.ParameterFields.GetItemByName("truck_no").AddCurrentValue(Me.grdComment.SelectedRows(0).Cells(1).Value.ToString())  'ทะเบียน
-        report.ParameterFields.GetItemByName("c_date").AddCurrentValue(Me.grdComment.SelectedRows(0).Cells(3).Value.ToString())  'จำนวนวันคงเหลือ
-        report.ParameterFields.GetItemByName("dates").AddCurrentValue(Me.grdComment.SelectedRows(0).Cells(6).Value.ToString())  'วันหมดอายุ
-        report.ParameterFields.GetItemByName("company").AddCurrentValue(Me.grdComment.SelectedRows(0).Cells(2).Value.ToString())  'บริษัทขนส่ง
-        report.PrintOut(False, 1, False, 1, 1)
+        Dim report As New ReportDocument()
+        report.Load(AppDomain.CurrentDomain.BaseDirectory & "\REPORT\TruckAlarm.rpt")
+
+        report.SetParameterValue("str1", STR_S.ToString()) 'ครั้งที่
+        report.SetParameterValue("truck_no", Me.grdComment.SelectedRows(0).Cells(1).Value.ToString())  'ทะเบียน
+        report.SetParameterValue("c_date", Me.grdComment.SelectedRows(0).Cells(3).Value.ToString())  'จำนวนวันคงเหลือ
+        report.SetParameterValue("dates", Me.grdComment.SelectedRows(0).Cells(6).Value.ToString())  'วันหมดอายุ
+        report.SetParameterValue("company", Me.grdComment.SelectedRows(0).Cells(2).Value.ToString())  'บริษัทขนส่ง
+
+        report.PrintToPrinter(1, True, 1, 1)
 
         str_sqls = "UPDATE truck SET COUNT_PRINT_MANUAL" & STR_S & " = COUNT_PRINT_MANUAL" & STR_S & " + 1 WHERE truck_no = '" & Me.grdComment.SelectedRows(0).Cells(1).Value.ToString() & "'"
 
@@ -407,6 +425,22 @@ Public Class ReportC
         Else
             framTime.Visible = False
             framMonth.Visible = False
+        End If
+    End Sub
+
+
+
+
+    Private Sub grdComment_CellMouseUp(sender As Object, e As DataGridViewCellMouseEventArgs) Handles grdComment.CellMouseUp
+        If e.Button <> MouseButtons.Right Then
+            Exit Sub
+        End If
+        If e.ColumnIndex <> -1 And e.RowIndex <> -1 Then
+            Me.ContextMenuStrip = Me.mBypass
+            Me.ContextMenuStrip.Show(Cursor.Position)
+            grdComment.ClearSelection()
+            grdComment.Rows(e.RowIndex).Selected = True
+            'MsgBox(grdComment.Rows.GetFirstRow(DataGridViewElementStates.Selected).ToString())
         End If
     End Sub
 End Class
