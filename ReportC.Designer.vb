@@ -31,11 +31,11 @@ Partial Class ReportC
         Me.op2 = New System.Windows.Forms.RadioButton()
         Me.op1 = New System.Windows.Forms.RadioButton()
         Me.framTime = New System.Windows.Forms.GroupBox()
-        Me.framMonth = New System.Windows.Forms.GroupBox()
-        Me.dtMonth = New System.Windows.Forms.DateTimePicker()
         Me.dt2 = New System.Windows.Forms.DateTimePicker()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.dt1 = New System.Windows.Forms.DateTimePicker()
+        Me.framMonth = New System.Windows.Forms.GroupBox()
+        Me.dtMonth = New System.Windows.Forms.DateTimePicker()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
         Me.op_sort3 = New System.Windows.Forms.RadioButton()
         Me.op_sort2 = New System.Windows.Forms.RadioButton()
@@ -177,25 +177,6 @@ Partial Class ReportC
         Me.framTime.TabStop = False
         Me.framTime.Text = "เลือกวันที่"
         '
-        'framMonth
-        '
-        Me.framMonth.Controls.Add(Me.dtMonth)
-        Me.framMonth.Font = New System.Drawing.Font("AngsanaUPC", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.framMonth.Location = New System.Drawing.Point(465, 12)
-        Me.framMonth.Name = "framMonth"
-        Me.framMonth.Size = New System.Drawing.Size(443, 84)
-        Me.framMonth.TabIndex = 3
-        Me.framMonth.TabStop = False
-        Me.framMonth.Text = "เลือกเดือน"
-        '
-        'dtMonth
-        '
-        Me.dtMonth.CustomFormat = "MMMM yyyy"
-        Me.dtMonth.Location = New System.Drawing.Point(5, 30)
-        Me.dtMonth.Name = "dtMonth"
-        Me.dtMonth.Size = New System.Drawing.Size(172, 36)
-        Me.dtMonth.TabIndex = 0
-        '
         'dt2
         '
         Me.dt2.Location = New System.Drawing.Point(211, 29)
@@ -218,6 +199,25 @@ Partial Class ReportC
         Me.dt1.Name = "dt1"
         Me.dt1.Size = New System.Drawing.Size(172, 36)
         Me.dt1.TabIndex = 0
+        '
+        'framMonth
+        '
+        Me.framMonth.Controls.Add(Me.dtMonth)
+        Me.framMonth.Font = New System.Drawing.Font("AngsanaUPC", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.framMonth.Location = New System.Drawing.Point(465, 12)
+        Me.framMonth.Name = "framMonth"
+        Me.framMonth.Size = New System.Drawing.Size(443, 84)
+        Me.framMonth.TabIndex = 3
+        Me.framMonth.TabStop = False
+        Me.framMonth.Text = "เลือกเดือน"
+        '
+        'dtMonth
+        '
+        Me.dtMonth.CustomFormat = "MMMM yyyy"
+        Me.dtMonth.Location = New System.Drawing.Point(5, 30)
+        Me.dtMonth.Name = "dtMonth"
+        Me.dtMonth.Size = New System.Drawing.Size(172, 36)
+        Me.dtMonth.TabIndex = 0
         '
         'GroupBox3
         '

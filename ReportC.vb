@@ -239,12 +239,11 @@ Public Class ReportC
                       "ack_name2, ack_name3, ack1, ack2, ack3, comment_1, comment_2, comment_3 FROM truck ORDER BY " & str_sort
         End If
 
-        Using conn As New OracleConnection("Your Connection String Here")
-            conn.Open()
-            Using cmd As New OracleCommand(STR_SQL, conn)
-                cmd.ExecuteNonQuery()
-            End Using
+
+        Using cmd As New OracleCommand(STR_SQL, ConnMyDB)
+            cmd.ExecuteNonQuery()
         End Using
+
 
         Report.Show()
     End Sub
