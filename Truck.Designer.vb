@@ -209,7 +209,7 @@ Partial Class Truck
         Me.l1.BackColor = System.Drawing.Color.Transparent
         Me.l1.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.l1.ForeColor = System.Drawing.Color.Cyan
-        Me.l1.Location = New System.Drawing.Point(1147, 283)
+        Me.l1.Location = New System.Drawing.Point(1072, 274)
         Me.l1.Name = "l1"
         Me.l1.Size = New System.Drawing.Size(129, 16)
         Me.l1.TabIndex = 12
@@ -222,7 +222,7 @@ Partial Class Truck
         Me.l2.BackColor = System.Drawing.Color.Transparent
         Me.l2.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.l2.ForeColor = System.Drawing.Color.Cyan
-        Me.l2.Location = New System.Drawing.Point(1138, 310)
+        Me.l2.Location = New System.Drawing.Point(1064, 301)
         Me.l2.Name = "l2"
         Me.l2.Size = New System.Drawing.Size(137, 16)
         Me.l2.TabIndex = 13
@@ -235,7 +235,7 @@ Partial Class Truck
         Me.l3.BackColor = System.Drawing.Color.Transparent
         Me.l3.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.l3.ForeColor = System.Drawing.Color.Cyan
-        Me.l3.Location = New System.Drawing.Point(1189, 340)
+        Me.l3.Location = New System.Drawing.Point(1123, 332)
         Me.l3.Name = "l3"
         Me.l3.Size = New System.Drawing.Size(78, 16)
         Me.l3.TabIndex = 14
@@ -248,7 +248,7 @@ Partial Class Truck
         Me.l4.BackColor = System.Drawing.Color.Transparent
         Me.l4.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.l4.ForeColor = System.Drawing.Color.Cyan
-        Me.l4.Location = New System.Drawing.Point(1149, 365)
+        Me.l4.Location = New System.Drawing.Point(1079, 358)
         Me.l4.Name = "l4"
         Me.l4.Size = New System.Drawing.Size(122, 16)
         Me.l4.TabIndex = 15
@@ -261,7 +261,7 @@ Partial Class Truck
         Me.l5.BackColor = System.Drawing.Color.Transparent
         Me.l5.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.l5.ForeColor = System.Drawing.Color.Cyan
-        Me.l5.Location = New System.Drawing.Point(1190, 394)
+        Me.l5.Location = New System.Drawing.Point(1124, 385)
         Me.l5.Name = "l5"
         Me.l5.Size = New System.Drawing.Size(77, 16)
         Me.l5.TabIndex = 16
@@ -274,7 +274,7 @@ Partial Class Truck
         Me.l6.BackColor = System.Drawing.Color.Transparent
         Me.l6.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.l6.ForeColor = System.Drawing.Color.Cyan
-        Me.l6.Location = New System.Drawing.Point(1161, 424)
+        Me.l6.Location = New System.Drawing.Point(1091, 415)
         Me.l6.Name = "l6"
         Me.l6.Size = New System.Drawing.Size(110, 16)
         Me.l6.TabIndex = 17
@@ -287,7 +287,7 @@ Partial Class Truck
         Me.l7.BackColor = System.Drawing.Color.Transparent
         Me.l7.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.l7.ForeColor = System.Drawing.Color.Cyan
-        Me.l7.Location = New System.Drawing.Point(1187, 453)
+        Me.l7.Location = New System.Drawing.Point(1121, 444)
         Me.l7.Name = "l7"
         Me.l7.Size = New System.Drawing.Size(80, 16)
         Me.l7.TabIndex = 18
@@ -300,7 +300,7 @@ Partial Class Truck
         Me.l8.BackColor = System.Drawing.Color.Transparent
         Me.l8.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.l8.ForeColor = System.Drawing.Color.Cyan
-        Me.l8.Location = New System.Drawing.Point(1118, 481)
+        Me.l8.Location = New System.Drawing.Point(1040, 473)
         Me.l8.Name = "l8"
         Me.l8.Size = New System.Drawing.Size(161, 16)
         Me.l8.TabIndex = 19
@@ -313,7 +313,7 @@ Partial Class Truck
         Me.l9.BackColor = System.Drawing.Color.Transparent
         Me.l9.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.l9.ForeColor = System.Drawing.Color.Cyan
-        Me.l9.Location = New System.Drawing.Point(1115, 513)
+        Me.l9.Location = New System.Drawing.Point(1037, 504)
         Me.l9.Name = "l9"
         Me.l9.Size = New System.Drawing.Size(164, 16)
         Me.l9.TabIndex = 20
@@ -326,7 +326,7 @@ Partial Class Truck
         Me.l10.BackColor = System.Drawing.Color.Transparent
         Me.l10.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.l10.ForeColor = System.Drawing.Color.Cyan
-        Me.l10.Location = New System.Drawing.Point(1152, 542)
+        Me.l10.Location = New System.Drawing.Point(1080, 533)
         Me.l10.Name = "l10"
         Me.l10.Size = New System.Drawing.Size(121, 16)
         Me.l10.TabIndex = 21
@@ -339,7 +339,7 @@ Partial Class Truck
         Me.l11.BackColor = System.Drawing.Color.Transparent
         Me.l11.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.l11.ForeColor = System.Drawing.Color.Cyan
-        Me.l11.Location = New System.Drawing.Point(1183, 569)
+        Me.l11.Location = New System.Drawing.Point(1119, 560)
         Me.l11.Name = "l11"
         Me.l11.Size = New System.Drawing.Size(82, 16)
         Me.l11.TabIndex = 22
@@ -484,28 +484,28 @@ Partial Class Truck
         '
         'txtTruck_No
         '
-        Me.txtTruck_No.Location = New System.Drawing.Point(1297, 282)
+        Me.txtTruck_No.Location = New System.Drawing.Point(1243, 274)
         Me.txtTruck_No.Name = "txtTruck_No"
         Me.txtTruck_No.Size = New System.Drawing.Size(115, 20)
         Me.txtTruck_No.TabIndex = 25
         '
         'txtTruck_No_Head
         '
-        Me.txtTruck_No_Head.Location = New System.Drawing.Point(1297, 309)
+        Me.txtTruck_No_Head.Location = New System.Drawing.Point(1243, 301)
         Me.txtTruck_No_Head.Name = "txtTruck_No_Head"
         Me.txtTruck_No_Head.Size = New System.Drawing.Size(115, 20)
         Me.txtTruck_No_Head.TabIndex = 26
         '
         'txtTruck_No_Tank
         '
-        Me.txtTruck_No_Tank.Location = New System.Drawing.Point(1297, 339)
+        Me.txtTruck_No_Tank.Location = New System.Drawing.Point(1243, 331)
         Me.txtTruck_No_Tank.Name = "txtTruck_No_Tank"
         Me.txtTruck_No_Tank.Size = New System.Drawing.Size(153, 20)
         Me.txtTruck_No_Tank.TabIndex = 27
         '
         'txtTruck_No_License
         '
-        Me.txtTruck_No_License.Location = New System.Drawing.Point(1297, 366)
+        Me.txtTruck_No_License.Location = New System.Drawing.Point(1243, 358)
         Me.txtTruck_No_License.Name = "txtTruck_No_License"
         Me.txtTruck_No_License.Size = New System.Drawing.Size(153, 20)
         Me.txtTruck_No_License.TabIndex = 28
@@ -513,7 +513,7 @@ Partial Class Truck
         'txtTruck_Company
         '
         Me.txtTruck_Company.FormattingEnabled = True
-        Me.txtTruck_Company.Location = New System.Drawing.Point(1297, 393)
+        Me.txtTruck_Company.Location = New System.Drawing.Point(1243, 385)
         Me.txtTruck_Company.Name = "txtTruck_Company"
         Me.txtTruck_Company.Size = New System.Drawing.Size(199, 21)
         Me.txtTruck_Company.TabIndex = 29
@@ -521,7 +521,7 @@ Partial Class Truck
         'txtDriver_No
         '
         Me.txtDriver_No.FormattingEnabled = True
-        Me.txtDriver_No.Location = New System.Drawing.Point(1297, 423)
+        Me.txtDriver_No.Location = New System.Drawing.Point(1243, 415)
         Me.txtDriver_No.Name = "txtDriver_No"
         Me.txtDriver_No.Size = New System.Drawing.Size(199, 21)
         Me.txtDriver_No.TabIndex = 30
@@ -529,35 +529,35 @@ Partial Class Truck
         'txtCard_No
         '
         Me.txtCard_No.FormattingEnabled = True
-        Me.txtCard_No.Location = New System.Drawing.Point(1297, 452)
+        Me.txtCard_No.Location = New System.Drawing.Point(1243, 444)
         Me.txtCard_No.Name = "txtCard_No"
         Me.txtCard_No.Size = New System.Drawing.Size(91, 21)
         Me.txtCard_No.TabIndex = 31
         '
         'txtWeight_Oil
         '
-        Me.txtWeight_Oil.Location = New System.Drawing.Point(1297, 481)
+        Me.txtWeight_Oil.Location = New System.Drawing.Point(1243, 473)
         Me.txtWeight_Oil.Name = "txtWeight_Oil"
         Me.txtWeight_Oil.Size = New System.Drawing.Size(153, 20)
         Me.txtWeight_Oil.TabIndex = 32
         '
         'txtCapacity
         '
-        Me.txtCapacity.Location = New System.Drawing.Point(1297, 512)
+        Me.txtCapacity.Location = New System.Drawing.Point(1243, 504)
         Me.txtCapacity.Name = "txtCapacity"
         Me.txtCapacity.Size = New System.Drawing.Size(153, 20)
         Me.txtCapacity.TabIndex = 33
         '
         'txtCalibration
         '
-        Me.txtCalibration.Location = New System.Drawing.Point(1297, 568)
+        Me.txtCalibration.Location = New System.Drawing.Point(1243, 560)
         Me.txtCalibration.Name = "txtCalibration"
         Me.txtCalibration.Size = New System.Drawing.Size(153, 20)
         Me.txtCalibration.TabIndex = 35
         '
         'txtVapor
         '
-        Me.txtVapor.Location = New System.Drawing.Point(1297, 539)
+        Me.txtVapor.Location = New System.Drawing.Point(1243, 531)
         Me.txtVapor.Name = "txtVapor"
         Me.txtVapor.Size = New System.Drawing.Size(153, 20)
         Me.txtVapor.TabIndex = 34
@@ -568,7 +568,7 @@ Partial Class Truck
         Me.l20.BackColor = System.Drawing.Color.Transparent
         Me.l20.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.l20.ForeColor = System.Drawing.Color.Yellow
-        Me.l20.Location = New System.Drawing.Point(1417, 309)
+        Me.l20.Location = New System.Drawing.Point(1363, 301)
         Me.l20.Name = "l20"
         Me.l20.Size = New System.Drawing.Size(128, 16)
         Me.l20.TabIndex = 36
@@ -582,7 +582,7 @@ Partial Class Truck
         Me.Panel2.Controls.Add(Me.OptWeight_Oil)
         Me.Panel2.Controls.Add(Me.OptWeight_Lpg)
         Me.Panel2.Controls.Add(Me.Label19)
-        Me.Panel2.Location = New System.Drawing.Point(1587, 288)
+        Me.Panel2.Location = New System.Drawing.Point(1588, 274)
         Me.Panel2.Name = "Panel2"
         Me.Panel2.Size = New System.Drawing.Size(133, 87)
         Me.Panel2.TabIndex = 37
@@ -643,7 +643,7 @@ Partial Class Truck
         Me.Panel4.Controls.Add(Me.OptTruck_Ptt)
         Me.Panel4.Controls.Add(Me.OptTruck_Cus)
         Me.Panel4.Controls.Add(Me.Label20)
-        Me.Panel4.Location = New System.Drawing.Point(1577, 378)
+        Me.Panel4.Location = New System.Drawing.Point(1588, 367)
         Me.Panel4.Name = "Panel4"
         Me.Panel4.Size = New System.Drawing.Size(165, 105)
         Me.Panel4.TabIndex = 38
@@ -691,7 +691,7 @@ Partial Class Truck
         Me.l12.BackColor = System.Drawing.Color.Transparent
         Me.l12.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.l12.ForeColor = System.Drawing.Color.Cyan
-        Me.l12.Location = New System.Drawing.Point(1540, 487)
+        Me.l12.Location = New System.Drawing.Point(1511, 489)
         Me.l12.Name = "l12"
         Me.l12.Size = New System.Drawing.Size(76, 16)
         Me.l12.TabIndex = 39
@@ -704,7 +704,7 @@ Partial Class Truck
         Me.l13.BackColor = System.Drawing.Color.Transparent
         Me.l13.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.l13.ForeColor = System.Drawing.Color.Cyan
-        Me.l13.Location = New System.Drawing.Point(1516, 516)
+        Me.l13.Location = New System.Drawing.Point(1487, 518)
         Me.l13.Name = "l13"
         Me.l13.Size = New System.Drawing.Size(104, 16)
         Me.l13.TabIndex = 40
@@ -717,7 +717,7 @@ Partial Class Truck
         Me.l15.BackColor = System.Drawing.Color.Transparent
         Me.l15.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.l15.ForeColor = System.Drawing.Color.Cyan
-        Me.l15.Location = New System.Drawing.Point(1508, 572)
+        Me.l15.Location = New System.Drawing.Point(1479, 574)
         Me.l15.Name = "l15"
         Me.l15.Size = New System.Drawing.Size(118, 16)
         Me.l15.TabIndex = 42
@@ -730,7 +730,7 @@ Partial Class Truck
         Me.l14.BackColor = System.Drawing.Color.Transparent
         Me.l14.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.l14.ForeColor = System.Drawing.Color.Cyan
-        Me.l14.Location = New System.Drawing.Point(1473, 543)
+        Me.l14.Location = New System.Drawing.Point(1444, 545)
         Me.l14.Name = "l14"
         Me.l14.Size = New System.Drawing.Size(154, 16)
         Me.l14.TabIndex = 41
@@ -961,23 +961,25 @@ Partial Class Truck
         '
         'Command1
         '
+        Me.Command1.BackColor = System.Drawing.Color.White
         Me.Command1.ForeColor = System.Drawing.Color.Black
-        Me.Command1.Location = New System.Drawing.Point(1501, 395)
+        Me.Command1.Location = New System.Drawing.Point(1448, 386)
         Me.Command1.Name = "Command1"
         Me.Command1.Size = New System.Drawing.Size(64, 20)
         Me.Command1.TabIndex = 58
         Me.Command1.Text = "Add"
-        Me.Command1.UseVisualStyleBackColor = True
+        Me.Command1.UseVisualStyleBackColor = False
         '
         'cmdAdd
         '
+        Me.cmdAdd.BackColor = System.Drawing.Color.White
         Me.cmdAdd.ForeColor = System.Drawing.Color.Black
-        Me.cmdAdd.Location = New System.Drawing.Point(1501, 423)
+        Me.cmdAdd.Location = New System.Drawing.Point(1448, 414)
         Me.cmdAdd.Name = "cmdAdd"
         Me.cmdAdd.Size = New System.Drawing.Size(64, 20)
         Me.cmdAdd.TabIndex = 59
         Me.cmdAdd.Text = "Add"
-        Me.cmdAdd.UseVisualStyleBackColor = True
+        Me.cmdAdd.UseVisualStyleBackColor = False
         '
         'Image_Save
         '

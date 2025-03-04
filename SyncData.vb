@@ -251,6 +251,10 @@ Public Class SyncData
         setdg()
     End Sub
 
+    Private Sub cbTypeSearch_DropDown(sender As Object, e As EventArgs) Handles cbTypeSearch.DropDown
+        AddTypeSearch()
+    End Sub
+
     Private Sub AddTypeSearch()
         cbTypeSearch.Items.Clear()
         cbTypeSearch.Items.Add("ทะเบียนรถ")
