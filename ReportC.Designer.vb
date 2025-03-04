@@ -257,6 +257,7 @@ Partial Class ReportC
         'op_sort1
         '
         Me.op_sort1.AutoSize = True
+        Me.op_sort1.Checked = True
         Me.op_sort1.Location = New System.Drawing.Point(27, 33)
         Me.op_sort1.Name = "op_sort1"
         Me.op_sort1.Size = New System.Drawing.Size(93, 33)
@@ -298,9 +299,9 @@ Partial Class ReportC
         'cmdVD
         '
         Me.cmdVD.Font = New System.Drawing.Font("AngsanaUPC", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmdVD.Location = New System.Drawing.Point(636, 192)
+        Me.cmdVD.Location = New System.Drawing.Point(536, 192)
         Me.cmdVD.Name = "cmdVD"
-        Me.cmdVD.Size = New System.Drawing.Size(82, 38)
+        Me.cmdVD.Size = New System.Drawing.Size(130, 38)
         Me.cmdVD.TabIndex = 6
         Me.cmdVD.Text = "View display"
         Me.cmdVD.UseVisualStyleBackColor = True
@@ -308,9 +309,9 @@ Partial Class ReportC
         'cmdVR
         '
         Me.cmdVR.Font = New System.Drawing.Font("AngsanaUPC", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmdVR.Location = New System.Drawing.Point(723, 192)
+        Me.cmdVR.Location = New System.Drawing.Point(672, 192)
         Me.cmdVR.Name = "cmdVR"
-        Me.cmdVR.Size = New System.Drawing.Size(82, 38)
+        Me.cmdVR.Size = New System.Drawing.Size(120, 38)
         Me.cmdVR.TabIndex = 7
         Me.cmdVR.Text = "View report"
         Me.cmdVR.UseVisualStyleBackColor = True
@@ -318,9 +319,9 @@ Partial Class ReportC
         'cmdPrint_report
         '
         Me.cmdPrint_report.Font = New System.Drawing.Font("AngsanaUPC", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmdPrint_report.Location = New System.Drawing.Point(811, 192)
+        Me.cmdPrint_report.Location = New System.Drawing.Point(798, 192)
         Me.cmdPrint_report.Name = "cmdPrint_report"
-        Me.cmdPrint_report.Size = New System.Drawing.Size(97, 38)
+        Me.cmdPrint_report.Size = New System.Drawing.Size(110, 38)
         Me.cmdPrint_report.TabIndex = 8
         Me.cmdPrint_report.Text = "Print report"
         Me.cmdPrint_report.UseVisualStyleBackColor = True
@@ -330,6 +331,7 @@ Partial Class ReportC
         Me.grdComment.AllowUserToAddRows = False
         Me.grdComment.AllowUserToDeleteRows = False
         Me.grdComment.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.grdComment.ContextMenuStrip = Me.mBypass
         Me.grdComment.Location = New System.Drawing.Point(10, 238)
         Me.grdComment.Name = "grdComment"
         Me.grdComment.ReadOnly = True

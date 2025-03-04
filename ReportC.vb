@@ -115,6 +115,8 @@ Public Class ReportC
                       "ack_name2, ack_name3, ack1, ack2, ack3, comment_1, comment_2, comment_3 FROM truck ORDER BY " & str_sort
         End If
 
+
+
         Using cmd As New OracleCommand(STR_SQL, Module1.ConnMyDB)
             Using adapter As New OracleDataAdapter(cmd)
                 adapter.Fill(rs_report)
@@ -159,7 +161,7 @@ Public Class ReportC
 
         For c = 0 To grdComment.ColumnCount - 1
             For r = 0 To grdComment.RowCount - 1
-                col_wid(c) = Math.Max(TextRenderer.MeasureText(grdComment.Rows(r).Cells(c).Value.ToString(), grdComment.Font).Width, col_wid(c))
+                col_wid(c) = Math.Max(TextRenderer.MeasureText(grdComment.Rows(r).Cells(c).Value?.ToString(), grdComment.Font).Width, col_wid(c))
             Next
         Next
 
