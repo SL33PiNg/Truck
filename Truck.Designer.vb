@@ -211,7 +211,7 @@ Partial Class Truck
         Me.l1.ForeColor = System.Drawing.Color.Cyan
         Me.l1.Location = New System.Drawing.Point(1147, 283)
         Me.l1.Name = "l1"
-        Me.l1.Size = New System.Drawing.Size(128, 16)
+        Me.l1.Size = New System.Drawing.Size(129, 16)
         Me.l1.TabIndex = 12
         Me.l1.Text = "หมายเลขทะเบียนตัวถัง"
         Me.l1.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -224,7 +224,7 @@ Partial Class Truck
         Me.l2.ForeColor = System.Drawing.Color.Cyan
         Me.l2.Location = New System.Drawing.Point(1138, 310)
         Me.l2.Name = "l2"
-        Me.l2.Size = New System.Drawing.Size(136, 16)
+        Me.l2.Size = New System.Drawing.Size(137, 16)
         Me.l2.TabIndex = 13
         Me.l2.Text = "หมายเลขทะเบียนหัวลาก"
         Me.l2.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -237,7 +237,7 @@ Partial Class Truck
         Me.l3.ForeColor = System.Drawing.Color.Cyan
         Me.l3.Location = New System.Drawing.Point(1189, 340)
         Me.l3.Name = "l3"
-        Me.l3.Size = New System.Drawing.Size(77, 16)
+        Me.l3.Size = New System.Drawing.Size(78, 16)
         Me.l3.TabIndex = 14
         Me.l3.Text = "เลขที่ถังโยธา"
         Me.l3.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -250,7 +250,7 @@ Partial Class Truck
         Me.l4.ForeColor = System.Drawing.Color.Cyan
         Me.l4.Location = New System.Drawing.Point(1149, 365)
         Me.l4.Name = "l4"
-        Me.l4.Size = New System.Drawing.Size(121, 16)
+        Me.l4.Size = New System.Drawing.Size(122, 16)
         Me.l4.TabIndex = 15
         Me.l4.Text = "เลขที่ใบอนุญาติขนส่ง"
         Me.l4.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -263,7 +263,7 @@ Partial Class Truck
         Me.l5.ForeColor = System.Drawing.Color.Cyan
         Me.l5.Location = New System.Drawing.Point(1190, 394)
         Me.l5.Name = "l5"
-        Me.l5.Size = New System.Drawing.Size(76, 16)
+        Me.l5.Size = New System.Drawing.Size(77, 16)
         Me.l5.TabIndex = 16
         Me.l5.Text = "รถของบริษัท"
         Me.l5.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -276,7 +276,7 @@ Partial Class Truck
         Me.l6.ForeColor = System.Drawing.Color.Cyan
         Me.l6.Location = New System.Drawing.Point(1161, 424)
         Me.l6.Name = "l6"
-        Me.l6.Size = New System.Drawing.Size(109, 16)
+        Me.l6.Size = New System.Drawing.Size(110, 16)
         Me.l6.TabIndex = 17
         Me.l6.Text = "หมายเลข พขร./ชื่อ"
         Me.l6.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -289,7 +289,7 @@ Partial Class Truck
         Me.l7.ForeColor = System.Drawing.Color.Cyan
         Me.l7.Location = New System.Drawing.Point(1187, 453)
         Me.l7.Name = "l7"
-        Me.l7.Size = New System.Drawing.Size(79, 16)
+        Me.l7.Size = New System.Drawing.Size(80, 16)
         Me.l7.TabIndex = 18
         Me.l7.Text = "หมายเลขบัตร"
         Me.l7.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -302,7 +302,7 @@ Partial Class Truck
         Me.l8.ForeColor = System.Drawing.Color.Cyan
         Me.l8.Location = New System.Drawing.Point(1118, 481)
         Me.l8.Name = "l8"
-        Me.l8.Size = New System.Drawing.Size(160, 16)
+        Me.l8.Size = New System.Drawing.Size(161, 16)
         Me.l8.TabIndex = 19
         Me.l8.Text = "ปริมาณน้ำมันค้างรถ (Factor)"
         Me.l8.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -315,7 +315,7 @@ Partial Class Truck
         Me.l9.ForeColor = System.Drawing.Color.Cyan
         Me.l9.Location = New System.Drawing.Point(1115, 513)
         Me.l9.Name = "l9"
-        Me.l9.Size = New System.Drawing.Size(163, 16)
+        Me.l9.Size = New System.Drawing.Size(164, 16)
         Me.l9.TabIndex = 20
         Me.l9.Text = "ความจุของรถตามปล.2 (ลิตร)"
         Me.l9.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -328,7 +328,7 @@ Partial Class Truck
         Me.l10.ForeColor = System.Drawing.Color.Cyan
         Me.l10.Location = New System.Drawing.Point(1152, 542)
         Me.l10.Name = "l10"
-        Me.l10.Size = New System.Drawing.Size(120, 16)
+        Me.l10.Size = New System.Drawing.Size(121, 16)
         Me.l10.TabIndex = 21
         Me.l10.Text = "Vapour Factor (Kg.)"
         Me.l10.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -341,7 +341,7 @@ Partial Class Truck
         Me.l11.ForeColor = System.Drawing.Color.Cyan
         Me.l11.Location = New System.Drawing.Point(1183, 569)
         Me.l11.Name = "l11"
-        Me.l11.Size = New System.Drawing.Size(81, 16)
+        Me.l11.Size = New System.Drawing.Size(82, 16)
         Me.l11.TabIndex = 22
         Me.l11.Text = "เลขที่ใบ ปล.2"
         Me.l11.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -431,7 +431,7 @@ Partial Class Truck
         Me.Label26.ForeColor = System.Drawing.Color.Cyan
         Me.Label26.Location = New System.Drawing.Point(14, 93)
         Me.Label26.Name = "Label26"
-        Me.Label26.Size = New System.Drawing.Size(63, 16)
+        Me.Label26.Size = New System.Drawing.Size(64, 16)
         Me.Label26.TabIndex = 51
         Me.Label26.Text = "ชื่อผู้ยืนยัน"
         Me.Label26.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -443,7 +443,7 @@ Partial Class Truck
         Me.Label17.ForeColor = System.Drawing.Color.Red
         Me.Label17.Location = New System.Drawing.Point(10, 10)
         Me.Label17.Name = "Label17"
-        Me.Label17.Size = New System.Drawing.Size(67, 16)
+        Me.Label17.Size = New System.Drawing.Size(68, 16)
         Me.Label17.TabIndex = 0
         Me.Label17.Text = "Black List"
         '
@@ -454,7 +454,7 @@ Partial Class Truck
         Me.Label27.ForeColor = System.Drawing.Color.Cyan
         Me.Label27.Location = New System.Drawing.Point(15, 62)
         Me.Label27.Name = "Label27"
-        Me.Label27.Size = New System.Drawing.Size(62, 16)
+        Me.Label27.Size = New System.Drawing.Size(63, 16)
         Me.Label27.TabIndex = 50
         Me.Label27.Text = "Password"
         Me.Label27.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -466,7 +466,7 @@ Partial Class Truck
         Me.Label28.ForeColor = System.Drawing.Color.Cyan
         Me.Label28.Location = New System.Drawing.Point(15, 34)
         Me.Label28.Name = "Label28"
-        Me.Label28.Size = New System.Drawing.Size(33, 16)
+        Me.Label28.Size = New System.Drawing.Size(34, 16)
         Me.Label28.TabIndex = 49
         Me.Label28.Text = "User"
         Me.Label28.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -570,7 +570,7 @@ Partial Class Truck
         Me.l20.ForeColor = System.Drawing.Color.Yellow
         Me.l20.Location = New System.Drawing.Point(1417, 309)
         Me.l20.Name = "l20"
-        Me.l20.Size = New System.Drawing.Size(127, 16)
+        Me.l20.Size = New System.Drawing.Size(128, 16)
         Me.l20.TabIndex = 36
         Me.l20.Text = "[รูปแบบ ทบ.00-0000]"
         '
@@ -632,7 +632,7 @@ Partial Class Truck
         Me.Label19.ForeColor = System.Drawing.Color.White
         Me.Label19.Location = New System.Drawing.Point(9, 9)
         Me.Label19.Name = "Label19"
-        Me.Label19.Size = New System.Drawing.Size(125, 16)
+        Me.Label19.Size = New System.Drawing.Size(126, 16)
         Me.Label19.TabIndex = 0
         Me.Label19.Text = "ชนิดของรถ (ขึ้นตาชั่ง)"
         '
@@ -681,7 +681,7 @@ Partial Class Truck
         Me.Label20.ForeColor = System.Drawing.Color.White
         Me.Label20.Location = New System.Drawing.Point(23, 5)
         Me.Label20.Name = "Label20"
-        Me.Label20.Size = New System.Drawing.Size(127, 16)
+        Me.Label20.Size = New System.Drawing.Size(128, 16)
         Me.Label20.TabIndex = 0
         Me.Label20.Text = "ชนิดของรถบรรทุกก๊าซ"
         '
@@ -693,7 +693,7 @@ Partial Class Truck
         Me.l12.ForeColor = System.Drawing.Color.Cyan
         Me.l12.Location = New System.Drawing.Point(1540, 487)
         Me.l12.Name = "l12"
-        Me.l12.Size = New System.Drawing.Size(75, 16)
+        Me.l12.Size = New System.Drawing.Size(76, 16)
         Me.l12.TabIndex = 39
         Me.l12.Text = "วันที่วัด ปล.2"
         Me.l12.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -706,7 +706,7 @@ Partial Class Truck
         Me.l13.ForeColor = System.Drawing.Color.Cyan
         Me.l13.Location = New System.Drawing.Point(1516, 516)
         Me.l13.Name = "l13"
-        Me.l13.Size = New System.Drawing.Size(103, 16)
+        Me.l13.Size = New System.Drawing.Size(104, 16)
         Me.l13.TabIndex = 40
         Me.l13.Text = "วันที่หมดอายุปล.2"
         Me.l13.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -719,7 +719,7 @@ Partial Class Truck
         Me.l15.ForeColor = System.Drawing.Color.Cyan
         Me.l15.Location = New System.Drawing.Point(1508, 572)
         Me.l15.Name = "l15"
-        Me.l15.Size = New System.Drawing.Size(117, 16)
+        Me.l15.Size = New System.Drawing.Size(118, 16)
         Me.l15.TabIndex = 42
         Me.l15.Text = "น้ำหนักรถเปล่า (Kg.)"
         Me.l15.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -732,7 +732,7 @@ Partial Class Truck
         Me.l14.ForeColor = System.Drawing.Color.Cyan
         Me.l14.Location = New System.Drawing.Point(1473, 543)
         Me.l14.Name = "l14"
-        Me.l14.Size = New System.Drawing.Size(153, 16)
+        Me.l14.Size = New System.Drawing.Size(154, 16)
         Me.l14.TabIndex = 41
         Me.l14.Text = "ความจุของรถที่ 85 % (Kg.)"
         Me.l14.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -825,7 +825,7 @@ Partial Class Truck
         Me.Opt3.ForeColor = System.Drawing.Color.Cyan
         Me.Opt3.Location = New System.Drawing.Point(309, 36)
         Me.Opt3.Name = "Opt3"
-        Me.Opt3.Size = New System.Drawing.Size(62, 20)
+        Me.Opt3.Size = New System.Drawing.Size(63, 20)
         Me.Opt3.TabIndex = 59
         Me.Opt3.TabStop = True
         Me.Opt3.Text = "3. อื่นๆ"
@@ -838,7 +838,7 @@ Partial Class Truck
         Me.Opt2.ForeColor = System.Drawing.Color.Cyan
         Me.Opt2.Location = New System.Drawing.Point(177, 36)
         Me.Opt2.Name = "Opt2"
-        Me.Opt2.Size = New System.Drawing.Size(131, 20)
+        Me.Opt2.Size = New System.Drawing.Size(132, 20)
         Me.Opt2.TabIndex = 58
         Me.Opt2.TabStop = True
         Me.Opt2.Text = "2. รถปล.2 หมดอายุ"
@@ -851,7 +851,7 @@ Partial Class Truck
         Me.Opt1.ForeColor = System.Drawing.Color.Cyan
         Me.Opt1.Location = New System.Drawing.Point(15, 36)
         Me.Opt1.Name = "Opt1"
-        Me.Opt1.Size = New System.Drawing.Size(168, 20)
+        Me.Opt1.Size = New System.Drawing.Size(169, 20)
         Me.Opt1.TabIndex = 57
         Me.Opt1.TabStop = True
         Me.Opt1.Text = "1. รถสภาพต่ำกว่ามาตรฐาน"
@@ -864,7 +864,7 @@ Partial Class Truck
         Me.Label29.ForeColor = System.Drawing.Color.Red
         Me.Label29.Location = New System.Drawing.Point(11, 0)
         Me.Label29.Name = "Label29"
-        Me.Label29.Size = New System.Drawing.Size(133, 16)
+        Me.Label29.Size = New System.Drawing.Size(134, 16)
         Me.Label29.TabIndex = 56
         Me.Label29.Text = "เหตุผลการ Black List"
         '
@@ -885,7 +885,7 @@ Partial Class Truck
         Me.l17.ForeColor = System.Drawing.Color.Cyan
         Me.l17.Location = New System.Drawing.Point(1151, 865)
         Me.l17.Name = "l17"
-        Me.l17.Size = New System.Drawing.Size(74, 16)
+        Me.l17.Size = New System.Drawing.Size(75, 16)
         Me.l17.TabIndex = 50
         Me.l17.Text = "Create date"
         Me.l17.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -907,7 +907,7 @@ Partial Class Truck
         Me.l18.ForeColor = System.Drawing.Color.Cyan
         Me.l18.Location = New System.Drawing.Point(1351, 865)
         Me.l18.Name = "l18"
-        Me.l18.Size = New System.Drawing.Size(76, 16)
+        Me.l18.Size = New System.Drawing.Size(77, 16)
         Me.l18.TabIndex = 52
         Me.l18.Text = "Update date"
         Me.l18.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -929,7 +929,7 @@ Partial Class Truck
         Me.l19.ForeColor = System.Drawing.Color.Cyan
         Me.l19.Location = New System.Drawing.Point(1563, 865)
         Me.l19.Name = "l19"
-        Me.l19.Size = New System.Drawing.Size(64, 16)
+        Me.l19.Size = New System.Drawing.Size(65, 16)
         Me.l19.TabIndex = 54
         Me.l19.Text = "Update by"
         Me.l19.TextAlign = System.Drawing.ContentAlignment.MiddleRight

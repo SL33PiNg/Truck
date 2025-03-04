@@ -388,7 +388,7 @@ Public Class Truck
 
         For c = 0 To grdTruck.Columns.Count - 1
             For r = 0 To grdTruck.Rows.Count - 1
-                col_wid(c) = If(TextRenderer.MeasureText(grdTruck.Rows(r).Cells(c).Value.ToString(), grdTruck.Font).Width > col_wid(c), TextRenderer.MeasureText(grdTruck.Rows(r).Cells(c).Value.ToString(), grdTruck.Font).Width, col_wid(c))
+                col_wid(c) = If(TextRenderer.MeasureText(grdTruck.Rows(r).Cells(c).Value?.ToString(), grdTruck.Font).Width > col_wid(c), TextRenderer.MeasureText(grdTruck.Rows(r).Cells(c).Value.ToString(), grdTruck.Font).Width, col_wid(c))
             Next
         Next
 
@@ -400,9 +400,10 @@ Public Class Truck
 
     Public Sub RecordToScreen(ID As String)
         Try
-            Dim Statement As String = "SELECT * FROM TASLPGSK.TRUCK WHERE TRUCK_NO = @TruckNo"
+            Dim Statement As String = "SELECT * FROM TRUCK WHERE TRUCK_NO = :TRUCK_NO"
             Dim cmd As New OracleCommand(Statement, ConnMyDB)
-            cmd.Parameters.Add("@TruckNo", ID)
+            cmd.BindByName = True
+            cmd.Parameters.Add("TRUCK_NO", ID)
             Dim rs As New OracleDataAdapter(cmd)
             Dim dt As New DataTable()
             rs.Fill(dt)
@@ -515,7 +516,7 @@ Public Class Truck
         End Try
     End Sub
 
-    Private Sub grdTruck_Click(sender As Object, e As EventArgs) Handles grdTruck.Click
+    Private Sub grdTruck_Click(sender As Object, e As EventArgs)
         btnCancel_click()
         RecordToScreen(Trim(grdTruck.Text))
     End Sub
@@ -618,29 +619,30 @@ Public Class Truck
     End Function
 
     Private Sub Show_Card()
-        Using conn As New OracleConnection("Your Connection String Here")
-            Dim cmd As New OracleCommand("SELECT CARD_NO FROM CARD ORDER BY CARD_NO", conn)
-            conn.Open()
-            Using reader As OracleDataReader = cmd.ExecuteReader()
-                txtCard_No.Items.Clear()
-                If Not reader.HasRows Then
-                    txtCard_No.Items.Add("0")
-                    Return
-                End If
+
+        Dim cmd As New OracleCommand("SELECT CARD_NO FROM CARD ORDER BY CARD_NO", ConnMyDB)
+
+        Using reader As OracleDataReader = cmd.ExecuteReader()
+            txtCard_No.Items.Clear()
+            If Not reader.HasRows Then
                 txtCard_No.Items.Add("0")
-                While reader.Read()
-                    txtCard_No.Items.Add(reader("CARD_NO").ToString())
-                End While
-            End Using
+                Return
+            End If
+            txtCard_No.Items.Add("0")
+            While reader.Read()
+                txtCard_No.Items.Add(reader("CARD_NO").ToString())
+            End While
         End Using
+
     End Sub
 
 
     Private Function S_Company(STR_COM As String) As String
         Try
-            Dim STM As String = "SELECT COMPANY_NAME FROM COMPANY WHERE COMPANY_NAME = @CompanyName"
+            Dim STM As String = "SELECT COMPANY_NAME FROM COMPANY WHERE COMPANY_NAME = :COMPANY_NAME"
             Dim cmd As New OracleCommand(STM, ConnMyDB)
-            cmd.Parameters.Add("@CompanyName", STR_COM)
+            cmd.BindByName = True
+            cmd.Parameters.Add("COMPANY_NAME", STR_COM)
             Dim SCOM As New OracleDataAdapter(cmd)
             Dim dt As New DataTable()
             SCOM.Fill(dt)
@@ -1100,5 +1102,8 @@ Public Class Truck
         OptBacklist_No.Font = New Font(OptBacklist_No.Font.FontFamily, If(str_status = 2, 12, 10), If(str_status = 2, FontStyle.Bold, FontStyle.Regular))
     End Sub
 
-
+    Private Sub grdTruck_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles grdTruck.CellClick
+        Dim selectTruck As String = Trim(grdTruck.Rows(e.RowIndex).Cells(0).Value.ToString())
+        RecordToScreen(selectTruck)
+    End Sub
 End Class

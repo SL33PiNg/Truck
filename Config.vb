@@ -1,5 +1,4 @@
 ﻿Imports Oracle.ManagedDataAccess.Client
-Imports Oracle.ManagedDataAccess.Client
 
 Public Class Config
     Private Sub cmdSave_Click(sender As Object, e As EventArgs) Handles cmdSave.Click
