@@ -1110,8 +1110,13 @@ Public Class Truck
         OptBacklist_No.Font = New Font(OptBacklist_No.Font.FontFamily, If(str_status = 2, 12, 10), If(str_status = 2, FontStyle.Bold, FontStyle.Regular))
     End Sub
 
-    Private Sub grdTruck_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles grdTruck.CellClick
-        Dim selectTruck As String = Trim(grdTruck.Rows(e.RowIndex).Cells(0).Value.ToString())
-        RecordToScreen(selectTruck)
+    Private Sub grdTruck_CellMouseDown(sender As Object, e As DataGridViewCellMouseEventArgs) Handles grdTruck.CellMouseDown
+        If e.ColumnIndex <> -1 And e.RowIndex <> -1 Then
+
+            grdTruck.ClearSelection()
+            grdTruck.Rows(e.RowIndex).Selected = True
+            Dim selectTruck As String = Trim(grdTruck.Rows(e.RowIndex).Cells(0).Value.ToString())
+            RecordToScreen(selectTruck)
+        End If
     End Sub
 End Class
