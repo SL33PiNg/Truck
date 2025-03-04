@@ -115,13 +115,11 @@ Public Class ReportC
                       "ack_name2, ack_name3, ack1, ack2, ack3, comment_1, comment_2, comment_3 FROM truck ORDER BY " & str_sort
         End If
 
-        Module1.ConnMyDB.Open()
         Using cmd As New OracleCommand(STR_SQL, Module1.ConnMyDB)
             Using adapter As New OracleDataAdapter(cmd)
                 adapter.Fill(rs_report)
             End Using
         End Using
-        Module1.ConnMyDB.Close()
 
 
         set_header_grd()
@@ -331,11 +329,9 @@ Public Class ReportC
         str_sqls = "UPDATE truck SET COUNT_PRINT_MANUAL" & STR_S & " = COUNT_PRINT_MANUAL" & STR_S & " + 1 WHERE truck_no = '" & Me.grdComment.SelectedRows(0).Cells(1).Value.ToString() & "'"
 
 
-        Module1.ConnMyDB.Open()
         Using cmd As New OracleCommand(str_sqls, Module1.ConnMyDB)
             cmd.ExecuteNonQuery()
         End Using
-        Module1.ConnMyDB.Close()
 
         Call cmdVD_Click(cmdVD, New EventArgs)
     End Sub
@@ -344,13 +340,11 @@ Public Class ReportC
         check_dates = False
         Dim rs_ch As New DataTable
         Dim Statement_ch As String = "SELECT NUM_DATE1, NUM_DATE2 FROM TRUCK_CONFIG"
-        Module1.ConnMyDB.Open()
         Using cmd As New OracleCommand(Statement_ch, Module1.ConnMyDB)
             Using adapter As New OracleDataAdapter(cmd)
                 adapter.Fill(rs_ch)
             End Using
         End Using
-        Module1.ConnMyDB.Close()
 
         If rs_ch.Rows.Count <= 0 Then
             check_dates = True
@@ -374,11 +368,9 @@ Public Class ReportC
         str_sqls = "UPDATE truck SET ack" & str_c & " = 'Y', ack_name" & str_c & " = '" & Login_Name_frmlogin & "', comment_" & str_c & " = '" & str_comment & "' WHERE truck_no = '" & Me.grdComment.SelectedRows(0).Cells(1).Value.ToString() & "'"
 
 
-        Module1.ConnMyDB.Open()
         Using cmd As New OracleCommand(str_sqls, Module1.ConnMyDB)
             cmd.ExecuteNonQuery()
         End Using
-        Module1.ConnMyDB.Close()
 
         MessageBox.Show("สำเร็จ", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information)
         Call cmdVD_Click(cmdVD, New EventArgs)

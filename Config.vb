@@ -8,17 +8,18 @@ Public Class Config
 
         Using transaction As OracleTransaction = ConnMyDB.BeginTransaction()
             Try
-                Dim cmd As New OracleCommand("UPDATE truck_config SET num_date1 = ?, num_date2 = ?", ConnMyDB)
-
-                cmd.Parameters.Add("@num_date1", Val(txt1.Text))
-                cmd.Parameters.Add("@num_date2", Val(txt2.Text))
+                Dim cmd As New OracleCommand("UPDATE truck_config SET num_date1 = :num_date1, num_date2 = :num_date2", ConnMyDB)
+                cmd.BindByName = True
+                cmd.Parameters.Add("num_date1", Val(txt1.Text))
+                cmd.Parameters.Add("num_date2", Val(txt2.Text))
                 cmd.Transaction = transaction
                 cmd.ExecuteNonQuery()
 
-                cmd.CommandText = "UPDATE truck SET date1 = CAL_EXPIRE - ?, date2 = CAL_EXPIRE - ?"
+                cmd.CommandText = "UPDATE truck SET date1 = CAL_EXPIRE - :date1, date2 = CAL_EXPIRE - :date2"
                 cmd.Parameters.Clear()
-                cmd.Parameters.Add("@date1", Val(txt1.Text))
-                cmd.Parameters.Add("@date2", Val(txt2.Text))
+                cmd.BindByName = True
+                cmd.Parameters.Add("date1", Val(txt1.Text))
+                cmd.Parameters.Add("date2", Val(txt2.Text))
                 cmd.Transaction = transaction
                 cmd.ExecuteNonQuery()
 

@@ -67,7 +67,6 @@ Public Class SearchTruck
 
         cmd.CommandText = TypeSearch
         cmd.Connection = Module1.ConnMyDB
-        Module1.ConnMyDB.Open()
         rs = cmd.ExecuteReader()
 
         countrec = 0
@@ -80,7 +79,6 @@ Public Class SearchTruck
             txtSearch_Truck.Text = ""
             txtSearch_Truck.Focus()
             rs.Close()
-            Module1.ConnMyDB.Close()
             Exit Sub
         End If
 
@@ -115,7 +113,6 @@ Public Class SearchTruck
 
         txtSearch_Truck.Text = ""
         rs.Close()
-        ConnMyDB.Close()
 
         For c = 0 To dg.Columns.Count - 1
             For r = 0 To dg.Rows.Count - 1

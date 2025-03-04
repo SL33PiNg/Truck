@@ -170,18 +170,14 @@ Public Class Truck
                 op_check = 3
             End If
             Dim cmd As New OracleCommand("UPDATE truck SET BLACKLIST='Y', CONFIRM_CODE='" & txtUser.Text.Trim().ToUpper() & "', CONFIRM_NAME='" & txtConfirm_Name.Text & "', BLACKLIST_FROM = '" & op_check & "', BLACKLIST_DETIAL = '" & txtDetial.Text.Trim() & "' WHERE TRUCK_NO = '" & txtTruck_No.Text.Trim() & "'", ConnMyDB)
-            ConnMyDB.Open()
             cmd.ExecuteNonQuery()
-            ConnMyDB.Close()
             MessageBox.Show("Backlist สำเร็จ", Me.Text, MessageBoxButtons.OK, MessageBoxIcon.Information)
         Else
             If MessageBox.Show("คุณต้องการยกเลิก Backlist รถบรรทุกทะเบียน" & txtTruck_No.Text & " ใช้หรือไม่", Me.Text, MessageBoxButtons.YesNo, MessageBoxIcon.Information) <> DialogResult.Yes Then
                 Exit Sub
             End If
             Dim cmd As New OracleCommand("UPDATE truck SET BLACKLIST='N', CONFIRM_CODE='" & txtUser.Text.Trim().ToUpper() & "', CONFIRM_NAME='" & txtConfirm_Name.Text & "' WHERE TRUCK_NO = '" & txtTruck_No.Text.Trim() & "'", ConnMyDB)
-            ConnMyDB.Open()
             cmd.ExecuteNonQuery()
-            ConnMyDB.Close()
             MessageBox.Show("ยกเลิก Backlist สำเร็จ", Me.Text, MessageBoxButtons.OK, MessageBoxIcon.Information)
         End If
     End Sub
@@ -192,67 +188,65 @@ Public Class Truck
         Dim cmd As New OracleCommand()
         cmd.Connection = ConnMyDB
         If blnNewData Then
-            cmd.CommandText = "INSERT INTO TRUCK (TRUCK_NO, CREATE_DATE, BLACKLIST, TRUCK_NO_HEAD, TRUCKTANK_NO, TRUCK_LICENSE, CARD_NO, COMPANY, CAL_DATE, CAL_EXPIRE, CAPACITY, CAPACITY_85, VAPOR, WEIGHT, WEIGHT_OIL, TRUCK_TYPE, TRUCK_WEIGHT, REMARK, UPDATE_DATE, CALIBRATION_NO, LAST_UPDATEBY) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"
-            cmd.Parameters.Add("@TRUCK_NO", txtTruck_No.Text)
-            cmd.Parameters.Add("@CREATE_DATE", DateTime.Now)
-            cmd.Parameters.Add("@BLACKLIST", "N")
-            cmd.Parameters.Add("@TRUCK_NO_HEAD", txtTruck_No_Head.Text)
-            cmd.Parameters.Add("@TRUCKTANK_NO", txtTruck_No_Tank.Text)
-            cmd.Parameters.Add("@TRUCK_LICENSE", txtTruck_No_License.Text)
-            cmd.Parameters.Add("@CARD_NO", txtCard_No.Text)
-            cmd.Parameters.Add("@COMPANY", txtTruck_Company.Text)
-            cmd.Parameters.Add("@CAL_DATE", Cal_Date.Value)
-            cmd.Parameters.Add("@CAL_EXPIRE", Cal_Expire.Value)
-            cmd.Parameters.Add("@CAPACITY", If(String.IsNullOrEmpty(txtCapacity.Text), 0, txtCapacity.Text))
-            cmd.Parameters.Add("@CAPACITY_85", If(String.IsNullOrEmpty(txtCapacity_85.Text), 0, txtCapacity_85.Text))
-            cmd.Parameters.Add("@VAPOR", If(String.IsNullOrEmpty(txtVapor.Text), 0, txtVapor.Text))
-            cmd.Parameters.Add("@WEIGHT", If(String.IsNullOrEmpty(txtWeight.Text), 0, txtWeight.Text))
-            cmd.Parameters.Add("@WEIGHT_OIL", If(String.IsNullOrEmpty(txtWeight_Oil.Text), 0, txtWeight_Oil.Text))
-            cmd.Parameters.Add("@TRUCK_TYPE", If(OptTruck_Cus.Checked, "C", If(OptTruck_Ptt.Checked, "P", "")))
-            cmd.Parameters.Add("@TRUCK_WEIGHT", If(OptWeight_Lpg.Checked, "L", If(OptWeight_Oil.Checked, "O", If(OptWeight_Other.Checked, "A", ""))))
-            cmd.Parameters.Add("@REMARK", txtSpecial.Text)
-            cmd.Parameters.Add("@UPDATE_DATE", DateTime.Now)
-            cmd.Parameters.Add("@CALIBRATION_NO", txtCalibration.Text)
-            cmd.Parameters.Add("@LAST_UPDATEBY", Login_Name_frmlogin)
-            ConnMyDB.Open()
+            cmd.CommandText = "INSERT INTO TRUCK (TRUCK_NO, CREATE_DATE, BLACKLIST, TRUCK_NO_HEAD, TRUCKTANK_NO, TRUCK_LICENSE, CARD_NO, COMPANY, CAL_DATE, CAL_EXPIRE, CAPACITY, CAPACITY_85, VAPOR, WEIGHT, WEIGHT_OIL, TRUCK_TYPE, TRUCK_WEIGHT, REMARK, UPDATE_DATE, CALIBRATION_NO, LAST_UPDATEBY) " _
+                                                & "VALUES (:TRUCK_NO, :CREATE_DATE, :BLACKLIST, :TRUCK_NO_HEAD, :TRUCKTANK_NO, :TRUCK_LICENSE, :CARD_NO, :COMPANY, :CAL_DATE, :CAL_EXPIRE, :CAPACITY, :CAPACITY_85, :VAPOR, :WEIGHT, :WEIGHT_OIL, :TRUCK_TYPE, :TRUCK_WEIGHT, :REMARK, :UPDATE_DATE, :CALIBRATION_NO, :LAST_UPDATEBY)"
+            cmd.BindByName = True
+            cmd.Parameters.Add("TRUCK_NO", txtTruck_No.Text)
+            cmd.Parameters.Add("CREATE_DATE", DateTime.Now)
+            cmd.Parameters.Add("BLACKLIST", "N")
+            cmd.Parameters.Add("TRUCK_NO_HEAD", txtTruck_No_Head.Text)
+            cmd.Parameters.Add("TRUCKTANK_NO", txtTruck_No_Tank.Text)
+            cmd.Parameters.Add("TRUCK_LICENSE", txtTruck_No_License.Text)
+            cmd.Parameters.Add("CARD_NO", txtCard_No.Text)
+            cmd.Parameters.Add("COMPANY", txtTruck_Company.Text)
+            cmd.Parameters.Add("CAL_DATE", Cal_Date.Value)
+            cmd.Parameters.Add("CAL_EXPIRE", Cal_Expire.Value)
+            cmd.Parameters.Add("CAPACITY", If(String.IsNullOrEmpty(txtCapacity.Text), 0, txtCapacity.Text))
+            cmd.Parameters.Add("CAPACITY_85", If(String.IsNullOrEmpty(txtCapacity_85.Text), 0, txtCapacity_85.Text))
+            cmd.Parameters.Add("VAPOR", If(String.IsNullOrEmpty(txtVapor.Text), 0, txtVapor.Text))
+            cmd.Parameters.Add("WEIGHT", If(String.IsNullOrEmpty(txtWeight.Text), 0, txtWeight.Text))
+            cmd.Parameters.Add("WEIGHT_OIL", If(String.IsNullOrEmpty(txtWeight_Oil.Text), 0, txtWeight_Oil.Text))
+            cmd.Parameters.Add("TRUCK_TYPE", If(OptTruck_Cus.Checked, "C", If(OptTruck_Ptt.Checked, "P", "")))
+            cmd.Parameters.Add("TRUCK_WEIGHT", If(OptWeight_Lpg.Checked, "L", If(OptWeight_Oil.Checked, "O", If(OptWeight_Other.Checked, "A", ""))))
+            cmd.Parameters.Add("REMARK", txtSpecial.Text)
+            cmd.Parameters.Add("UPDATE_DATE", DateTime.Now)
+            cmd.Parameters.Add("CALIBRATION_NO", txtCalibration.Text)
+            cmd.Parameters.Add("LAST_UPDATEBY", Login_Name_frmlogin)
             cmd.ExecuteNonQuery()
-            ConnMyDB.Close()
             Add_Event_lpg("Truck: User " & Login_Name_frmlogin & " เพิ่มข้อมูล รถบรรทุกก๊าซรหัส : " & txtTruck_No_Head.Text & " ตัวถังทะเบียน : " & txtTruck_No.Text & " ที่เครื่อง : " & get_name_pc(), "No", "PROGRAMS", "No", "No", "สร้าง", 0)
         Else
-            cmd.CommandText = "UPDATE TRUCK SET TRUCK_NO_HEAD = ?, TRUCKTANK_NO = ?, TRUCK_LICENSE = ?, CARD_NO = ?, COMPANY = ?, CAL_DATE = ?, CAL_EXPIRE = ?, CAPACITY = ?, CAPACITY_85 = ?, VAPOR = ?, WEIGHT = ?, WEIGHT_OIL = ?, TRUCK_TYPE = ?, TRUCK_WEIGHT = ?, REMARK = ?, UPDATE_DATE = ?, CALIBRATION_NO = ?, LAST_UPDATEBY = ? WHERE TRUCK_NO = ?"
-            cmd.Parameters.Add("@TRUCK_NO_HEAD", txtTruck_No_Head.Text)
-            cmd.Parameters.Add("@TRUCKTANK_NO", txtTruck_No_Tank.Text)
-            cmd.Parameters.Add("@TRUCK_LICENSE", txtTruck_No_License.Text)
-            cmd.Parameters.Add("@CARD_NO", txtCard_No.Text)
-            cmd.Parameters.Add("@COMPANY", txtTruck_Company.Text)
-            cmd.Parameters.Add("@CAL_DATE", Cal_Date.Value)
-            cmd.Parameters.Add("@CAL_EXPIRE", Cal_Expire.Value)
-            cmd.Parameters.Add("@CAPACITY", If(String.IsNullOrEmpty(txtCapacity.Text), 0, txtCapacity.Text))
-            cmd.Parameters.Add("@CAPACITY_85", If(String.IsNullOrEmpty(txtCapacity_85.Text), 0, txtCapacity_85.Text))
-            cmd.Parameters.Add("@VAPOR", If(String.IsNullOrEmpty(txtVapor.Text), 0, txtVapor.Text))
-            cmd.Parameters.Add("@WEIGHT", If(String.IsNullOrEmpty(txtWeight.Text), 0, txtWeight.Text))
-            cmd.Parameters.Add("@WEIGHT_OIL", If(String.IsNullOrEmpty(txtWeight_Oil.Text), 0, txtWeight_Oil.Text))
-            cmd.Parameters.Add("@TRUCK_TYPE", If(OptTruck_Cus.Checked, "C", If(OptTruck_Ptt.Checked, "P", "")))
-            cmd.Parameters.Add("@TRUCK_WEIGHT", If(OptWeight_Lpg.Checked, "L", If(OptWeight_Oil.Checked, "O", If(OptWeight_Other.Checked, "A", ""))))
-            cmd.Parameters.Add("@REMARK", txtSpecial.Text)
-            cmd.Parameters.Add("@UPDATE_DATE", DateTime.Now)
-            cmd.Parameters.Add("@CALIBRATION_NO", txtCalibration.Text)
-            cmd.Parameters.Add("@LAST_UPDATEBY", Login_Name_frmlogin)
-            cmd.Parameters.Add("@TRUCK_NO", txtTruck_No.Text)
-            ConnMyDB.Open()
+            cmd.CommandText = "UPDATE TRUCK SET TRUCK_NO_HEAD = :TRUCK_NO_HEAD, TRUCKTANK_NO = :TRUCKTANK_NO, TRUCK_LICENSE = :TRUCK_LICENSE, CARD_NO = :CARD_NO, COMPANY = :COMPANY, CAL_DATE = :CAL_DATE, CAL_EXPIRE = :CAL_EXPIRE, CAPACITY = :CAPACITY, CAPACITY_85 = :CAPACITY_85, VAPOR = :VAPOR, WEIGHT = :WEIGHT, WEIGHT_OIL = :WEIGHT_OIL, TRUCK_TYPE = :TRUCK_TYPE, TRUCK_WEIGHT = :TRUCK_WEIGHT, REMARK = :REMARK, UPDATE_DATE = :UPDATE_DATE, CALIBRATION_NO = :CALIBRATION_NO, LAST_UPDATEBY = :LAST_UPDATEBY WHERE TRUCK_NO = :TRUCK_NO"
+            cmd.BindByName = True
+            cmd.Parameters.Add("TRUCK_NO_HEAD", txtTruck_No_Head.Text)
+            cmd.Parameters.Add("TRUCKTANK_NO", txtTruck_No_Tank.Text)
+            cmd.Parameters.Add("TRUCK_LICENSE", txtTruck_No_License.Text)
+            cmd.Parameters.Add("CARD_NO", txtCard_No.Text)
+            cmd.Parameters.Add("COMPANY", txtTruck_Company.Text)
+            cmd.Parameters.Add("CAL_DATE", Cal_Date.Value)
+            cmd.Parameters.Add("CAL_EXPIRE", Cal_Expire.Value)
+            cmd.Parameters.Add("CAPACITY", If(String.IsNullOrEmpty(txtCapacity.Text), 0, txtCapacity.Text))
+            cmd.Parameters.Add("CAPACITY_85", If(String.IsNullOrEmpty(txtCapacity_85.Text), 0, txtCapacity_85.Text))
+            cmd.Parameters.Add("VAPOR", If(String.IsNullOrEmpty(txtVapor.Text), 0, txtVapor.Text))
+            cmd.Parameters.Add("WEIGHT", If(String.IsNullOrEmpty(txtWeight.Text), 0, txtWeight.Text))
+            cmd.Parameters.Add("WEIGHT_OIL", If(String.IsNullOrEmpty(txtWeight_Oil.Text), 0, txtWeight_Oil.Text))
+            cmd.Parameters.Add("TRUCK_TYPE", If(OptTruck_Cus.Checked, "C", If(OptTruck_Ptt.Checked, "P", "")))
+            cmd.Parameters.Add("TRUCK_WEIGHT", If(OptWeight_Lpg.Checked, "L", If(OptWeight_Oil.Checked, "O", If(OptWeight_Other.Checked, "A", ""))))
+            cmd.Parameters.Add("REMARK", txtSpecial.Text)
+            cmd.Parameters.Add("UPDATE_DATE", DateTime.Now)
+            cmd.Parameters.Add("CALIBRATION_NO", txtCalibration.Text)
+            cmd.Parameters.Add("LAST_UPDATEBY", Login_Name_frmlogin)
+            cmd.Parameters.Add("TRUCK_NO", txtTruck_No.Text)
+
             cmd.ExecuteNonQuery()
-            ConnMyDB.Close()
             Add_Event_lpg("Truck: User " & Login_Name_frmlogin & " แก้ไขข้อมูล รถบรรทุกก๊าซรหัส : " & txtTruck_No_Head.Text & " ตัวถังทะเบียน : " & txtTruck_No.Text & " ที่เครื่อง : " & get_name_pc(), "No", "PROGRAMS", "No", "No", "แก้ไข", 0)
         End If
 
         MessageBox.Show("บันทึกข้อมูลเรียบร้อย", "รายงาน", MessageBoxButtons.OK, MessageBoxIcon.Information)
-        cmd.CommandText = "UPDATE card SET truck_no = ? WHERE card_no = ?"
+        cmd.CommandText = "UPDATE card SET truck_no = :truck_no WHERE card_no = :card_no"
         cmd.Parameters.Clear()
-        cmd.Parameters.Add("@truck_no", txtTruck_No.Text)
-        cmd.Parameters.Add("@card_no", txtCard_No.Text)
-        ConnMyDB.Open()
+        cmd.Parameters.Add("truck_no", txtTruck_No.Text)
+        cmd.Parameters.Add("card_no", txtCard_No.Text)
         cmd.ExecuteNonQuery()
-        ConnMyDB.Close()
         OptionButton_Click("Cancle")
 
         SetupgrdTruck()
@@ -317,9 +311,8 @@ Public Class Truck
         Dim TotalRec As Integer
 
         Dim Statement As String = "SELECT * FROM TRUCK ORDER BY TRUCK_NO"
-        Dim rs As New OracleDataAdapter(Statement, ConnMyDB)
-        Dim dt As New DataTable()
-        rs.Fill(dt)
+        Dim cmd As New OracleCommand(Statement)
+        Dim dt As DataTable = ConnMyDB.ExecuteQuery(Statement)
         TotalRec = dt.Rows.Count
 
         If TotalRec <= 0 Then
@@ -388,7 +381,7 @@ Public Class Truck
 
         For c = 0 To grdTruck.Columns.Count - 1
             For r = 0 To grdTruck.Rows.Count - 1
-                col_wid(c) = If(TextRenderer.MeasureText(grdTruck.Rows(r).Cells(c).Value?.ToString(), grdTruck.Font).Width > col_wid(c), TextRenderer.MeasureText(grdTruck.Rows(r).Cells(c).Value.ToString(), grdTruck.Font).Width, col_wid(c))
+                col_wid(c) = If(TextRenderer.MeasureText(grdTruck.Rows(r).Cells(c).Value?.ToString(), grdTruck.Font).Width > col_wid(c), TextRenderer.MeasureText(grdTruck.Rows(r).Cells(c).Value?.ToString(), grdTruck.Font).Width, col_wid(c))
             Next
         Next
 
@@ -596,8 +589,9 @@ Public Class Truck
 
     Private Sub Check_Code(TRUCK_ID As String)
         Using conn As New OracleConnection("Your Connection String Here")
-            Dim cmd As New OracleCommand("SELECT TRUCK_NO FROM oiltruck WHERE (TRUCK_NO = ?)", conn)
-            cmd.Parameters.Add("?", TRUCK_ID)
+            Dim cmd As New OracleCommand("SELECT TRUCK_NO FROM oiltruck WHERE (TRUCK_NO = :TRUCK_NO)", conn)
+            cmd.BindByName = True
+            cmd.Parameters.Add("TRUCK_NO", TRUCK_ID)
             conn.Open()
             Using reader As OracleDataReader = cmd.ExecuteReader()
                 If reader.HasRows Then
@@ -660,7 +654,7 @@ Public Class Truck
 
     Private Sub Show_Company()
         Dim Statement As String = "SELECT COMPANY_NAME FROM COMPANY ORDER BY COMPANY_NAME"
-        Dim cmd As New OracleCommand(Statement, ConnMyDB)
+        Dim cmd As New OracleCommand(Statement)
 
         Dim dt As DataTable = ConnMyDB.ExecuteQuery(cmd)
         If dt.Rows.Count <= 0 Then
@@ -835,8 +829,9 @@ Public Class Truck
 
         Using conn As New OracleConnection("Your Connection String Here")
             conn.Open()
-            Dim cmd As New OracleCommand("SELECT * FROM RELATION_TRUCK_DRIVER WHERE TRUCK_NO = @TruckNo", conn)
-            cmd.Parameters.Add("@TruckNo", txtTruck_No.Text)
+            Dim cmd As New OracleCommand("SELECT * FROM RELATION_TRUCK_DRIVER WHERE TRUCK_NO = :TruckNo", conn)
+            cmd.BindByName = True
+            cmd.Parameters.Add(":TruckNo", txtTruck_No.Text)
             Dim reader As OracleDataReader = cmd.ExecuteReader()
             If reader.HasRows Then
                 MessageBox.Show("ไม่สามารถลบข้อมูลได้เนื่องจาก มีความสัมพันธ์กับข้อมูลอื่นอยู่", "รายงาน", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
@@ -851,8 +846,9 @@ Public Class Truck
 
         Using conn As New OracleConnection("Your Connection String Here")
             conn.Open()
-            Dim cmd As New OracleCommand("SELECT * FROM TRUCK WHERE TRUCK_NO = @TruckNo", conn)
-            cmd.Parameters.Add("@TruckNo", txtTruck_No.Text)
+            Dim cmd As New OracleCommand("SELECT * FROM TRUCK WHERE TRUCK_NO = :TruckNo", conn)
+            cmd.BindByName = True
+            cmd.Parameters.Add("TruckNo", txtTruck_No.Text)
             Dim reader As OracleDataReader = cmd.ExecuteReader()
             If Not reader.HasRows Then
                 MessageBox.Show("ข้อมูลที่คุณต้องการลบยังไม่มีในระบบ", "รายงาน", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
@@ -862,7 +858,8 @@ Public Class Truck
                 Btn_Delete.Visible = True
             Else
                 reader.Close()
-                cmd.CommandText = "DELETE FROM TRUCK WHERE TRUCK_NO = @TruckNo"
+                cmd.CommandText = "DELETE FROM TRUCK WHERE TRUCK_NO = :TruckNo"
+                cmd.Parameters.Add("TruckNo", txtTruck_No.Text)
                 cmd.ExecuteNonQuery()
                 MessageBox.Show("ลบข้อมูลรถบรรทุกก๊าซหมายเลขทะเบียน " & txtTruck_No.Text & " ออกจากระบบเรียบร้อยแล้ว.", "รายงาน", MessageBoxButtons.OK, MessageBoxIcon.Information)
                 OptionButton_Click("Cancle")
@@ -911,7 +908,6 @@ Public Class Truck
 
     Private Sub Btn_Print_Click(sender As Object, e As EventArgs)
         Btn_Print.Visible = False
-        'PrintClick.Image = My.Resources._13
         OptionButton_Click("Print")
         If IO.File.Exists("C:\TASLPGSK\ReportDatabase.exe") Then
             Process.Start("C:\TASLPGSK\ReportDatabase.exe")
@@ -925,7 +921,6 @@ Public Class Truck
     Private Sub Image_Save_Click(sender As Object, e As EventArgs) Handles Image_Save.Click
         Image_Save.Visible = False
         SaveClick.Visible = True
-        'SaveClick.Image = My.Resources._22
 
         If Not (OptWeight_Lpg.Checked Or OptWeight_Oil.Checked Or OptWeight_Other.Checked) Then
             MessageBox.Show("กรุณาเลือกชนิดของรถ (ขึ้นตาชั่ง)", "รายงาน", MessageBoxButtons.OK, MessageBoxIcon.Error)

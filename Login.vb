@@ -92,12 +92,12 @@ Public Class Login
         Dim cmd As New OracleCommand()
 
         Try
-            ConnMyDB.Open()
-            CHECK_Statement = "SELECT NAME, GROUP_NAME, PASSWORD_EXPIRE FROM OPERATOR1 WHERE UPPER(USERNAME) = @username AND TRIM(PASSWORD) = @password"
-            cmd.Connection = ConnMyDB
+            CHECK_Statement = "SELECT NAME, GROUP_NAME, PASSWORD_EXPIRE FROM OPERATOR1 WHERE UPPER(USERNAME) = :username AND TRIM(PASSWORD) = :password"
             cmd.CommandText = CHECK_Statement
-            cmd.Parameters.Add("@username", STR_USER.ToUpper())
-            cmd.Parameters.Add("@password", Trim(encode(Trim(STR_PASSWORD.ToUpper()))))
+            cmd.BindByName = True
+
+            cmd.Parameters.Add("username", STR_USER.ToUpper())
+            cmd.Parameters.Add("password", Trim(encode(Trim(STR_PASSWORD.ToUpper()))))
 
             CHECK_RS = cmd.ExecuteReader()
 
@@ -119,7 +119,6 @@ Public Class Login
         Catch ex As Exception
             MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         Finally
-            ConnMyDB.Close()
         End Try
 
         Return CHECK_LOGIN_FRM_LOGIN

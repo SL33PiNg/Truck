@@ -14,7 +14,6 @@ Public Class Company
         Dim cmd As New OracleCommand(Statement, ConnMyDB)
 
         Try
-            ConnMyDB.Open()
             BS = cmd.ExecuteReader()
 
             If Not BS.HasRows Then
@@ -30,12 +29,8 @@ Public Class Company
             MessageBox.Show("Error: " & ex.Message)
         Finally
             If BS IsNot Nothing Then BS.Close()
-            ConnMyDB.Close()
         End Try
-        'Mockup Data
-        'ListCompany.Items.Add("PT. A")
-        'ListCompany.Items.Add("PT. B")
-        'ListCompany.Items.Add("PT. C")
+
     End Sub
 
     Private Sub ListCompany_DoubleClick(sender As Object, e As EventArgs) Handles ListCompany.DoubleClick
