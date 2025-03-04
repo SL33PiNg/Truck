@@ -662,9 +662,8 @@ Public Class Truck
         Dim Statement As String = "SELECT COMPANY_NAME FROM COMPANY ORDER BY COMPANY_NAME"
         Dim cmd As New OracleCommand(Statement, ConnMyDB)
 
-        rs = cmd.ExecuteReader()
-
-        If Not rs.HasRows Then
+        Dim dt As DataTable = ConnMyDB.ExecuteQuery(cmd)
+        If dt.Rows.Count <= 0 Then
             txtTruck_Company.Items.Clear()
             txtTruck_Company.Items.Add(" ")
             Exit Sub
@@ -672,10 +671,24 @@ Public Class Truck
 
         txtTruck_Company.Items.Clear()
         txtTruck_Company.Items.Add(" ")
-        While rs.Read()
-            txtTruck_Company.Items.Add(rs("COMPANY_NAME").ToString())
-        End While
-        rs.Close()
+        For Each row As DataRow In dt.Rows
+            txtTruck_Company.Items.Add(row("COMPANY_NAME").ToString())
+        Next row
+
+
+        'rs = cmd.ExecuteReader()
+        'If Not rs.HasRows Then
+        '    txtTruck_Company.Items.Clear()
+        '    txtTruck_Company.Items.Add(" ")
+        '    Exit Sub
+        'End If
+
+        'txtTruck_Company.Items.Clear()
+        'txtTruck_Company.Items.Add(" ")
+        'While rs.Read()
+        '    txtTruck_Company.Items.Add(rs("COMPANY_NAME").ToString())
+        'End While
+        'rs.Close()
     End Sub
 
     Public Sub Show_Driver()

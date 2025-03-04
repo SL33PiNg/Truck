@@ -4,7 +4,7 @@ Imports Oracle.ManagedDataAccess.Client
 
 Module Module1
 
-    Public ConnMyDB As New OracleConnection() 'สร้าง Connection เพื่อเชื่อมต่อกับฐานข้อมูล TAS
+    'Public ConnMyDB As New OracleConnection() 'สร้าง Connection เพื่อเชื่อมต่อกับฐานข้อมูล TAS
     Public ConnMyDBOutBound As New OracleConnection() 'สร้าง Connection เพื่อเชื่อมต่อกับฐานข้อมูล OutBound
     Public ConnMyDBMaster As New OracleConnection() 'สร้าง Connection เพื่อเชื่อมต่อกับฐานข้อมูล Master Data
     Public rs As OracleDataReader 'สร้างการเชื่อมต่อเข้ากับตาราง (ตัวหลัก)
@@ -45,7 +45,7 @@ Module Module1
 
     Function OpenDataBaseMasterData() As Boolean
         OpenDataBaseMasterData = False
-        Dim strConnction As String = System.Configuration.ConfigurationManager.ConnectionStrings(DBManagement.SAP_DB).ToString()
+        Dim strConnction As String = Configuration.ConfigurationManager.ConnectionStrings(DBManagement.SAP_DB).ToString()
         Try
             ConnMyDBMaster = New OracleConnection(strConnction)
             ConnMyDBMaster.Open()
@@ -62,33 +62,34 @@ Module Module1
         End If
     End Sub
 
-    Public ConnMyDB2 As DBManagement
-    Public Sub OpenDataBase2()
+    Public ConnMyDB As DBManagement
+    Public Sub OpenDataBase()
         Try
-            If ConnMyDB2 Is Nothing Then
-                ConnMyDB2 = New DBManagement(DBManagement.TAS_DB)
+            If ConnMyDB Is Nothing Then
+                ConnMyDB = New DBManagement(DBManagement.TAS_DB)
+                ConnMyDB.Open()
             End If
         Catch
 
         End Try
     End Sub
-    Public Sub OpenDataBase()
-        Dim strConnction As String = System.Configuration.ConfigurationManager.ConnectionStrings(DBManagement.TAS_DB).ToString()
-        Try
-            ConnMyDB = New OracleConnection(strConnction)
-            ConnMyDB.Open()
-        Catch ex As Exception
-            MsgBox("Error : " & ex.Message)
-            End
-        End Try
-    End Sub
+    'Public Sub OpenDataBase()
+    '    Dim strConnction As String = System.Configuration.ConfigurationManager.ConnectionStrings(DBManagement.TAS_DB).ToString()
+    '    Try
+    '        ConnMyDB = New OracleConnection(strConnction)
+    '        ConnMyDB.Open()
+    '    Catch ex As Exception
+    '        MsgBox("Error : " & ex.Message)
+    '        End
+    '    End Try
+    'End Sub
 
-    Public Sub CloseDtatBase()
-        If ConnMyDB.State = ConnectionState.Open Then
-            ConnMyDB.Close()
-            ConnMyDB = Nothing
-        End If
-    End Sub
+    'Public Sub CloseDtatBase()
+    '    If ConnMyDB.State = ConnectionState.Open Then
+    '        ConnMyDB.Close()
+    '        ConnMyDB = Nothing
+    '    End If
+    'End Sub
 
     Public Sub ClearForm(frm As Form)
         For Each Ctl As Control In frm.Controls
