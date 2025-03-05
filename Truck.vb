@@ -761,7 +761,7 @@ Public Class Truck
     End Sub
 
     Public Sub btnCreated_clicks()
-        Btn_Add.Visible = False
+        'Btn_Add.Visible = False
         'AddClick.Visible = True
         OptionButton_Click("Add")
         If Not CHECK_PRIORITY(PRIORITY_frmlogin, "CREATED", "ข้อมูลรถบรรทุก LPG") Then
@@ -839,7 +839,7 @@ Public Class Truck
             End If
         End Using
 
-        Btn_Delete.Visible = False
+        'Btn_Delete.Visible = False
         OptionButton_Click("Delete")
 
         If String.IsNullOrEmpty(grdTruck.Text) Then Exit Sub
@@ -876,7 +876,7 @@ Public Class Truck
     End Sub
 
     Public Sub btnedit_clicks()
-        Btn_Edit.Visible = False
+        'Btn_Edit.Visible = False
         OptionButton_Click("Edit")
 
         If Not CHECK_PRIORITY(PRIORITY_frmlogin, "EDIT", "ข้อมูลรถบรรทุก LPG") Then
@@ -906,8 +906,8 @@ Public Class Truck
         End If
     End Sub
 
-    Private Sub Btn_Print_Click(sender As Object, e As EventArgs)
-        Btn_Print.Visible = False
+    Private Sub Btn_Print_Click(sender As Object, e As EventArgs) Handles Btn_Print.Click
+        'Btn_Print.Visible = False
         OptionButton_Click("Print")
         If IO.File.Exists("C:\TASLPGSK\ReportDatabase.exe") Then
             Process.Start("C:\TASLPGSK\ReportDatabase.exe")
@@ -916,11 +916,11 @@ Public Class Truck
             MessageBox.Show("ไม่พบ Program ReportDatabase.exe ที่ Path C:\TASLPGSK", "รายงาน", MessageBoxButtons.OK, MessageBoxIcon.Error)
             btnCancel_click()
         End If
+        btnCancel_click()
     End Sub
 
     Private Sub Image_Save_Click(sender As Object, e As EventArgs) Handles Image_Save.Click
-        Image_Save.Visible = False
-        SaveClick.Visible = True
+        'SaveClick.Visible = True
 
         If Not (OptWeight_Lpg.Checked Or OptWeight_Oil.Checked Or OptWeight_Other.Checked) Then
             MessageBox.Show("กรุณาเลือกชนิดของรถ (ขึ้นตาชั่ง)", "รายงาน", MessageBoxButtons.OK, MessageBoxIcon.Error)
@@ -1068,8 +1068,8 @@ Public Class Truck
         txtTruck_No_Head.ReadOnly = False
     End Sub
 
-    Private Sub Btn_Search_Click(sender As Object, e As EventArgs)
-        Btn_Search.Visible = False
+    Private Sub Btn_Search_Click(sender As Object, e As EventArgs) Handles Btn_Search.Click
+        'Btn_Search.Visible = False
         OptionButton_Click("Search")
         ClearForm(Me)
         ClearOption()

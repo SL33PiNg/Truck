@@ -4,10 +4,10 @@ Imports Oracle.ManagedDataAccess.Client
 
 Module Module1
 
-    'Public ConnMyDB As New OracleConnection() 'สร้าง Connection เพื่อเชื่อมต่อกับฐานข้อมูล TAS
-    Public ConnMyDBOutBound As New OracleConnection() 'สร้าง Connection เพื่อเชื่อมต่อกับฐานข้อมูล OutBound
-    Public ConnMyDBMaster As New OracleConnection() 'สร้าง Connection เพื่อเชื่อมต่อกับฐานข้อมูล Master Data
-    Public rs As OracleDataReader 'สร้างการเชื่อมต่อเข้ากับตาราง (ตัวหลัก)
+    Public ConnMyDB As DBManagement    'สร้าง Connection เพื่อเชื่อมต่อกับฐานข้อมูล TAS
+    Public ConnMyDBOutBound As DBManagement 'สร้าง Connection เพื่อเชื่อมต่อกับฐานข้อมูล OutBound
+    Public ConnMyDBMaster As DBManagement 'สร้าง Connection เพื่อเชื่อมต่อกับฐานข้อมูล Master Data
+    'Public rs As OracleDataReader 'สร้างการเชื่อมต่อเข้ากับตาราง (ตัวหลัก)
     Public rs2 As OracleDataReader
     Public rs3 As OracleDataReader
     Public rs4 As OracleDataReader
@@ -45,11 +45,13 @@ Module Module1
 
     Function OpenDataBaseMasterData() As Boolean
         OpenDataBaseMasterData = False
-        Dim strConnction As String = Configuration.ConfigurationManager.ConnectionStrings(DBManagement.SAP_DB).ToString()
+
         Try
-            ConnMyDBMaster = New OracleConnection(strConnction)
-            ConnMyDBMaster.Open()
-            OpenDataBaseMasterData = True
+            If ConnMyDBMaster Is Nothing Then
+                ConnMyDBMaster = New OracleConnection(DBManagement.SAP_DB)
+                ConnMyDBMaster.Open()
+                OpenDataBaseMasterData = True
+            End If
         Catch ex As Exception
             OpenDataBaseMasterData = False
         End Try
@@ -62,7 +64,6 @@ Module Module1
         End If
     End Sub
 
-    Public ConnMyDB As DBManagement
     Public Sub OpenDataBase()
         Try
             If ConnMyDB Is Nothing Then

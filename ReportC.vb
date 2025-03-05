@@ -92,6 +92,8 @@ Public Class ReportC
         ElseIf op5.Checked Then
             Return TruckQueryOptions.OP5
         End If
+        Throw New Exception("Option Not Select")
+
     End Function
 
     Public Function GetStrSort() As String
@@ -321,7 +323,6 @@ Public Class ReportC
 
     Private Sub save_printManual(STR_S As Integer)
 
-        Dim str_sqls As String
 
         If MessageBox.Show("คุณต้องการพิมพ์ใบแจ้งเตือนครั้งที่ " & STR_S & " ใช้หรือไม่", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) <> DialogResult.Yes Then
             Exit Sub

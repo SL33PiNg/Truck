@@ -17,9 +17,6 @@ Public Class SearchTruck
     End Sub
 
     Private Sub cmdSearch_Click(sender As Object, e As EventArgs) Handles cmdSearch.Click
-        Dim col_wid(19) As Single
-        Dim r As Integer
-        Dim c As Integer
 
         setdg()
         dg.Refresh()
@@ -35,8 +32,6 @@ Public Class SearchTruck
             Exit Sub
         End If
 
-        Dim rs As OracleDataReader
-        Dim cmd As New OracleCommand()
 
         Select Case cbTypeSearch.Text
             Case "หมายเลขทะเบียนตัวถัง"
@@ -65,65 +60,48 @@ Public Class SearchTruck
                 TypeSearch = "SELECT * FROM TASLPGSK.TRUCK WHERE (WEIGHT like '%" & txtSearch_Truck.Text & "%')"
         End Select
 
-        cmd.CommandText = TypeSearch
-        cmd.Connection = Module1.ConnMyDB
-        rs = cmd.ExecuteReader()
 
-        countrec = 0
-        While rs.Read()
-            countrec += 1
-        End While
+        Dim rs_dt = ConnMyDB.ExecuteQuery(TypeSearch)
 
-        If countrec <= 0 Then
+        If rs_dt.Rows.Count <= 0 Then
             MessageBox.Show("ยังไม่มีข้อมูลอยู่ในระบบ.", "รายงาน", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
             txtSearch_Truck.Text = ""
             txtSearch_Truck.Focus()
-            rs.Close()
             Exit Sub
         End If
 
         dg.Rows.Clear()
-        dg.Rows.Add(countrec + 1)
+        dg.Rows.Add(rs_dt.Rows.Count)
 
-        rs = cmd.ExecuteReader()
-        Dim rowIndex As Integer = 1
-        While rs.Read()
-            dg.Rows(rowIndex).Cells(0).Value = rs("TRUCK_NO").ToString()
-            dg.Rows(rowIndex).Cells(1).Value = rs("TRUCK_NO_HEAD").ToString()
-            dg.Rows(rowIndex).Cells(2).Value = rs("TRUCKTANK_NO").ToString()
-            dg.Rows(rowIndex).Cells(3).Value = rs("TRUCK_LICENSE").ToString()
-            dg.Rows(rowIndex).Cells(4).Value = rs("CARD_NO").ToString()
-            dg.Rows(rowIndex).Cells(5).Value = rs("DRIVER_NO").ToString()
-            dg.Rows(rowIndex).Cells(6).Value = rs("COMPANY").ToString()
-            dg.Rows(rowIndex).Cells(7).Value = rs("CAL_DATE").ToString()
-            dg.Rows(rowIndex).Cells(8).Value = rs("CAL_EXPIRE").ToString()
-            dg.Rows(rowIndex).Cells(9).Value = rs("CAPACITY").ToString()
-            dg.Rows(rowIndex).Cells(10).Value = rs("CAPACITY_85").ToString()
-            dg.Rows(rowIndex).Cells(11).Value = rs("VAPOR").ToString()
-            dg.Rows(rowIndex).Cells(12).Value = rs("WEIGHT").ToString()
-            dg.Rows(rowIndex).Cells(13).Value = If(rs("TRUCK_TYPE").ToString() = "C", "รถลูกค้ารับเอง", "ปตท.จัดส่ง")
-            dg.Rows(rowIndex).Cells(14).Value = If(rs("BLACKLIST").ToString() = "Y", "Yes", "No")
-            dg.Rows(rowIndex).Cells(15).Value = If(rs("BLACKLIST").ToString() = "Y", If(rs("BLACKLIST_FROM").ToString() = "1", "รถสภาพต่ำกว่ามาตรฐาน", If(rs("BLACKLIST_FROM").ToString() = "2", "รถปล.2 หมดอายุ", "อื่นๆ")), "-")
-            dg.Rows(rowIndex).Cells(16).Value = rs("CONFIRM_NAME").ToString()
-            dg.Rows(rowIndex).Cells(17).Value = rs("REMARK").ToString()
-            dg.Rows(rowIndex).Cells(18).Value = rs("CREATE_DATE").ToString()
-            dg.Rows(rowIndex).Cells(19).Value = rs("UPDATE_DATE").ToString()
-            rowIndex += 1
-        End While
+        For rowIndex As Integer = 0 To rs_dt.Rows.Count - 1
+
+            dg.Rows(rowIndex).Cells(0).Value = rs_dt.Rows(rowIndex)("TRUCK_NO").ToString()
+            dg.Rows(rowIndex).Cells(1).Value = rs_dt.Rows(rowIndex)("TRUCK_NO_HEAD").ToString()
+            dg.Rows(rowIndex).Cells(2).Value = rs_dt.Rows(rowIndex)("TRUCKTANK_NO").ToString()
+            dg.Rows(rowIndex).Cells(3).Value = rs_dt.Rows(rowIndex)("TRUCK_LICENSE").ToString()
+            dg.Rows(rowIndex).Cells(4).Value = rs_dt.Rows(rowIndex)("CARD_NO").ToString()
+            dg.Rows(rowIndex).Cells(5).Value = rs_dt.Rows(rowIndex)("DRIVER_NO").ToString()
+            dg.Rows(rowIndex).Cells(6).Value = rs_dt.Rows(rowIndex)("COMPANY").ToString()
+            dg.Rows(rowIndex).Cells(7).Value = rs_dt.Rows(rowIndex)("CAL_DATE").ToString()
+            dg.Rows(rowIndex).Cells(8).Value = rs_dt.Rows(rowIndex)("CAL_EXPIRE").ToString()
+            dg.Rows(rowIndex).Cells(9).Value = rs_dt.Rows(rowIndex)("CAPACITY").ToString()
+            dg.Rows(rowIndex).Cells(10).Value = rs_dt.Rows(rowIndex)("CAPACITY_85").ToString()
+            dg.Rows(rowIndex).Cells(11).Value = rs_dt.Rows(rowIndex)("VAPOR").ToString()
+            dg.Rows(rowIndex).Cells(12).Value = rs_dt.Rows(rowIndex)("WEIGHT").ToString()
+            dg.Rows(rowIndex).Cells(13).Value = If(rs_dt.Rows(rowIndex)("TRUCK_TYPE").ToString() = "C", "รถลูกค้ารับเอง", "ปตท.จัดส่ง")
+            dg.Rows(rowIndex).Cells(14).Value = If(rs_dt.Rows(rowIndex)("BLACKLIST").ToString() = "Y", "Yes", "No")
+            dg.Rows(rowIndex).Cells(15).Value = If(rs_dt.Rows(rowIndex)("BLACKLIST").ToString() = "Y", If(rs_dt.Rows(rowIndex)("BLACKLIST_FROM").ToString() = "1", "รถสภาพต่ำกว่ามาตรฐาน", If(rs_dt.Rows(rowIndex)("BLACKLIST_FROM").ToString() = "2", "รถปล.2 หมดอายุ", "อื่นๆ")), "-")
+            dg.Rows(rowIndex).Cells(16).Value = rs_dt.Rows(rowIndex)("CONFIRM_NAME").ToString()
+            dg.Rows(rowIndex).Cells(17).Value = rs_dt.Rows(rowIndex)("REMARK").ToString()
+            dg.Rows(rowIndex).Cells(18).Value = rs_dt.Rows(rowIndex)("CREATE_DATE").ToString()
+            dg.Rows(rowIndex).Cells(19).Value = rs_dt.Rows(rowIndex)("UPDATE_DATE").ToString()
+
+        Next
 
         txtSearch_Truck.Text = ""
-        rs.Close()
 
-        For c = 0 To dg.Columns.Count - 1
-            For r = 0 To dg.Rows.Count - 1
-                col_wid(c) = Math.Max(TextRenderer.MeasureText(dg.Rows(r).Cells(c).Value.ToString(), dg.Font).Width, col_wid(c))
-            Next r
-        Next c
 
-        For c = 0 To dg.Columns.Count - 1
-            dg.Columns(c).Width = col_wid(c) + 240
-            dg.Columns(c).DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft
-        Next c
+
     End Sub
 
     Private Sub dg_Click(sender As Object, e As EventArgs) Handles dg.Click
