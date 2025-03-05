@@ -6,7 +6,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{E7F13AEB-3627-479A-AB91-0C5C3D3847BD}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <StartupObject>Truck.ReportC</StartupObject>
+    <StartupObject>Truck.My.MyApplication</StartupObject>
     <RootNamespace>Truck</RootNamespace>
     <AssemblyName>Truck</AssemblyName>
     <FileAlignment>512</FileAlignment>
@@ -66,6 +66,7 @@
     </Reference>
     <Reference Include="System.Configuration" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Data.OracleClient" />
     <Reference Include="System.Deployment" />
     <Reference Include="System.Diagnostics.DiagnosticSource, Version=6.0.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>packages\System.Diagnostics.DiagnosticSource.6.0.1\lib\net461\System.Diagnostics.DiagnosticSource.dll</HintPath>
@@ -147,6 +148,11 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Module1.vb" />
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Application.myapp</DependentUpon>
+    </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Resources.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -177,6 +183,13 @@
       <SubType>Component</SubType>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
+    <Compile Include="Report\Truck_Report2.vb">
+      <DependentUpon>Truck_Report2.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <DesignTime>True</DesignTime>
+    </Compile>
     <Compile Include="Report\Truck_Report.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -201,6 +214,11 @@
     </Compile>
     <Compile Include="Truck.vb">
       <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TruckDS.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TruckDS.xsd</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -233,6 +251,11 @@
       <LastGenOutput>TruckAlarm.vb</LastGenOutput>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
+    <EmbeddedResource Include="Report\Truck_Report2.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Truck_Report2.vb</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
     <EmbeddedResource Include="Report\Truck_Report.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>Truck_Report.vb</LastGenOutput>
@@ -252,6 +275,7 @@
   <ItemGroup>
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
     </None>
     <None Include="My Project\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -266,6 +290,17 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="packages.config" />
+    <None Include="TruckDS.xsc">
+      <DependentUpon>TruckDS.xsd</DependentUpon>
+    </None>
+    <None Include="TruckDS.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>TruckDS.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="TruckDS.xss">
+      <DependentUpon>TruckDS.xsd</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />

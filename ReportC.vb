@@ -36,11 +36,8 @@ Public Class ReportC
     End Sub
 
     Private Sub cmdPrint_report_Click(sender As Object, e As EventArgs) Handles cmdPrint_report.Click
-        Dim Crystal As Object ' Replace with the appropriate Crystal Reports object
         Dim Value1 As String = String.Empty
         Dim Value2 As String = String.Empty
-        Crystal = CreateObject("CrystalRuntime.Application.9")
-        Dim report = Crystal.OpenReport(AppDomain.CurrentDomain.BaseDirectory & "\REPORT\Truck_Report.rpt")
 
         If op1.Checked Then
             Value1 = "ครั้งที่ 1 "
@@ -62,68 +59,92 @@ Public Class ReportC
             Value2 = "วันคงเหลือ"
         End If
 
-        report.ParameterFields.GetItemByName("str1").AddCurrentValue(Value1)
-        report.ParameterFields.GetItemByName("str2").AddCurrentValue(Value2)
-        With report.Database.Tables(1).ConnectionProperties
-            .Item("User ID") = "TASLPGSK"
-            .Item("password") = "PASSWORDTASLPGSK"
-        End With
-        report.PrintOut(False, 1, False, 1, 1)
+        Dim report As New ReportDocument()
+        report.Load(AppDomain.CurrentDomain.BaseDirectory & "\REPORT\Truck_Report2.rpt")
+
+        Dim dt As DataTable = QueryTruckCheck()
+        report.SetDataSource(dt)
+        report.SetParameterValue("str1", Value1)
+        report.SetParameterValue("str2", Value2)
+
+        report.PrintToPrinter(1, True, 1, 1)
     End Sub
+    Public Enum TruckQueryOptions
+        OP1
+        OP2
+        OP3
+        OP4
+        OP5
+        OP_MONTH
+    End Enum
 
-    Private Sub cmdVD_Click(sender As Object, e As EventArgs) Handles cmdVD.Click
-        Dim col_wid(22) As Single
-        Dim r As Integer
-        Dim c As Integer
-        Dim str_sort As String = String.Empty
-        Dim STR_SQL As String = String.Empty
-        Dim rs_report As New DataTable
-
-        If op_sort1.Checked Then
-            str_sort = "truck_no"
-        ElseIf op_sort2.Checked Then
-            str_sort = "company"
-        ElseIf op_sort3.Checked Then
-            str_sort = "cal_expire"
-        End If
-
+    Public Function GetOP() As TruckQueryOptions
         If op1.Checked Then
-            STR_SQL = "SELECT truck_no, company, ROUND(cal_expire - SYSDATE) AS num_date, date1, date2, cal_expire, count_print_auto1, count_print_auto2, " &
+            Return TruckQueryOptions.OP1
+        ElseIf op2.Checked Then
+            Return TruckQueryOptions.OP2
+        ElseIf op3.Checked Then
+            Return TruckQueryOptions.OP3
+        ElseIf op4.Checked Then
+            Return TruckQueryOptions.OP4
+        ElseIf opMonth.Checked Then
+            Return TruckQueryOptions.OP_MONTH
+        ElseIf op5.Checked Then
+            Return TruckQueryOptions.OP5
+        End If
+    End Function
+
+    Public Function GetStrSort() As String
+        If op_sort1.Checked Then
+            Return "truck_no"
+        ElseIf op_sort2.Checked Then
+            Return "company"
+        ElseIf op_sort3.Checked Then
+            Return "cal_expire"
+        End If
+        Return ""
+    End Function
+    Public Function QueryTruckCheck() As DataTable
+        Dim STR_SQL As String = String.Empty
+        Dim str_sort = GetStrSort()
+        Select Case GetOP()
+            Case TruckQueryOptions.OP1
+                STR_SQL = "SELECT truck_no, company, ROUND(cal_expire - SYSDATE) AS num_date, date1, date2, cal_expire, count_print_auto1, count_print_auto2, " &
                       "count_print_auto3, date_print1, date_print2, date_print3, count_print_manual1, count_print_manual2, count_print_manual3, ack_name1, " &
                       "ack_name2, ack_name3, ack1, ack2, ack3, comment_1, comment_2, comment_3 FROM truck WHERE ROUND(cal_expire - SYSDATE) <= " &
                       "(SELECT num_date1 FROM truck_config) AND ROUND(cal_expire - SYSDATE) > (SELECT num_date2 FROM truck_config) ORDER BY " & str_sort
-        ElseIf op2.Checked Then
-            STR_SQL = "SELECT truck_no, company, ROUND(cal_expire - SYSDATE) AS num_date, date1, date2, cal_expire, count_print_auto1, count_print_auto2, " &
+            Case TruckQueryOptions.OP2
+                STR_SQL = "SELECT truck_no, company, ROUND(cal_expire - SYSDATE) AS num_date, date1, date2, cal_expire, count_print_auto1, count_print_auto2, " &
                       "count_print_auto3, date_print1, date_print2, date_print3, count_print_manual1, count_print_manual2, count_print_manual3, ack_name1, " &
                       "ack_name2, ack_name3, ack1, ack2, ack3, comment_1, comment_2, comment_3 FROM truck WHERE ROUND(cal_expire - SYSDATE) <= " &
                       "(SELECT num_date2 FROM truck_config) AND ROUND(cal_expire - SYSDATE) >= 0 ORDER BY " & str_sort
-        ElseIf op3.Checked Then
-            STR_SQL = "SELECT truck_no, company, ROUND(cal_expire - SYSDATE) AS num_date, date1, date2, cal_expire, count_print_auto1, count_print_auto2, " &
+            Case TruckQueryOptions.OP3
+                STR_SQL = "SELECT truck_no, company, ROUND(cal_expire - SYSDATE) AS num_date, date1, date2, cal_expire, count_print_auto1, count_print_auto2, " &
                       "count_print_auto3, date_print1, date_print2, date_print3, count_print_manual1, count_print_manual2, count_print_manual3, ack_name1, " &
                       "ack_name2, ack_name3, ack1, ack2, ack3, comment_1, comment_2, comment_3 FROM truck WHERE ROUND(cal_expire - SYSDATE) < 0 ORDER BY " & str_sort
-        ElseIf op4.Checked Then
-            STR_SQL = "SELECT truck_no, company, ROUND(cal_expire - SYSDATE) AS num_date, date1, date2, cal_expire, count_print_auto1, count_print_auto2, " &
+            Case TruckQueryOptions.OP4
+                STR_SQL = "SELECT truck_no, company, ROUND(cal_expire - SYSDATE) AS num_date, date1, date2, cal_expire, count_print_auto1, count_print_auto2, " &
                       "count_print_auto3, date_print1, date_print2, date_print3, count_print_manual1, count_print_manual2, count_print_manual3, ack_name1, " &
                       "ack_name2, ack_name3, ack1, ack2, ack3, comment_1, comment_2, comment_3 FROM truck WHERE cal_expire BETWEEN TO_DATE('" & dt1.Value.ToString("dd/MM/yyyy") & "', 'dd/MM/yyyy') AND " &
                       "TO_DATE('" & dt2.Value.ToString("dd/MM/yyyy") & "', 'dd/MM/yyyy') ORDER BY " & str_sort
-        ElseIf opMonth.Checked Then
-            STR_SQL = "SELECT truck_no, company, ROUND(cal_expire - SYSDATE) AS num_date, date1, date2, cal_expire, count_print_auto1, count_print_auto2, " &
-                      "count_print_auto3, date_print1, date_print2, date_print3, count_print_manual1, count_print_manual2, count_print_manual3, ack_name1, " &
-                      "ack_name2, ack_name3, ack1, ack2, ack3, comment_1, comment_2, comment_3 FROM truck WHERE TO_CHAR(date1, 'MM/yyyy') = '" & dtMonth.Value.ToString("MM/yyyy") & "' ORDER BY " & str_sort
-        ElseIf op5.Checked Then
-            STR_SQL = "SELECT truck_no, company, ROUND(cal_expire - SYSDATE) AS num_date, date1, date2, cal_expire, count_print_auto1, count_print_auto2, " &
+            Case TruckQueryOptions.OP5
+                STR_SQL = "SELECT truck_no, company, ROUND(cal_expire - SYSDATE) AS num_date, date1, date2, cal_expire, count_print_auto1, count_print_auto2, " &
                       "count_print_auto3, date_print1, date_print2, date_print3, count_print_manual1, count_print_manual2, count_print_manual3, ack_name1, " &
                       "ack_name2, ack_name3, ack1, ack2, ack3, comment_1, comment_2, comment_3 FROM truck ORDER BY " & str_sort
-        End If
+            Case TruckQueryOptions.OP_MONTH
+                STR_SQL = "SELECT truck_no, company, ROUND(cal_expire - SYSDATE) AS num_date, date1, date2, cal_expire, count_print_auto1, count_print_auto2, " &
+                      "count_print_auto3, date_print1, date_print2, date_print3, count_print_manual1, count_print_manual2, count_print_manual3, ack_name1, " &
+                      "ack_name2, ack_name3, ack1, ack2, ack3, comment_1, comment_2, comment_3 FROM truck WHERE TO_CHAR(date1, 'MM/yyyy') = '" & dtMonth.Value.ToString("MM/yyyy") & "' ORDER BY " & str_sort
+        End Select
 
+        Dim dt As DataTable = ConnMyDB.ExecuteQuery(STR_SQL)
+        Return dt
 
+    End Function
 
-        Using cmd As New OracleCommand(STR_SQL, Module1.ConnMyDB)
-            Using adapter As New OracleDataAdapter(cmd)
-                adapter.Fill(rs_report)
-            End Using
-        End Using
+    Private Sub cmdVD_Click(sender As Object, e As EventArgs) Handles cmdVD.Click
 
+        Dim rs_report As DataTable = QueryTruckCheck()
 
         set_header_grd()
 
@@ -133,43 +154,33 @@ Public Class ReportC
         End If
 
         grdComment.Rows.Clear()
-        grdComment.Rows.Add(rs_report.Rows.Count + 1)
+        grdComment.Rows.Add(rs_report.Rows.Count)
 
         For i As Integer = 0 To rs_report.Rows.Count - 1
-            grdComment.Rows(i + 1).Cells(0).Value = i + 1
-            grdComment.Rows(i + 1).Cells(1).Value = rs_report.Rows(i)("truck_no")
-            grdComment.Rows(i + 1).Cells(2).Value = rs_report.Rows(i)("company")
-            grdComment.Rows(i + 1).Cells(3).Value = rs_report.Rows(i)("num_date")
-            grdComment.Rows(i + 1).Cells(4).Value = rs_report.Rows(i)("date1")
-            grdComment.Rows(i + 1).Cells(5).Value = rs_report.Rows(i)("date2")
-            grdComment.Rows(i + 1).Cells(6).Value = rs_report.Rows(i)("cal_expire")
-            grdComment.Rows(i + 1).Cells(7).Value = rs_report.Rows(i)("count_print_auto1")
-            grdComment.Rows(i + 1).Cells(8).Value = rs_report.Rows(i)("count_print_auto2")
-            grdComment.Rows(i + 1).Cells(9).Value = rs_report.Rows(i)("count_print_auto3")
-            grdComment.Rows(i + 1).Cells(10).Value = rs_report.Rows(i)("date_print1").ToString()
-            grdComment.Rows(i + 1).Cells(11).Value = rs_report.Rows(i)("date_print2").ToString()
-            grdComment.Rows(i + 1).Cells(12).Value = rs_report.Rows(i)("date_print3").ToString()
-            grdComment.Rows(i + 1).Cells(13).Value = rs_report.Rows(i)("count_print_manual1").ToString()
-            grdComment.Rows(i + 1).Cells(14).Value = rs_report.Rows(i)("count_print_manual2").ToString()
-            grdComment.Rows(i + 1).Cells(15).Value = rs_report.Rows(i)("count_print_manual3").ToString()
-            grdComment.Rows(i + 1).Cells(16).Value = rs_report.Rows(i)("ack_name1").ToString()
-            grdComment.Rows(i + 1).Cells(17).Value = rs_report.Rows(i)("ack_name2").ToString()
-            grdComment.Rows(i + 1).Cells(18).Value = rs_report.Rows(i)("ack_name3").ToString()
-            grdComment.Rows(i + 1).Cells(19).Value = rs_report.Rows(i)("comment_1").ToString()
-            grdComment.Rows(i + 1).Cells(20).Value = rs_report.Rows(i)("comment_2").ToString()
-            grdComment.Rows(i + 1).Cells(21).Value = rs_report.Rows(i)("comment_3").ToString()
+            grdComment.Rows(i).Cells(0).Value = i + 1
+            grdComment.Rows(i).Cells(1).Value = rs_report.Rows(i)("truck_no")
+            grdComment.Rows(i).Cells(2).Value = rs_report.Rows(i)("company")
+            grdComment.Rows(i).Cells(3).Value = rs_report.Rows(i)("num_date")
+            grdComment.Rows(i).Cells(4).Value = rs_report.Rows(i)("date1")
+            grdComment.Rows(i).Cells(5).Value = rs_report.Rows(i)("date2")
+            grdComment.Rows(i).Cells(6).Value = rs_report.Rows(i)("cal_expire")
+            grdComment.Rows(i).Cells(7).Value = rs_report.Rows(i)("count_print_auto1")
+            grdComment.Rows(i).Cells(8).Value = rs_report.Rows(i)("count_print_auto2")
+            grdComment.Rows(i).Cells(9).Value = rs_report.Rows(i)("count_print_auto3")
+            grdComment.Rows(i).Cells(10).Value = rs_report.Rows(i)("date_print1").ToString()
+            grdComment.Rows(i).Cells(11).Value = rs_report.Rows(i)("date_print2").ToString()
+            grdComment.Rows(i).Cells(12).Value = rs_report.Rows(i)("date_print3").ToString()
+            grdComment.Rows(i).Cells(13).Value = rs_report.Rows(i)("count_print_manual1").ToString()
+            grdComment.Rows(i).Cells(14).Value = rs_report.Rows(i)("count_print_manual2").ToString()
+            grdComment.Rows(i).Cells(15).Value = rs_report.Rows(i)("count_print_manual3").ToString()
+            grdComment.Rows(i).Cells(16).Value = rs_report.Rows(i)("ack_name1").ToString()
+            grdComment.Rows(i).Cells(17).Value = rs_report.Rows(i)("ack_name2").ToString()
+            grdComment.Rows(i).Cells(18).Value = rs_report.Rows(i)("ack_name3").ToString()
+            grdComment.Rows(i).Cells(19).Value = rs_report.Rows(i)("comment_1").ToString()
+            grdComment.Rows(i).Cells(20).Value = rs_report.Rows(i)("comment_2").ToString()
+            grdComment.Rows(i).Cells(21).Value = rs_report.Rows(i)("comment_3").ToString()
         Next
 
-        For c = 0 To grdComment.ColumnCount - 1
-            For r = 0 To grdComment.RowCount - 1
-                col_wid(c) = Math.Max(TextRenderer.MeasureText(grdComment.Rows(r).Cells(c).Value?.ToString(), grdComment.Font).Width, col_wid(c))
-            Next
-        Next
-
-        For c = 0 To grdComment.ColumnCount - 1
-            grdComment.Columns(c).Width = col_wid(c) + 240
-            grdComment.Columns(c).DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft
-        Next
     End Sub
 
     Private Sub set_header_grd()
@@ -268,24 +279,6 @@ Public Class ReportC
         dt2.Value = Now
         dtMonth.Value = Now
 
-        'Mock grid
-        grdComment.Columns.Clear()
-        grdComment.Columns.Add("ลำดับ", "ลำดับ")
-        grdComment.Columns.Add("ทะเบียนรถ", "ทะเบียนรถ")
-        grdComment.Columns.Add("ชื่อบริษัท", "ชื่อบริษัท")
-        Dim row As New DataGridViewRow()
-        row.CreateCells(grdComment)
-        row.Cells(0).Value = "1"
-        row.Cells(1).Value = "1234"
-        row.Cells(2).Value = "Company 1"
-        grdComment.Rows.Add(row)
-        Dim row2 As New DataGridViewRow()
-        row2.CreateCells(grdComment)
-        row2.Cells(0).Value = "2"
-        row2.Cells(1).Value = "5678"
-        row2.Cells(2).Value = "Company 2"
-        grdComment.Rows.Add(row2)
-
     End Sub
 
     Private Sub grdComment_MouseDown(sender As Object, e As MouseEventArgs)
@@ -345,12 +338,12 @@ Public Class ReportC
 
         report.PrintToPrinter(1, True, 1, 1)
 
-        str_sqls = "UPDATE truck SET COUNT_PRINT_MANUAL" & STR_S & " = COUNT_PRINT_MANUAL" & STR_S & " + 1 WHERE truck_no = '" & Me.grdComment.SelectedRows(0).Cells(1).Value.ToString() & "'"
+        ' str_sqls = "UPDATE truck SET COUNT_PRINT_MANUAL" & STR_S & " = COUNT_PRINT_MANUAL" & STR_S & " + 1 WHERE truck_no = '" & Me.grdComment.SelectedRows(0).Cells(1).Value.ToString() & "'"
 
 
-        Using cmd As New OracleCommand(str_sqls, Module1.ConnMyDB)
-            cmd.ExecuteNonQuery()
-        End Using
+        'Using cmd As New OracleCommand(str_sqls, Module1.ConnMyDB)
+        '    cmd.ExecuteNonQuery()
+        'End Using
 
         Call cmdVD_Click(cmdVD, New EventArgs)
     End Sub

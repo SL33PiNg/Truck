@@ -62,9 +62,9 @@ Public Class DBManagement
             FlushCache()
             PurgeStatementCache()
             Dim da As New OracleDataAdapter(query, Me)
-            Dim ds As New DataSet()
-            da.Fill(ds, "Table1")
-            Return ds.Tables(0)
+            Dim dt As New DataTable()
+            da.Fill(dt)
+            Return dt
         Catch ex As OracleException
             Console.WriteLine(ex.Message)
             Return Nothing

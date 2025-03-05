@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="TruckDS" targetNamespace="http://tempuri.org/TruckDS.xsd" xmlns:mstns="http://tempuri.org/TruckDS.xsd" xmlns="http://tempuri.org/TruckDS.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="MySettings" AppSettingsPropertyName="TASLPGSK" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="TASLPGSK (MySettings)" PropertyReference="ApplicationSettings.Truck.My.MySettings.GlobalReference.Default.TASLPGSK" Provider="System.Data.OracleClient" />
+        </Connections>
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="TruckDS" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="TruckDS" msprop:Generator_UserDSName="TruckDS">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="VIEW_TRUCK_CHECK" msprop:Generator_TableClassName="VIEW_TRUCK_CHECKDataTable" msprop:Generator_TableVarName="tableVIEW_TRUCK_CHECK" msprop:Generator_TablePropName="VIEW_TRUCK_CHECK" msprop:Generator_RowDeletingName="VIEW_TRUCK_CHECKRowDeleting" msprop:Generator_RowChangingName="VIEW_TRUCK_CHECKRowChanging" msprop:Generator_RowEvHandlerName="VIEW_TRUCK_CHECKRowChangeEventHandler" msprop:Generator_RowDeletedName="VIEW_TRUCK_CHECKRowDeleted" msprop:Generator_UserTableName="VIEW_TRUCK_CHECK" msprop:Generator_RowChangedName="VIEW_TRUCK_CHECKRowChanged" msprop:Generator_RowEvArgName="VIEW_TRUCK_CHECKRowChangeEvent" msprop:Generator_RowClassName="VIEW_TRUCK_CHECKRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="TRUCK_NO" msprop:Generator_ColumnVarNameInTable="columnTRUCK_NO" msprop:Generator_ColumnPropNameInRow="TRUCK_NO" msprop:Generator_ColumnPropNameInTable="TRUCK_NOColumn" msprop:Generator_UserColumnName="TRUCK_NO">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="COMPANY" msprop:Generator_ColumnVarNameInTable="columnCOMPANY" msprop:Generator_ColumnPropNameInRow="COMPANY" msprop:Generator_ColumnPropNameInTable="COMPANYColumn" msprop:Generator_UserColumnName="COMPANY" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="140" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="NUM_DATE" msprop:Generator_ColumnVarNameInTable="columnNUM_DATE" msprop:Generator_ColumnPropNameInRow="NUM_DATE" msprop:Generator_ColumnPropNameInTable="NUM_DATEColumn" msprop:Generator_UserColumnName="NUM_DATE" type="xs:decimal" minOccurs="0" />
+              <xs:element name="DATE1" msprop:Generator_ColumnVarNameInTable="columnDATE1" msprop:Generator_ColumnPropNameInRow="DATE1" msprop:Generator_ColumnPropNameInTable="DATE1Column" msprop:Generator_UserColumnName="DATE1" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="DATE2" msprop:Generator_ColumnVarNameInTable="columnDATE2" msprop:Generator_ColumnPropNameInRow="DATE2" msprop:Generator_ColumnPropNameInTable="DATE2Column" msprop:Generator_UserColumnName="DATE2" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="CAL_EXPIRE" msprop:Generator_ColumnVarNameInTable="columnCAL_EXPIRE" msprop:Generator_ColumnPropNameInRow="CAL_EXPIRE" msprop:Generator_ColumnPropNameInTable="CAL_EXPIREColumn" msprop:Generator_UserColumnName="CAL_EXPIRE" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="COUNT_PRINT_AUTO1" msprop:Generator_ColumnVarNameInTable="columnCOUNT_PRINT_AUTO1" msprop:Generator_ColumnPropNameInRow="COUNT_PRINT_AUTO1" msprop:Generator_ColumnPropNameInTable="COUNT_PRINT_AUTO1Column" msprop:Generator_UserColumnName="COUNT_PRINT_AUTO1" type="xs:decimal" minOccurs="0" />
+              <xs:element name="COUNT_PRINT_AUTO2" msprop:Generator_ColumnVarNameInTable="columnCOUNT_PRINT_AUTO2" msprop:Generator_ColumnPropNameInRow="COUNT_PRINT_AUTO2" msprop:Generator_ColumnPropNameInTable="COUNT_PRINT_AUTO2Column" msprop:Generator_UserColumnName="COUNT_PRINT_AUTO2" type="xs:decimal" minOccurs="0" />
+              <xs:element name="COUNT_PRINT_AUTO3" msprop:Generator_ColumnVarNameInTable="columnCOUNT_PRINT_AUTO3" msprop:Generator_ColumnPropNameInRow="COUNT_PRINT_AUTO3" msprop:Generator_ColumnPropNameInTable="COUNT_PRINT_AUTO3Column" msprop:Generator_UserColumnName="COUNT_PRINT_AUTO3" type="xs:decimal" minOccurs="0" />
+              <xs:element name="DATE_PRINT1" msprop:Generator_ColumnVarNameInTable="columnDATE_PRINT1" msprop:Generator_ColumnPropNameInRow="DATE_PRINT1" msprop:Generator_ColumnPropNameInTable="DATE_PRINT1Column" msprop:Generator_UserColumnName="DATE_PRINT1" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="DATE_PRINT2" msprop:Generator_ColumnVarNameInTable="columnDATE_PRINT2" msprop:Generator_ColumnPropNameInRow="DATE_PRINT2" msprop:Generator_ColumnPropNameInTable="DATE_PRINT2Column" msprop:Generator_UserColumnName="DATE_PRINT2" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="DATE_PRINT3" msprop:Generator_ColumnVarNameInTable="columnDATE_PRINT3" msprop:Generator_ColumnPropNameInRow="DATE_PRINT3" msprop:Generator_ColumnPropNameInTable="DATE_PRINT3Column" msprop:Generator_UserColumnName="DATE_PRINT3" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="COUNT_PRINT_MANUAL1" msprop:Generator_ColumnVarNameInTable="columnCOUNT_PRINT_MANUAL1" msprop:Generator_ColumnPropNameInRow="COUNT_PRINT_MANUAL1" msprop:Generator_ColumnPropNameInTable="COUNT_PRINT_MANUAL1Column" msprop:Generator_UserColumnName="COUNT_PRINT_MANUAL1" type="xs:decimal" minOccurs="0" />
+              <xs:element name="COUNT_PRINT_MANUAL2" msprop:Generator_ColumnVarNameInTable="columnCOUNT_PRINT_MANUAL2" msprop:Generator_ColumnPropNameInRow="COUNT_PRINT_MANUAL2" msprop:Generator_ColumnPropNameInTable="COUNT_PRINT_MANUAL2Column" msprop:Generator_UserColumnName="COUNT_PRINT_MANUAL2" type="xs:decimal" minOccurs="0" />
+              <xs:element name="COUNT_PRINT_MANUAL3" msprop:Generator_ColumnVarNameInTable="columnCOUNT_PRINT_MANUAL3" msprop:Generator_ColumnPropNameInRow="COUNT_PRINT_MANUAL3" msprop:Generator_ColumnPropNameInTable="COUNT_PRINT_MANUAL3Column" msprop:Generator_UserColumnName="COUNT_PRINT_MANUAL3" type="xs:decimal" minOccurs="0" />
+              <xs:element name="ACK_NAME1" msprop:Generator_ColumnVarNameInTable="columnACK_NAME1" msprop:Generator_ColumnPropNameInRow="ACK_NAME1" msprop:Generator_ColumnPropNameInTable="ACK_NAME1Column" msprop:Generator_UserColumnName="ACK_NAME1" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="75" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ACK_NAME2" msprop:Generator_ColumnVarNameInTable="columnACK_NAME2" msprop:Generator_ColumnPropNameInRow="ACK_NAME2" msprop:Generator_ColumnPropNameInTable="ACK_NAME2Column" msprop:Generator_UserColumnName="ACK_NAME2" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="75" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ACK_NAME3" msprop:Generator_ColumnVarNameInTable="columnACK_NAME3" msprop:Generator_ColumnPropNameInRow="ACK_NAME3" msprop:Generator_ColumnPropNameInTable="ACK_NAME3Column" msprop:Generator_UserColumnName="ACK_NAME3" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="75" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ACK1" msprop:Generator_ColumnVarNameInTable="columnACK1" msprop:Generator_ColumnPropNameInRow="ACK1" msprop:Generator_ColumnPropNameInTable="ACK1Column" msprop:Generator_UserColumnName="ACK1" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ACK2" msprop:Generator_ColumnVarNameInTable="columnACK2" msprop:Generator_ColumnPropNameInRow="ACK2" msprop:Generator_ColumnPropNameInTable="ACK2Column" msprop:Generator_UserColumnName="ACK2" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ACK3" msprop:Generator_ColumnVarNameInTable="columnACK3" msprop:Generator_ColumnPropNameInRow="ACK3" msprop:Generator_ColumnPropNameInTable="ACK3Column" msprop:Generator_UserColumnName="ACK3" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="COMMENT_1" msprop:Generator_ColumnVarNameInTable="columnCOMMENT_1" msprop:Generator_ColumnPropNameInRow="COMMENT_1" msprop:Generator_ColumnPropNameInTable="COMMENT_1Column" msprop:Generator_UserColumnName="COMMENT_1" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="COMMENT_2" msprop:Generator_ColumnVarNameInTable="columnCOMMENT_2" msprop:Generator_ColumnPropNameInRow="COMMENT_2" msprop:Generator_ColumnPropNameInTable="COMMENT_2Column" msprop:Generator_UserColumnName="COMMENT_2" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="COMMENT_3" msprop:Generator_ColumnVarNameInTable="columnCOMMENT_3" msprop:Generator_ColumnPropNameInRow="COMMENT_3" msprop:Generator_ColumnPropNameInTable="COMMENT_3Column" msprop:Generator_UserColumnName="COMMENT_3" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

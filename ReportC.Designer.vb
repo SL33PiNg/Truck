@@ -87,7 +87,7 @@ Partial Class ReportC
         Me.GroupBox1.Font = New System.Drawing.Font("AngsanaUPC", 15.75!)
         Me.GroupBox1.Location = New System.Drawing.Point(10, 10)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(449, 185)
+        Me.GroupBox1.Size = New System.Drawing.Size(449, 191)
         Me.GroupBox1.TabIndex = 0
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "เลือกรายงาน"
@@ -95,8 +95,9 @@ Partial Class ReportC
         'op5
         '
         Me.op5.AutoSize = True
+        Me.op5.Checked = True
         Me.op5.Font = New System.Drawing.Font("AngsanaUPC", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.op5.Location = New System.Drawing.Point(5, 150)
+        Me.op5.Location = New System.Drawing.Point(5, 156)
         Me.op5.Name = "op5"
         Me.op5.Size = New System.Drawing.Size(73, 33)
         Me.op5.TabIndex = 5
@@ -108,11 +109,10 @@ Partial Class ReportC
         '
         Me.opMonth.AutoSize = True
         Me.opMonth.Font = New System.Drawing.Font("AngsanaUPC", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.opMonth.Location = New System.Drawing.Point(5, 123)
+        Me.opMonth.Location = New System.Drawing.Point(5, 129)
         Me.opMonth.Name = "opMonth"
         Me.opMonth.Size = New System.Drawing.Size(355, 33)
         Me.opMonth.TabIndex = 4
-        Me.opMonth.TabStop = True
         Me.opMonth.Text = "รายงานตามเดือนที่กำหนด ในเงื่อนไขการแจ้งเตื่อนครั้งที่ 1"
         Me.opMonth.UseVisualStyleBackColor = True
         '
@@ -120,11 +120,10 @@ Partial Class ReportC
         '
         Me.op4.AutoSize = True
         Me.op4.Font = New System.Drawing.Font("AngsanaUPC", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.op4.Location = New System.Drawing.Point(5, 97)
+        Me.op4.Location = New System.Drawing.Point(5, 103)
         Me.op4.Name = "op4"
         Me.op4.Size = New System.Drawing.Size(242, 33)
         Me.op4.TabIndex = 3
-        Me.op4.TabStop = True
         Me.op4.Text = "รายงานวันหมดอายุวัดน้ำ ตามช่วงเวลา"
         Me.op4.UseVisualStyleBackColor = True
         '
@@ -132,11 +131,10 @@ Partial Class ReportC
         '
         Me.op3.AutoSize = True
         Me.op3.Font = New System.Drawing.Font("AngsanaUPC", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.op3.Location = New System.Drawing.Point(5, 71)
+        Me.op3.Location = New System.Drawing.Point(5, 77)
         Me.op3.Name = "op3"
         Me.op3.Size = New System.Drawing.Size(380, 33)
         Me.op3.TabIndex = 2
-        Me.op3.TabStop = True
         Me.op3.Text = "รายงานแสดงรถที่อยู่ในเงื่อนไข การแจ้งเตือนครั้งที่ 3(หมดอายุ)"
         Me.op3.UseVisualStyleBackColor = True
         '
@@ -144,11 +142,10 @@ Partial Class ReportC
         '
         Me.op2.AutoSize = True
         Me.op2.Font = New System.Drawing.Font("AngsanaUPC", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.op2.Location = New System.Drawing.Point(5, 45)
+        Me.op2.Location = New System.Drawing.Point(5, 51)
         Me.op2.Name = "op2"
         Me.op2.Size = New System.Drawing.Size(323, 33)
         Me.op2.TabIndex = 1
-        Me.op2.TabStop = True
         Me.op2.Text = "รายงานแสดงรถที่อยู่ในเงื่อนไข การแจ้งเตือนครั้งที่ 2"
         Me.op2.UseVisualStyleBackColor = True
         '
@@ -156,11 +153,10 @@ Partial Class ReportC
         '
         Me.op1.AutoSize = True
         Me.op1.Font = New System.Drawing.Font("AngsanaUPC", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.op1.Location = New System.Drawing.Point(5, 19)
+        Me.op1.Location = New System.Drawing.Point(5, 25)
         Me.op1.Name = "op1"
         Me.op1.Size = New System.Drawing.Size(323, 33)
         Me.op1.TabIndex = 0
-        Me.op1.TabStop = True
         Me.op1.Text = "รายงานแสดงรถที่อยู่ในเงื่อนไข การแจ้งเตือนครั้งที่ 1"
         Me.op1.UseVisualStyleBackColor = True
         '
@@ -269,7 +265,7 @@ Partial Class ReportC
         'cmdConfig
         '
         Me.cmdConfig.Font = New System.Drawing.Font("AngsanaUPC", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmdConfig.Location = New System.Drawing.Point(10, 200)
+        Me.cmdConfig.Location = New System.Drawing.Point(10, 207)
         Me.cmdConfig.Name = "cmdConfig"
         Me.cmdConfig.Size = New System.Drawing.Size(147, 33)
         Me.cmdConfig.TabIndex = 3
@@ -280,7 +276,7 @@ Partial Class ReportC
         '
         Me.Label2.AutoSize = True
         Me.Label2.ForeColor = System.Drawing.Color.Red
-        Me.Label2.Location = New System.Drawing.Point(163, 198)
+        Me.Label2.Location = New System.Drawing.Point(163, 209)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(52, 13)
         Me.Label2.TabIndex = 4
@@ -290,7 +286,7 @@ Partial Class ReportC
         '
         Me.Label3.AutoSize = True
         Me.Label3.ForeColor = System.Drawing.Color.Red
-        Me.Label3.Location = New System.Drawing.Point(163, 211)
+        Me.Label3.Location = New System.Drawing.Point(163, 222)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(367, 13)
         Me.Label3.TabIndex = 5
@@ -299,7 +295,7 @@ Partial Class ReportC
         'cmdVD
         '
         Me.cmdVD.Font = New System.Drawing.Font("AngsanaUPC", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmdVD.Location = New System.Drawing.Point(536, 192)
+        Me.cmdVD.Location = New System.Drawing.Point(536, 199)
         Me.cmdVD.Name = "cmdVD"
         Me.cmdVD.Size = New System.Drawing.Size(130, 38)
         Me.cmdVD.TabIndex = 6
@@ -309,7 +305,7 @@ Partial Class ReportC
         'cmdVR
         '
         Me.cmdVR.Font = New System.Drawing.Font("AngsanaUPC", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmdVR.Location = New System.Drawing.Point(672, 192)
+        Me.cmdVR.Location = New System.Drawing.Point(672, 199)
         Me.cmdVR.Name = "cmdVR"
         Me.cmdVR.Size = New System.Drawing.Size(120, 38)
         Me.cmdVR.TabIndex = 7
@@ -319,7 +315,7 @@ Partial Class ReportC
         'cmdPrint_report
         '
         Me.cmdPrint_report.Font = New System.Drawing.Font("AngsanaUPC", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmdPrint_report.Location = New System.Drawing.Point(798, 192)
+        Me.cmdPrint_report.Location = New System.Drawing.Point(798, 199)
         Me.cmdPrint_report.Name = "cmdPrint_report"
         Me.cmdPrint_report.Size = New System.Drawing.Size(110, 38)
         Me.cmdPrint_report.TabIndex = 8
@@ -330,9 +326,10 @@ Partial Class ReportC
         '
         Me.grdComment.AllowUserToAddRows = False
         Me.grdComment.AllowUserToDeleteRows = False
+        Me.grdComment.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells
         Me.grdComment.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.grdComment.ContextMenuStrip = Me.mBypass
-        Me.grdComment.Location = New System.Drawing.Point(10, 238)
+        Me.grdComment.Location = New System.Drawing.Point(10, 248)
         Me.grdComment.Name = "grdComment"
         Me.grdComment.ReadOnly = True
         Me.grdComment.Size = New System.Drawing.Size(898, 442)
@@ -398,7 +395,7 @@ Partial Class ReportC
         'cmd1
         '
         Me.cmd1.Font = New System.Drawing.Font("AngsanaUPC", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmd1.Location = New System.Drawing.Point(471, 686)
+        Me.cmd1.Location = New System.Drawing.Point(536, 697)
         Me.cmd1.Name = "cmd1"
         Me.cmd1.Size = New System.Drawing.Size(145, 38)
         Me.cmd1.TabIndex = 10
@@ -408,7 +405,7 @@ Partial Class ReportC
         'cmd2
         '
         Me.cmd2.Font = New System.Drawing.Font("AngsanaUPC", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmd2.Location = New System.Drawing.Point(621, 686)
+        Me.cmd2.Location = New System.Drawing.Point(686, 697)
         Me.cmd2.Name = "cmd2"
         Me.cmd2.Size = New System.Drawing.Size(130, 38)
         Me.cmd2.TabIndex = 11
@@ -468,7 +465,7 @@ Partial Class ReportC
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(920, 734)
+        Me.ClientSize = New System.Drawing.Size(920, 747)
         Me.Controls.Add(Me.framMonth)
         Me.Controls.Add(Me.cmd2)
         Me.Controls.Add(Me.cmd1)
