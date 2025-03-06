@@ -10,7 +10,6 @@ Public Class Truck
     Private num_dates1 As Integer
     Private num_dates2 As Integer
     Private Login_Name_frmlogin As String
-    Private PRIORITY_frmlogin As String
     Private p_click As String
 
 
@@ -30,10 +29,10 @@ Public Class Truck
             End
         End If
         OpenDataBase()
-        'If Not Module1.CHECK_P Then
-        '    MessageBox.Show("รหัสการเข้าถึงไม่ถูกต้อง", "รายงาน", MessageBoxButtons.OK, MessageBoxIcon.Information)
-        '    End
-        'End If
+        If Not Module1.CHECK_P Then
+            MessageBox.Show("รหัสการเข้าถึงไม่ถูกต้อง", "รายงาน", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            End
+        End If
         If Not CHECK_LOGIN() Then
             End
         End If
@@ -390,6 +389,16 @@ Public Class Truck
             grdTruck.Columns(c).DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft
         Next
     End Sub
+    Public Sub SetSelectByID(ID As String)
+        grdTruck.ClearSelection()
+        For i = 0 To grdTruck.Rows.Count - 1
+            If grdTruck.Rows(i).Cells(0).Value.ToString() = ID Then
+                grdTruck.Rows(i).Selected = True
+                grdTruck.CurrentCell = grdTruck.Rows(i).Cells(0)
+                Exit For
+            End If
+        Next
+    End Sub
 
     Public Sub RecordToScreen(ID As String)
         Try
@@ -405,6 +414,7 @@ Public Class Truck
                 MsgBox("ไม่พบข้อมูลรถบรรทุกก๊าซรหัส " & ID & " ในระบบ TAS", MsgBoxStyle.Exclamation, "รายงาน")
                 Exit Sub
             End If
+            SetSelectByID(ID)
 
             Dim row As DataRow = dt.Rows(0)
             txtTruck_No.Text = row("TRUCK_NO").ToString()
@@ -604,8 +614,7 @@ Public Class Truck
     Private Function CheckNull(ChkStr As String, MsgStr As String) As Boolean
         If String.IsNullOrEmpty(ChkStr) Then
             MessageBox.Show(MsgStr, "รายงาน", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            Image_Save.Enabled = True
-            Image_Save.Visible = True
+
             Return False
         Else
             Return True
@@ -706,16 +715,16 @@ Public Class Truck
     Public Sub OptionButton_Click(BCommand As String)
         Select Case BCommand
             Case "Add"
-                Image_Cancle.Enabled = True
-                Image_Save.Enabled = True
+                Btn_Cancle.Enabled = True
+                Btn_Save.Enabled = True
                 Btn_Add.Enabled = False
                 Btn_Delete.Enabled = False
                 Btn_Edit.Enabled = False
                 Btn_Print.Enabled = False
                 Btn_Search.Enabled = False
             Case "Edit"
-                Image_Cancle.Enabled = True
-                Image_Save.Enabled = True
+                Btn_Cancle.Enabled = True
+                Btn_Save.Enabled = True
                 Btn_Add.Enabled = False
                 Btn_Print.Enabled = False
                 Btn_Search.Enabled = False
@@ -725,25 +734,25 @@ Public Class Truck
                 Btn_Edit.Enabled = False
                 Btn_Print.Enabled = False
                 Btn_Search.Enabled = False
-                Image_Save.Enabled = False
-                Image_Cancle.Enabled = True
+                Btn_Save.Enabled = False
+                Btn_Cancle.Enabled = True
             Case "Print"
                 Btn_Add.Enabled = False
                 Btn_Edit.Enabled = False
                 Btn_Delete.Enabled = False
                 Btn_Search.Enabled = False
-                Image_Save.Enabled = False
-                Image_Cancle.Enabled = True
+                Btn_Save.Enabled = False
+                Btn_Cancle.Enabled = True
             Case "Search"
                 Btn_Add.Enabled = False
                 Btn_Delete.Enabled = False
                 Btn_Edit.Enabled = False
                 Btn_Print.Enabled = False
-                Image_Save.Enabled = False
-                Image_Cancle.Enabled = True
+                Btn_Save.Enabled = False
+                Btn_Cancle.Enabled = True
             Case "Save"
-                Image_Save.Enabled = False
-                Image_Cancle.Enabled = True
+                Btn_Save.Enabled = False
+                Btn_Cancle.Enabled = True
                 Btn_Add.Enabled = True
                 Btn_Edit.Enabled = True
                 Btn_Delete.Enabled = True
@@ -755,8 +764,8 @@ Public Class Truck
                 Btn_Delete.Enabled = True
                 Btn_Print.Enabled = True
                 Btn_Search.Enabled = True
-                Image_Cancle.Enabled = True
-                Image_Save.Enabled = False
+                Btn_Cancle.Enabled = True
+                Btn_Save.Enabled = False
         End Select
     End Sub
 
@@ -778,7 +787,7 @@ Public Class Truck
         OptBacklist_No.Checked = True
     End Sub
 
-    Private Sub Image_Cancle_Click(sender As Object, e As EventArgs) Handles Image_Cancle.Click
+    Private Sub Image_Cancle_Click(sender As Object, e As EventArgs) Handles Btn_Cancle.Click
         btnCancel_click()
     End Sub
 
@@ -919,13 +928,12 @@ Public Class Truck
         btnCancel_click()
     End Sub
 
-    Private Sub Image_Save_Click(sender As Object, e As EventArgs) Handles Image_Save.Click
+    Private Sub Image_Save_Click(sender As Object, e As EventArgs) Handles Btn_Save.Click
         'SaveClick.Visible = True
 
         If Not (OptWeight_Lpg.Checked Or OptWeight_Oil.Checked Or OptWeight_Other.Checked) Then
             MessageBox.Show("กรุณาเลือกชนิดของรถ (ขึ้นตาชั่ง)", "รายงาน", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            Image_Save.Enabled = True
-            Image_Save.Visible = True
+
             Exit Sub
         End If
 
@@ -978,16 +986,13 @@ Public Class Truck
             If Cal_Date.Value > Cal_Expire.Value Then
                 MessageBox.Show("วันที่วัดปล.2 น้อยกว่าวันที่หมดอายุปล.2 ไม่ได้", "รายงาน", MessageBoxButtons.OK, MessageBoxIcon.Error)
                 Cal_Date.Focus()
-                Image_Save.Enabled = True
-                Image_Save.Visible = True
                 Exit Sub
             End If
 
             If Cal_Date.Value = Cal_Expire.Value Then
                 MessageBox.Show("วันที่วัดปล.2 เท่ากับวันที่หมดอายุปล.2 ไม่ได้", "รายงาน", MessageBoxButtons.OK, MessageBoxIcon.Error)
                 Cal_Date.Focus()
-                Image_Save.Enabled = True
-                Image_Save.Visible = True
+
                 Exit Sub
             End If
 
@@ -1013,15 +1018,13 @@ Public Class Truck
 
             If Not (OptTruck_Cus.Checked Or OptTruck_Ptt.Checked) Then
                 MessageBox.Show("กรุณาเลือกชนิดของรถ", "รายงาน", MessageBoxButtons.OK, MessageBoxIcon.Error)
-                Image_Save.Enabled = True
-                Image_Save.Visible = True
+
                 Exit Sub
             End If
 
             If Not blnNewData AndAlso txtDriver_No.Items.Count <= 0 Then
                 MessageBox.Show("กรุณาเลือกพนักงานขับรถ", "รายงาน", MessageBoxButtons.OK, MessageBoxIcon.Error)
-                Image_Save.Enabled = True
-                Image_Save.Visible = True
+
                 Exit Sub
             End If
 
@@ -1030,8 +1033,7 @@ Public Class Truck
                     Dim dt As New DataTable()
                     DS.Fill(dt)
                     If dt.Rows.Count > 0 Then
-                        Image_Save.Enabled = True
-                        Image_Save.Visible = True
+
                         MessageBox.Show("มีทะเบียนนี้ในระบบแล้ว", "รายงาน", MessageBoxButtons.OK, MessageBoxIcon.Error)
                         Exit Sub
                     End If
@@ -1040,15 +1042,13 @@ Public Class Truck
 
             If Not (OptBacklist_Yes.Checked Or OptBacklist_No.Checked) Then
                 MessageBox.Show("กรุณาเลือก Blacklist", "รายงาน", MessageBoxButtons.OK, MessageBoxIcon.Error)
-                Image_Save.Enabled = True
-                Image_Save.Visible = True
+
                 Exit Sub
             End If
 
             If OptBacklist_Yes.Checked AndAlso Not (Opt1.Checked Or Opt2.Checked Or Opt3.Checked) Then
                 MessageBox.Show("กรุณาเลือกเหตุผลของการ Blacklist", "รายงาน", MessageBoxButtons.OK, MessageBoxIcon.Error)
-                Image_Save.Enabled = True
-                Image_Save.Visible = True
+
                 Exit Sub
             End If
         End If
@@ -1057,8 +1057,7 @@ Public Class Truck
             Dim dt As New DataTable()
             DS.Fill(dt)
             If dt.Rows.Count > 0 Then
-                Image_Save.Enabled = True
-                Image_Save.Visible = True
+
                 MessageBox.Show("มีการใช้ หมายเลขบัตรนี้แล้ว", "รายงาน", MessageBoxButtons.OK, MessageBoxIcon.Error)
                 Exit Sub
             End If
@@ -1110,13 +1109,14 @@ Public Class Truck
         OptBacklist_No.Font = New Font(OptBacklist_No.Font.FontFamily, If(str_status = 2, 12, 10), If(str_status = 2, FontStyle.Bold, FontStyle.Regular))
     End Sub
 
-    Private Sub grdTruck_CellMouseDown(sender As Object, e As DataGridViewCellMouseEventArgs) Handles grdTruck.CellMouseDown
+    Private Sub grdTruck_CellMouseUp(sender As Object, e As DataGridViewCellMouseEventArgs) Handles grdTruck.CellMouseUp
         If e.ColumnIndex <> -1 And e.RowIndex <> -1 Then
-
             grdTruck.ClearSelection()
             grdTruck.Rows(e.RowIndex).Selected = True
             Dim selectTruck As String = Trim(grdTruck.Rows(e.RowIndex).Cells(0).Value.ToString())
             RecordToScreen(selectTruck)
         End If
     End Sub
+
+
 End Class

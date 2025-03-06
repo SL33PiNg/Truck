@@ -86,35 +86,32 @@ Public Class Login
     End Sub
     Public Function CHECK_LOGIN_FRM_LOGIN(STR_USER As String, STR_PASSWORD As String) As Boolean
         CHECK_LOGIN_FRM_LOGIN = False
-        Dim CHECK_RS As OracleDataReader
         Dim CHECK_Statement As String
 
-        Dim cmd As New OracleCommand()
+        'Dim cmd As New OracleCommand()
 
         Try
-            CHECK_Statement = "SELECT NAME, GROUP_NAME, PASSWORD_EXPIRE FROM OPERATOR1 WHERE UPPER(USERNAME) = :username AND TRIM(PASSWORD) = :password"
-            cmd.CommandText = CHECK_Statement
+            CHECK_Statement = "SELECT NAME, GROUP_NAME, PASSWORD_EXPIRE FROM OPERATOR1 WHERE UPPER(USERNAME) = :username AND PASSWORD LIKE :password"
+            Dim cmd As New OracleCommand(CHECK_Statement)
+
             cmd.BindByName = True
-
             cmd.Parameters.Add("username", STR_USER.ToUpper())
-            cmd.Parameters.Add("password", Trim(encode(Trim(STR_PASSWORD.ToUpper()))))
+            cmd.Parameters.Add("password", Trim(encode(Trim(STR_PASSWORD.ToUpper())) & "%"))
 
-            CHECK_RS = cmd.ExecuteReader()
-
-            If Not CHECK_RS.HasRows Then
+            Dim dt = ConnMyDB.ExecuteQuery(cmd)
+            If dt.Rows.Count <= 0 Then
                 Return False
             End If
 
-            CHECK_RS.Read()
-            Login_Name_frmlogin = CHECK_RS("NAME").ToString()
-            PRIORITY_frmlogin = CHECK_RS("GROUP_NAME").ToString()
 
-            If DateTime.Parse(CHECK_RS("PASSWORD_EXPIRE").ToString()) < DateTime.Now Then
+            Login_Name_frmlogin = dt.Rows(0)("NAME").ToString()
+            PRIORITY_frmlogin = dt.Rows(0)("GROUP_NAME").ToString()
+
+            If DateTime.Parse(dt.Rows(0)("PASSWORD_EXPIRE").ToString()) < DateTime.Now Then
                 MessageBox.Show("Password expire", "รายงาน", MessageBoxButtons.OK, MessageBoxIcon.Information)
                 End
             End If
 
-            CHECK_RS.Close()
             CHECK_LOGIN_FRM_LOGIN = True
         Catch ex As Exception
             MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)

@@ -102,25 +102,19 @@ Partial Class Truck
         Me.menu_manual = New System.Windows.Forms.ToolStripMenuItem()
         Me.Command1 = New System.Windows.Forms.Button()
         Me.cmdAdd = New System.Windows.Forms.Button()
-        Me.Image_Save = New System.Windows.Forms.PictureBox()
-        Me.Image_Cancle = New System.Windows.Forms.PictureBox()
-        Me.SaveClick = New System.Windows.Forms.PictureBox()
-        Me.CancleClick = New System.Windows.Forms.PictureBox()
         Me.Btn_Add = New System.Windows.Forms.Button()
         Me.Btn_Edit = New System.Windows.Forms.Button()
         Me.Btn_Delete = New System.Windows.Forms.Button()
         Me.Btn_Print = New System.Windows.Forms.Button()
         Me.Btn_Search = New System.Windows.Forms.Button()
+        Me.Btn_Save = New System.Windows.Forms.Button()
+        Me.Btn_Cancle = New System.Windows.Forms.Button()
         CType(Me.grdTruck, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
         Me.Panel2.SuspendLayout()
         Me.Panel4.SuspendLayout()
         Me.Panel3.SuspendLayout()
         Me.menu_process.SuspendLayout()
-        CType(Me.Image_Save, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.Image_Cancle, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.SaveClick, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.CancleClick, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'l25
@@ -982,38 +976,6 @@ Partial Class Truck
         Me.cmdAdd.Text = "Add"
         Me.cmdAdd.UseVisualStyleBackColor = False
         '
-        'Image_Save
-        '
-        Me.Image_Save.Location = New System.Drawing.Point(1378, 903)
-        Me.Image_Save.Name = "Image_Save"
-        Me.Image_Save.Size = New System.Drawing.Size(74, 30)
-        Me.Image_Save.TabIndex = 67
-        Me.Image_Save.TabStop = False
-        '
-        'Image_Cancle
-        '
-        Me.Image_Cancle.Location = New System.Drawing.Point(1528, 903)
-        Me.Image_Cancle.Name = "Image_Cancle"
-        Me.Image_Cancle.Size = New System.Drawing.Size(74, 30)
-        Me.Image_Cancle.TabIndex = 68
-        Me.Image_Cancle.TabStop = False
-        '
-        'SaveClick
-        '
-        Me.SaveClick.Location = New System.Drawing.Point(1378, 903)
-        Me.SaveClick.Name = "SaveClick"
-        Me.SaveClick.Size = New System.Drawing.Size(74, 30)
-        Me.SaveClick.TabIndex = 69
-        Me.SaveClick.TabStop = False
-        '
-        'CancleClick
-        '
-        Me.CancleClick.Location = New System.Drawing.Point(1528, 903)
-        Me.CancleClick.Name = "CancleClick"
-        Me.CancleClick.Size = New System.Drawing.Size(74, 30)
-        Me.CancleClick.TabIndex = 70
-        Me.CancleClick.TabStop = False
-        '
         'Btn_Add
         '
         Me.Btn_Add.BackColor = System.Drawing.Color.White
@@ -1074,6 +1036,24 @@ Partial Class Truck
         Me.Btn_Search.Text = "ค้นหา"
         Me.Btn_Search.UseVisualStyleBackColor = False
         '
+        'Btn_Save
+        '
+        Me.Btn_Save.Location = New System.Drawing.Point(1384, 903)
+        Me.Btn_Save.Name = "Btn_Save"
+        Me.Btn_Save.Size = New System.Drawing.Size(107, 52)
+        Me.Btn_Save.TabIndex = 76
+        Me.Btn_Save.Text = "บันทึก"
+        Me.Btn_Save.UseVisualStyleBackColor = True
+        '
+        'Btn_Cancle
+        '
+        Me.Btn_Cancle.Location = New System.Drawing.Point(1588, 903)
+        Me.Btn_Cancle.Name = "Btn_Cancle"
+        Me.Btn_Cancle.Size = New System.Drawing.Size(109, 52)
+        Me.Btn_Cancle.TabIndex = 77
+        Me.Btn_Cancle.Text = "ยกเลิก"
+        Me.Btn_Cancle.UseVisualStyleBackColor = True
+        '
         'Truck
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -1084,15 +1064,13 @@ Partial Class Truck
         Me.BackColor = System.Drawing.Color.Black
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.ClientSize = New System.Drawing.Size(1904, 1011)
+        Me.Controls.Add(Me.Btn_Cancle)
+        Me.Controls.Add(Me.Btn_Save)
         Me.Controls.Add(Me.Btn_Search)
         Me.Controls.Add(Me.Btn_Print)
         Me.Controls.Add(Me.Btn_Delete)
         Me.Controls.Add(Me.Btn_Edit)
         Me.Controls.Add(Me.Btn_Add)
-        Me.Controls.Add(Me.Image_Save)
-        Me.Controls.Add(Me.SaveClick)
-        Me.Controls.Add(Me.Image_Cancle)
-        Me.Controls.Add(Me.CancleClick)
         Me.Controls.Add(Me.cmdAdd)
         Me.Controls.Add(Me.Command1)
         Me.Controls.Add(Me.txtUpdateBy)
@@ -1161,10 +1139,6 @@ Partial Class Truck
         Me.Panel3.ResumeLayout(False)
         Me.Panel3.PerformLayout()
         Me.menu_process.ResumeLayout(False)
-        CType(Me.Image_Save, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.Image_Cancle, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.SaveClick, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.CancleClick, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -1249,13 +1223,11 @@ Partial Class Truck
     Friend WithEvents menu_manual As ToolStripMenuItem
     Friend WithEvents Command1 As Button
     Friend WithEvents cmdAdd As Button
-    Friend WithEvents Image_Save As PictureBox
-    Friend WithEvents Image_Cancle As PictureBox
-    Friend WithEvents SaveClick As PictureBox
-    Friend WithEvents CancleClick As PictureBox
     Friend WithEvents Btn_Add As Button
     Friend WithEvents Btn_Edit As Button
     Friend WithEvents Btn_Delete As Button
     Friend WithEvents Btn_Print As Button
     Friend WithEvents Btn_Search As Button
+    Friend WithEvents Btn_Save As Button
+    Friend WithEvents Btn_Cancle As Button
 End Class

@@ -67,7 +67,7 @@ Public Class ReportC
         report.SetParameterValue("str1", Value1)
         report.SetParameterValue("str2", Value2)
 
-        report.PrintToPrinter(1, True, 1, 1)
+        report.PrintToPrinter(1, True, 0, 0)
     End Sub
     Public Enum TruckQueryOptions
         OP1
@@ -337,14 +337,14 @@ Public Class ReportC
         report.SetParameterValue("dates", Me.grdComment.SelectedRows(0).Cells(6).Value.ToString())  'วันหมดอายุ
         report.SetParameterValue("company", Me.grdComment.SelectedRows(0).Cells(2).Value.ToString())  'บริษัทขนส่ง
 
-        report.PrintToPrinter(1, True, 1, 1)
+        report.PrintToPrinter(1, True, 0, 0)
 
-        ' str_sqls = "UPDATE truck SET COUNT_PRINT_MANUAL" & STR_S & " = COUNT_PRINT_MANUAL" & STR_S & " + 1 WHERE truck_no = '" & Me.grdComment.SelectedRows(0).Cells(1).Value.ToString() & "'"
+        Dim str_sqls = "UPDATE truck SET COUNT_PRINT_MANUAL" & STR_S & " = COUNT_PRINT_MANUAL" & STR_S & " + 1 WHERE truck_no = '" & Me.grdComment.SelectedRows(0).Cells(1).Value.ToString() & "'"
 
 
-        'Using cmd As New OracleCommand(str_sqls, Module1.ConnMyDB)
-        '    cmd.ExecuteNonQuery()
-        'End Using
+        Using cmd As New OracleCommand(str_sqls, Module1.ConnMyDB)
+            cmd.ExecuteNonQuery()
+        End Using
 
         Call cmdVD_Click(cmdVD, New EventArgs)
     End Sub
@@ -426,15 +426,15 @@ Public Class ReportC
 
 
     Private Sub grdComment_CellMouseUp(sender As Object, e As DataGridViewCellMouseEventArgs) Handles grdComment.CellMouseUp
-        If e.Button <> MouseButtons.Right Then
-            Exit Sub
-        End If
+
         If e.ColumnIndex <> -1 And e.RowIndex <> -1 Then
-            Me.ContextMenuStrip = Me.mBypass
-            Me.ContextMenuStrip.Show(Cursor.Position)
             grdComment.ClearSelection()
             grdComment.Rows(e.RowIndex).Selected = True
-            'MsgBox(grdComment.Rows.GetFirstRow(DataGridViewElementStates.Selected).ToString())
+        End If
+        If e.Button = MouseButtons.Right Then
+
+            Me.ContextMenuStrip = Me.mBypass
+            Me.ContextMenuStrip.Show(Cursor.Position)
         End If
     End Sub
 End Class

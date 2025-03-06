@@ -37,7 +37,6 @@ Module Module1
     Public Const E_LOCATION As String = "ข้อมูลรถบรรทุกก๊าซ"
     Public p_click As String
 
-    'Public report As CRAXDRT.Report
     Public num_dates1 As Integer
     Public num_dates2 As Integer
     Private Declare Function Decode_B64 Lib "dbase64.dll" Alias "decode_b64" (ByVal Ltb64 As Integer, ByVal LtPile As Integer, ByVal ScrmB64 As String, ByVal PileAStuff As String) As Integer
@@ -74,23 +73,6 @@ Module Module1
 
         End Try
     End Sub
-    'Public Sub OpenDataBase()
-    '    Dim strConnction As String = System.Configuration.ConfigurationManager.ConnectionStrings(DBManagement.TAS_DB).ToString()
-    '    Try
-    '        ConnMyDB = New OracleConnection(strConnction)
-    '        ConnMyDB.Open()
-    '    Catch ex As Exception
-    '        MsgBox("Error : " & ex.Message)
-    '        End
-    '    End Try
-    'End Sub
-
-    'Public Sub CloseDtatBase()
-    '    If ConnMyDB.State = ConnectionState.Open Then
-    '        ConnMyDB.Close()
-    '        ConnMyDB = Nothing
-    '    End If
-    'End Sub
 
     Public Sub ClearForm(frm As Form)
         For Each Ctl As Control In frm.Controls
@@ -219,6 +201,7 @@ Module Module1
             encode = str_code & encode & If(Len(encode) > 2, vbCrLf, "")
             encode = EncodeBase64String(encode)
         Next
+        encode = encode
     End Function
 
     Public Function EncodeBase64String(ByRef str2Encode As String) As String
@@ -230,14 +213,14 @@ Module Module1
         Return System.Text.Encoding.UTF8.GetString(Convert.FromBase64String(StSend))
     End Function
 
-    Function CHECK_P(strUser As String, strPass As String) As Boolean
+    Function CHECK_P() As Boolean
         CHECK_P = False
         Try
             Dim CHECK_RS As New OracleDataAdapter("select p_code from t_plant", ConnMyDB)
             Dim dt As New DataTable()
             CHECK_RS.Fill(dt)
             If dt.Rows.Count <= 0 Then Exit Function
-            If dt.Rows(0)("p_code").ToString() <> "5541" Then Exit Function
+            If dt.Rows(0)("p_code").ToString() <> "H541" Then Exit Function
             CHECK_P = True
         Catch ex As Exception
             CHECK_P = False
