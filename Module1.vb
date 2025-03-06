@@ -216,7 +216,7 @@ Module Module1
     Public Function encode(str_code As String) As String
         encode = str_code
         For i As Integer = 1 To 3
-            encode = str_code & encode
+            encode = str_code & encode & If(Len(encode) > 2, vbCrLf, "")
             encode = EncodeBase64String(encode)
         Next
     End Function
