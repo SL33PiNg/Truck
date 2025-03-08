@@ -22,137 +22,139 @@ Partial Class SyncData
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        GroupBox1 = New GroupBox()
-        GroupBox2 = New GroupBox()
-        GroupBox3 = New GroupBox()
-        Label1 = New Label()
-        cbTypeSearch = New ComboBox()
-        txtSearchData = New TextBox()
-        cmdSearch = New Button()
-        dg = New DataGridView()
-        cmdOK = New Button()
-        cmdCancel = New Button()
-        GroupBox1.SuspendLayout()
-        GroupBox2.SuspendLayout()
-        GroupBox3.SuspendLayout()
-        CType(dg, ComponentModel.ISupportInitialize).BeginInit()
-        SuspendLayout()
-        ' 
-        ' GroupBox1
-        ' 
-        GroupBox1.Controls.Add(GroupBox3)
-        GroupBox1.Controls.Add(GroupBox2)
-        GroupBox1.Location = New Point(12, 11)
-        GroupBox1.Name = "GroupBox1"
-        GroupBox1.Size = New Size(686, 108)
-        GroupBox1.TabIndex = 0
-        GroupBox1.TabStop = False
-        GroupBox1.Text = "ค้นหาข้อมูลรถบรรทุกก๊าซ จาก MASTER DATA"
-        ' 
-        ' GroupBox2
-        ' 
-        GroupBox2.Controls.Add(cbTypeSearch)
-        GroupBox2.Controls.Add(Label1)
-        GroupBox2.Location = New Point(6, 21)
-        GroupBox2.Name = "GroupBox2"
-        GroupBox2.Size = New Size(329, 81)
-        GroupBox2.TabIndex = 0
-        GroupBox2.TabStop = False
-        GroupBox2.Text = "รูปแบบการค้นหา"
-        ' 
-        ' GroupBox3
-        ' 
-        GroupBox3.Controls.Add(cmdSearch)
-        GroupBox3.Controls.Add(txtSearchData)
-        GroupBox3.Location = New Point(341, 21)
-        GroupBox3.Name = "GroupBox3"
-        GroupBox3.Size = New Size(339, 81)
-        GroupBox3.TabIndex = 1
-        GroupBox3.TabStop = False
-        GroupBox3.Text = "ข้อมูลที่ต้องการค้นหา"
-        ' 
-        ' Label1
-        ' 
-        Label1.AutoSize = True
-        Label1.Location = New Point(6, 38)
-        Label1.Name = "Label1"
-        Label1.Size = New Size(55, 14)
-        Label1.TabIndex = 0
-        Label1.Text = "ค้นหาจาก"
-        ' 
-        ' cbTypeSearch
-        ' 
-        cbTypeSearch.BackColor = SystemColors.HotTrack
-        cbTypeSearch.FormattingEnabled = True
-        cbTypeSearch.Location = New Point(67, 35)
-        cbTypeSearch.Name = "cbTypeSearch"
-        cbTypeSearch.Size = New Size(249, 22)
-        cbTypeSearch.TabIndex = 1
-        ' 
-        ' txtSearchData
-        ' 
-        txtSearchData.BackColor = SystemColors.HotTrack
-        txtSearchData.Location = New Point(6, 35)
-        txtSearchData.Name = "txtSearchData"
-        txtSearchData.Size = New Size(246, 22)
-        txtSearchData.TabIndex = 0
-        ' 
-        ' cmdSearch
-        ' 
-        cmdSearch.Location = New Point(258, 34)
-        cmdSearch.Name = "cmdSearch"
-        cmdSearch.Size = New Size(75, 23)
-        cmdSearch.TabIndex = 1
-        cmdSearch.Text = "ค้นหา"
-        cmdSearch.UseVisualStyleBackColor = True
-        ' 
-        ' dg
-        ' 
-        dg.AllowUserToDeleteRows = False
-        dg.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        dg.Location = New Point(12, 125)
-        dg.Name = "dg"
-        dg.ReadOnly = True
-        dg.Size = New Size(686, 507)
-        dg.TabIndex = 1
-        ' 
-        ' cmdOK
-        ' 
-        cmdOK.Location = New Point(541, 640)
-        cmdOK.Name = "cmdOK"
-        cmdOK.Size = New Size(75, 23)
-        cmdOK.TabIndex = 2
-        cmdOK.Text = "ตกลง"
-        cmdOK.UseVisualStyleBackColor = True
-        ' 
-        ' cmdCancel
-        ' 
-        cmdCancel.Location = New Point(623, 640)
-        cmdCancel.Name = "cmdCancel"
-        cmdCancel.Size = New Size(75, 23)
-        cmdCancel.TabIndex = 3
-        cmdCancel.Text = "ยกเลิก"
-        cmdCancel.UseVisualStyleBackColor = True
-        ' 
-        ' SyncData
-        ' 
-        AutoScaleDimensions = New SizeF(7F, 14F)
-        AutoScaleMode = AutoScaleMode.Font
-        ClientSize = New Size(710, 675)
-        Controls.Add(cmdCancel)
-        Controls.Add(cmdOK)
-        Controls.Add(dg)
-        Controls.Add(GroupBox1)
-        Font = New Font("Tahoma", 9F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
-        Name = "SyncData"
-        Text = "ค้นหาข้อมูลรถบรรทุกก๊าซ จาก MASTER DATA"
-        GroupBox1.ResumeLayout(False)
-        GroupBox2.ResumeLayout(False)
-        GroupBox2.PerformLayout()
-        GroupBox3.ResumeLayout(False)
-        GroupBox3.PerformLayout()
-        CType(dg, ComponentModel.ISupportInitialize).EndInit()
-        ResumeLayout(False)
+        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.GroupBox3 = New System.Windows.Forms.GroupBox()
+        Me.cmdSearch = New System.Windows.Forms.Button()
+        Me.txtSearchData = New System.Windows.Forms.TextBox()
+        Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.cbTypeSearch = New System.Windows.Forms.ComboBox()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.dg = New System.Windows.Forms.DataGridView()
+        Me.cmdOK = New System.Windows.Forms.Button()
+        Me.cmdCancel = New System.Windows.Forms.Button()
+        Me.GroupBox1.SuspendLayout()
+        Me.GroupBox3.SuspendLayout()
+        Me.GroupBox2.SuspendLayout()
+        CType(Me.dg, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.SuspendLayout()
+        '
+        'GroupBox1
+        '
+        Me.GroupBox1.Controls.Add(Me.GroupBox3)
+        Me.GroupBox1.Controls.Add(Me.GroupBox2)
+        Me.GroupBox1.Location = New System.Drawing.Point(12, 11)
+        Me.GroupBox1.Name = "GroupBox1"
+        Me.GroupBox1.Size = New System.Drawing.Size(686, 108)
+        Me.GroupBox1.TabIndex = 0
+        Me.GroupBox1.TabStop = False
+        Me.GroupBox1.Text = "ค้นหาข้อมูลรถบรรทุกก๊าซ จาก MASTER DATA"
+        '
+        'GroupBox3
+        '
+        Me.GroupBox3.Controls.Add(Me.cmdSearch)
+        Me.GroupBox3.Controls.Add(Me.txtSearchData)
+        Me.GroupBox3.Location = New System.Drawing.Point(341, 21)
+        Me.GroupBox3.Name = "GroupBox3"
+        Me.GroupBox3.Size = New System.Drawing.Size(339, 81)
+        Me.GroupBox3.TabIndex = 1
+        Me.GroupBox3.TabStop = False
+        Me.GroupBox3.Text = "ข้อมูลที่ต้องการค้นหา"
+        '
+        'cmdSearch
+        '
+        Me.cmdSearch.Location = New System.Drawing.Point(258, 34)
+        Me.cmdSearch.Name = "cmdSearch"
+        Me.cmdSearch.Size = New System.Drawing.Size(75, 23)
+        Me.cmdSearch.TabIndex = 1
+        Me.cmdSearch.Text = "ค้นหา"
+        Me.cmdSearch.UseVisualStyleBackColor = True
+        '
+        'txtSearchData
+        '
+        Me.txtSearchData.BackColor = System.Drawing.SystemColors.HotTrack
+        Me.txtSearchData.Location = New System.Drawing.Point(6, 35)
+        Me.txtSearchData.Name = "txtSearchData"
+        Me.txtSearchData.Size = New System.Drawing.Size(246, 22)
+        Me.txtSearchData.TabIndex = 0
+        '
+        'GroupBox2
+        '
+        Me.GroupBox2.Controls.Add(Me.cbTypeSearch)
+        Me.GroupBox2.Controls.Add(Me.Label1)
+        Me.GroupBox2.Location = New System.Drawing.Point(6, 21)
+        Me.GroupBox2.Name = "GroupBox2"
+        Me.GroupBox2.Size = New System.Drawing.Size(329, 81)
+        Me.GroupBox2.TabIndex = 0
+        Me.GroupBox2.TabStop = False
+        Me.GroupBox2.Text = "รูปแบบการค้นหา"
+        '
+        'cbTypeSearch
+        '
+        Me.cbTypeSearch.BackColor = System.Drawing.SystemColors.HotTrack
+        Me.cbTypeSearch.FormattingEnabled = True
+        Me.cbTypeSearch.Location = New System.Drawing.Point(67, 35)
+        Me.cbTypeSearch.Name = "cbTypeSearch"
+        Me.cbTypeSearch.Size = New System.Drawing.Size(249, 22)
+        Me.cbTypeSearch.TabIndex = 1
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(6, 38)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(55, 14)
+        Me.Label1.TabIndex = 0
+        Me.Label1.Text = "ค้นหาจาก"
+        '
+        'dg
+        '
+        Me.dg.AllowUserToAddRows = False
+        Me.dg.AllowUserToDeleteRows = False
+        Me.dg.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dg.Location = New System.Drawing.Point(12, 125)
+        Me.dg.Name = "dg"
+        Me.dg.ReadOnly = True
+        Me.dg.Size = New System.Drawing.Size(686, 507)
+        Me.dg.TabIndex = 1
+        '
+        'cmdOK
+        '
+        Me.cmdOK.Location = New System.Drawing.Point(541, 640)
+        Me.cmdOK.Name = "cmdOK"
+        Me.cmdOK.Size = New System.Drawing.Size(75, 23)
+        Me.cmdOK.TabIndex = 2
+        Me.cmdOK.Text = "ตกลง"
+        Me.cmdOK.UseVisualStyleBackColor = True
+        '
+        'cmdCancel
+        '
+        Me.cmdCancel.Location = New System.Drawing.Point(623, 640)
+        Me.cmdCancel.Name = "cmdCancel"
+        Me.cmdCancel.Size = New System.Drawing.Size(75, 23)
+        Me.cmdCancel.TabIndex = 3
+        Me.cmdCancel.Text = "ยกเลิก"
+        Me.cmdCancel.UseVisualStyleBackColor = True
+        '
+        'SyncData
+        '
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 14.0!)
+        Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.ClientSize = New System.Drawing.Size(710, 675)
+        Me.Controls.Add(Me.cmdCancel)
+        Me.Controls.Add(Me.cmdOK)
+        Me.Controls.Add(Me.dg)
+        Me.Controls.Add(Me.GroupBox1)
+        Me.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Name = "SyncData"
+        Me.Text = "ค้นหาข้อมูลรถบรรทุกก๊าซ จาก MASTER DATA"
+        Me.GroupBox1.ResumeLayout(False)
+        Me.GroupBox3.ResumeLayout(False)
+        Me.GroupBox3.PerformLayout()
+        Me.GroupBox2.ResumeLayout(False)
+        Me.GroupBox2.PerformLayout()
+        CType(Me.dg, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.ResumeLayout(False)
+
     End Sub
 
     Friend WithEvents GroupBox1 As GroupBox

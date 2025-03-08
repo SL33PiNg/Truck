@@ -29,7 +29,7 @@ Public Class Truck
             End
         End If
         OpenDataBase()
-        If Not Module1.CHECK_P Then
+        If Not Module1.CHECK_P() Then
             MessageBox.Show("รหัสการเข้าถึงไม่ถูกต้อง", "รายงาน", MessageBoxButtons.OK, MessageBoxIcon.Information)
             End
         End If

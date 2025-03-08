@@ -4,11 +4,16 @@ Imports Oracle.ManagedDataAccess.Client
 
 Public Class SyncData
     Private Sub cmdOK_Click(sender As Object, e As EventArgs) Handles cmdOK.Click
-        If dg.Text <> "" Then
-            If RecordToTASDB(dg.Text) = True Then
+        If Not CheckGridSelected(dg) Then
+            MsgBox("กรุณาเลือกข้อมูล")
+            Exit Sub
+        End If
+        Dim SelectR = dg.SelectedRows(0).Cells(0).Value.ToString()
+        If Not String.IsNullOrEmpty(SelectR) Then
+            If RecordToTASDB(SelectR) = True Then
                 Truck.DisplaygrdTruck()
                 Truck.btnCancel_click()
-                Truck.RecordToScreen(Trim(dg.Rows(dg.CurrentRow.Index).Cells(1).Value.ToString()))
+                Truck.RecordToScreen(Trim(SelectR))
                 Truck.txtTruck_No.ReadOnly = False
                 Me.Close()
             End If
@@ -100,10 +105,11 @@ Public Class SyncData
                                   "WHERE a.veh_type IN ('A110', 'A130') AND a.veh_no = :veh_no"
 
         Using cmd As New OracleCommand(Statement, ConnMyDBMaster)
+            cmd.BindByName = True
             cmd.Parameters.Add("veh_no", ID)
             Dim rs = ConnMyDBMaster.ExecuteQuery(cmd)
 
-            If Not rs.Rows.Count <= 0 Then
+            If  rs.Rows.Count <= 0 Then
                 MessageBox.Show("ไม่พบข้อมูลนี้ใน MASTER DATA", Me.Text, MessageBoxButtons.OK, MessageBoxIcon.Information)
                 Return False
             End If
@@ -174,7 +180,7 @@ Public Class SyncData
                         cmdInsert.Parameters.Add("cal_date_to", Convert.ToDateTime(r("calibration_date_to")).ToString("dd/MM/yyyy"))
                         cmdInsert.Parameters.Add("company", COMPANY_N)
                         cmdInsert.Parameters.Add("capacity", If(IsDBNull(r("tu_max_volume")), 0, r("tu_max_volume")))
-                        cmdInsert.Parameters.Add("capacity_85", Math.Round((Math.Round(If(r("tu_max_volume") <> "", r("tu_max_volume"), 0)) / 1.84) * 0.85))
+                        cmdInsert.Parameters.Add("capacity_85", Math.Round(Math.Round(If(r("tu_max_volume") <> "", r("tu_max_volume"), 0)) / 1.84 * 0.85)) ' TODO: cast string to double
                         cmdInsert.Parameters.Add("blacklist", If(IsDBNull(r("veh_status")), "N", If(Trim(r("veh_status").ToString()) = "", "N", "Y")))
                         cmdInsert.Parameters.Add("blacklist_from", If(IsDBNull(r("veh_status")), "0", If(Trim(r("veh_status").ToString()) = "", "0", "3")))
                         cmdInsert.Parameters.Add("blacklist_detail", If(IsDBNull(r("veh_status")), "", If(Trim(r("veh_status").ToString()) = "", "", "Black List From SAP")))
@@ -265,5 +271,10 @@ Public Class SyncData
         End If
     End Sub
 
-
+    Private Sub dg_CellMouseClick(sender As Object, e As DataGridViewCellMouseEventArgs) Handles dg.CellMouseClick
+        If e.ColumnIndex <> -1 And e.RowIndex <> -1 Then
+            dg.ClearSelection()
+            dg.Rows(e.RowIndex).Selected = True
+        End If
+    End Sub
 End Class

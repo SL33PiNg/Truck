@@ -3,18 +3,30 @@ Imports Oracle.ManagedDataAccess.Client
 
 Public Class ReportC
     Private Sub cmb1_Click(sender As Object, e As EventArgs) Handles cmb1.Click
+        If Not CheckRowSelected() Then
+            MsgBox("ยังไม่ได้เลือกข้อมูล")
+            Exit Sub
+        End If
         str_calllogin = "Bypass1"
         Me.Enabled = False
         Login.Show()
     End Sub
 
     Private Sub cmb2_Click(sender As Object, e As EventArgs) Handles cmb2.Click
+        If Not CheckRowSelected() Then
+            MsgBox("ยังไม่ได้เลือกข้อมูล")
+            Exit Sub
+        End If
         str_calllogin = "Bypass2"
         Me.Enabled = False
         Login.Show()
     End Sub
 
     Private Sub cmb3_Click(sender As Object, e As EventArgs) Handles cmb3.Click
+        If Not CheckRowSelected() Then
+            MsgBox("ยังไม่ได้เลือกข้อมูล")
+            Exit Sub
+        End If
         str_calllogin = "Bypass3"
         Me.Enabled = False
         Login.Show()
@@ -322,7 +334,10 @@ Public Class ReportC
     End Sub
 
     Private Sub save_printManual(STR_S As Integer)
-
+        If Not CheckRowSelected() Then
+            MsgBox("ยังไม่ได้เลือกข้อมูล")
+            Exit Sub
+        End If
 
         If MessageBox.Show("คุณต้องการพิมพ์ใบแจ้งเตือนครั้งที่ " & STR_S & " ใช้หรือไม่", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) <> DialogResult.Yes Then
             Exit Sub
@@ -372,6 +387,7 @@ Public Class ReportC
     End Function
 
     Public Sub save_bypass(str_c As Integer, str_comment As String)
+
         Dim str_sqls As String
 
         If MessageBox.Show("คุณต้องการปลดล็อกการแจ้งเตือนครั้งที่ " & str_c, "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) <> DialogResult.Yes Then
@@ -422,7 +438,9 @@ Public Class ReportC
         End If
     End Sub
 
-
+    Private Function CheckRowSelected() As Boolean
+        Return grdComment.SelectedRows.Count > 0
+    End Function
 
 
     Private Sub grdComment_CellMouseUp(sender As Object, e As DataGridViewCellMouseEventArgs) Handles grdComment.CellMouseUp

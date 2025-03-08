@@ -47,13 +47,20 @@ Module Module1
 
         Try
             If ConnMyDBMaster Is Nothing Then
-                ConnMyDBMaster = New OracleConnection(DBManagement.SAP_DB)
+                ConnMyDBMaster = New DBManagement(DBManagement.SAP_DB)
                 ConnMyDBMaster.Open()
                 OpenDataBaseMasterData = True
+
             End If
+
         Catch ex As Exception
+            MsgBox("Error: " & ex.Message, MsgBoxStyle.Critical)
             OpenDataBaseMasterData = False
         End Try
+
+        If ConnMyDBMaster.State = ConnectionState.Open Then
+            OpenDataBaseMasterData = True
+        End If
     End Function
 
     Public Sub CloseDtatBaseMasterData()
@@ -69,9 +76,12 @@ Module Module1
                 ConnMyDB = New DBManagement(DBManagement.TAS_DB)
                 ConnMyDB.Open()
             End If
-        Catch
-
+        Catch ex As Exception
+            MsgBox("Error: " & ex.Message, MsgBoxStyle.Critical)
         End Try
+        'If ConnMyDB.State = ConnectionState.Open Then
+        '    OpenDataBase = True
+        'End If
     End Sub
 
     Public Sub ClearForm(frm As Form)
@@ -225,5 +235,9 @@ Module Module1
         Catch ex As Exception
             CHECK_P = False
         End Try
+    End Function
+
+    Function CheckGridSelected(ByRef g As DataGridView) As Boolean
+        Return g.SelectedRows.Count > 0
     End Function
 End Module
