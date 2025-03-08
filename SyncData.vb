@@ -8,6 +8,7 @@ Public Class SyncData
             MsgBox("กรุณาเลือกข้อมูล")
             Exit Sub
         End If
+
         Dim SelectR = dg.SelectedRows(0).Cells(0).Value.ToString()
         If Not String.IsNullOrEmpty(SelectR) Then
             If RecordToTASDB(SelectR) = True Then
@@ -180,7 +181,7 @@ Public Class SyncData
                         cmdInsert.Parameters.Add("cal_date_to", Convert.ToDateTime(r("calibration_date_to")).ToString("dd/MM/yyyy"))
                         cmdInsert.Parameters.Add("company", COMPANY_N)
                         cmdInsert.Parameters.Add("capacity", If(IsDBNull(r("tu_max_volume")), 0, r("tu_max_volume")))
-                        cmdInsert.Parameters.Add("capacity_85", Math.Round(Math.Round(If(r("tu_max_volume") <> "", r("tu_max_volume"), 0)) / 1.84 * 0.85)) ' TODO: cast string to double
+                        cmdInsert.Parameters.Add("capacity_85", Math.Round(Math.Round(If(r("tu_max_volume") <> "", Double.Parse(r("tu_max_volume")), 0)) / 1.84 * 0.85)) ' TODO: cast string to double
                         cmdInsert.Parameters.Add("blacklist", If(IsDBNull(r("veh_status")), "N", If(Trim(r("veh_status").ToString()) = "", "N", "Y")))
                         cmdInsert.Parameters.Add("blacklist_from", If(IsDBNull(r("veh_status")), "0", If(Trim(r("veh_status").ToString()) = "", "0", "3")))
                         cmdInsert.Parameters.Add("blacklist_detail", If(IsDBNull(r("veh_status")), "", If(Trim(r("veh_status").ToString()) = "", "", "Black List From SAP")))
@@ -218,7 +219,7 @@ Public Class SyncData
                         cmd.BindByName = True
                         cmdUpdate.Parameters.Add("company", COMPANY_N)
                         cmdUpdate.Parameters.Add("capacity", If(IsDBNull(r("tu_max_volume")), DBNull.Value, r("tu_max_volume")))
-                        cmdUpdate.Parameters.Add("capacity_85", Math.Round((Math.Round(If(r("tu_max_volume") <> "", r("tu_max_volume"), 0)) / 1.84) * 0.85))
+                        cmdUpdate.Parameters.Add("capacity_85", Math.Round((Math.Round(If(r("tu_max_volume") <> "", Double.Parse(r("tu_max_volume")), 0)) / 1.84) * 0.85))
                         cmdUpdate.Parameters.Add("blacklist", If(IsDBNull(r("veh_status")), "N", If(Trim(r("veh_status").ToString()) = "", "N", "Y")))
                         cmdUpdate.Parameters.Add("blacklist_from", "3")
                         cmdUpdate.Parameters.Add("blacklist_detail", If(IsDBNull(r("veh_status")), "Cancel Black List From SAP", If(Trim(r("veh_status").ToString()) = "", "Cancel Black List From SAP", "Black List From SAP")))
