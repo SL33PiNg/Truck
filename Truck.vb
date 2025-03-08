@@ -1110,9 +1110,8 @@ Public Class Truck
     End Sub
 
     Private Sub grdTruck_CellMouseUp(sender As Object, e As DataGridViewCellMouseEventArgs) Handles grdTruck.CellMouseUp
-        If e.ColumnIndex <> -1 And e.RowIndex <> -1 Then
-            grdTruck.ClearSelection()
-            grdTruck.Rows(e.RowIndex).Selected = True
+        If SetGridSelect(grdTruck, e) Then
+
             Dim selectTruck As String = Trim(grdTruck.Rows(e.RowIndex).Cells(0).Value.ToString())
             RecordToScreen(selectTruck)
         End If

@@ -104,12 +104,7 @@ Public Class SearchTruck
 
     End Sub
 
-    Private Sub dg_Click(sender As Object, e As EventArgs) Handles dg.Click
-        If dg.CurrentCell.Value.ToString() <> "" Then
-            Truck.RecordToScreen(dg.CurrentCell.Value.ToString())
-            Me.Close()
-        End If
-    End Sub
+
 
     Private Sub setdg()
         With dg
@@ -161,6 +156,13 @@ Public Class SearchTruck
     Private Sub txtSearch_Truck_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtSearch_Truck.KeyPress
         If e.KeyChar = Chr(13) Then
             cmdSearch_Click(sender, e)
+        End If
+    End Sub
+
+    Private Sub dg_CellMouseDown(sender As Object, e As DataGridViewCellMouseEventArgs) Handles dg.CellMouseDown
+        If SetGridSelect(dg, e) Then
+            Dim truckNo = dg.SelectedRows(0).Cells(0).Value.ToString()
+            Truck.RecordToScreen(truckNo)
         End If
     End Sub
 End Class

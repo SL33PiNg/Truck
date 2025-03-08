@@ -237,6 +237,16 @@ Module Module1
         End Try
     End Function
 
+    Function SetGridSelect(ByRef grid As DataGridView, ByRef e As DataGridViewCellMouseEventArgs) As Boolean
+        SetGridSelect = False
+        If e.RowIndex <> -1 Or e.ColumnIndex <> -1 Then
+            grid.ClearSelection()
+            grid.Rows(e.RowIndex).Selected = True
+            SetGridSelect = True
+        End If
+
+    End Function
+
     Function CheckGridSelected(ByRef g As DataGridView) As Boolean
         Return g.SelectedRows.Count > 0
     End Function
