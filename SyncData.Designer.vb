@@ -40,8 +40,10 @@ Partial Class SyncData
         '
         'GroupBox1
         '
+        Me.GroupBox1.BackColor = System.Drawing.Color.Transparent
         Me.GroupBox1.Controls.Add(Me.GroupBox3)
         Me.GroupBox1.Controls.Add(Me.GroupBox2)
+        Me.GroupBox1.ForeColor = System.Drawing.Color.Cyan
         Me.GroupBox1.Location = New System.Drawing.Point(12, 11)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Size = New System.Drawing.Size(686, 108)
@@ -51,8 +53,10 @@ Partial Class SyncData
         '
         'GroupBox3
         '
+        Me.GroupBox3.BackColor = System.Drawing.Color.Transparent
         Me.GroupBox3.Controls.Add(Me.cmdSearch)
         Me.GroupBox3.Controls.Add(Me.txtSearchData)
+        Me.GroupBox3.ForeColor = System.Drawing.Color.Cyan
         Me.GroupBox3.Location = New System.Drawing.Point(341, 21)
         Me.GroupBox3.Name = "GroupBox3"
         Me.GroupBox3.Size = New System.Drawing.Size(339, 81)
@@ -62,12 +66,15 @@ Partial Class SyncData
         '
         'cmdSearch
         '
+        Me.cmdSearch.BackColor = System.Drawing.Color.MediumSeaGreen
+        Me.cmdSearch.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cmdSearch.ForeColor = System.Drawing.Color.MediumBlue
         Me.cmdSearch.Location = New System.Drawing.Point(258, 34)
         Me.cmdSearch.Name = "cmdSearch"
         Me.cmdSearch.Size = New System.Drawing.Size(75, 23)
         Me.cmdSearch.TabIndex = 1
         Me.cmdSearch.Text = "ค้นหา"
-        Me.cmdSearch.UseVisualStyleBackColor = True
+        Me.cmdSearch.UseVisualStyleBackColor = False
         '
         'txtSearchData
         '
@@ -79,8 +86,10 @@ Partial Class SyncData
         '
         'GroupBox2
         '
+        Me.GroupBox2.BackColor = System.Drawing.Color.Transparent
         Me.GroupBox2.Controls.Add(Me.cbTypeSearch)
         Me.GroupBox2.Controls.Add(Me.Label1)
+        Me.GroupBox2.ForeColor = System.Drawing.Color.Cyan
         Me.GroupBox2.Location = New System.Drawing.Point(6, 21)
         Me.GroupBox2.Name = "GroupBox2"
         Me.GroupBox2.Size = New System.Drawing.Size(329, 81)
@@ -119,26 +128,33 @@ Partial Class SyncData
         '
         'cmdOK
         '
+        Me.cmdOK.BackColor = System.Drawing.Color.MediumSeaGreen
+        Me.cmdOK.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cmdOK.ForeColor = System.Drawing.Color.MediumBlue
         Me.cmdOK.Location = New System.Drawing.Point(541, 640)
         Me.cmdOK.Name = "cmdOK"
         Me.cmdOK.Size = New System.Drawing.Size(75, 23)
         Me.cmdOK.TabIndex = 2
         Me.cmdOK.Text = "ตกลง"
-        Me.cmdOK.UseVisualStyleBackColor = True
+        Me.cmdOK.UseVisualStyleBackColor = False
         '
         'cmdCancel
         '
+        Me.cmdCancel.BackColor = System.Drawing.Color.MediumSeaGreen
+        Me.cmdCancel.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cmdCancel.ForeColor = System.Drawing.Color.MediumBlue
         Me.cmdCancel.Location = New System.Drawing.Point(623, 640)
         Me.cmdCancel.Name = "cmdCancel"
         Me.cmdCancel.Size = New System.Drawing.Size(75, 23)
         Me.cmdCancel.TabIndex = 3
         Me.cmdCancel.Text = "ยกเลิก"
-        Me.cmdCancel.UseVisualStyleBackColor = True
+        Me.cmdCancel.UseVisualStyleBackColor = False
         '
         'SyncData
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 14.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.BackColor = System.Drawing.Color.Black
         Me.ClientSize = New System.Drawing.Size(710, 675)
         Me.Controls.Add(Me.cmdCancel)
         Me.Controls.Add(Me.cmdOK)

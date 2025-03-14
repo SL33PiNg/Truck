@@ -40,9 +40,10 @@ Partial Class SearchTruck
         '
         'GroupBox1
         '
-        Me.GroupBox1.BackColor = System.Drawing.SystemColors.AppWorkspace
+        Me.GroupBox1.BackColor = System.Drawing.Color.Black
         Me.GroupBox1.Controls.Add(Me.GroupBox3)
         Me.GroupBox1.Controls.Add(Me.GroupBox2)
+        Me.GroupBox1.ForeColor = System.Drawing.Color.Cyan
         Me.GroupBox1.Location = New System.Drawing.Point(12, 12)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Size = New System.Drawing.Size(776, 119)
@@ -52,8 +53,10 @@ Partial Class SearchTruck
         '
         'GroupBox3
         '
+        Me.GroupBox3.BackColor = System.Drawing.Color.Transparent
         Me.GroupBox3.Controls.Add(Me.cmdSearch)
         Me.GroupBox3.Controls.Add(Me.txtSearch_Truck)
+        Me.GroupBox3.ForeColor = System.Drawing.Color.Cyan
         Me.GroupBox3.Location = New System.Drawing.Point(307, 35)
         Me.GroupBox3.Name = "GroupBox3"
         Me.GroupBox3.Size = New System.Drawing.Size(463, 67)
@@ -63,12 +66,15 @@ Partial Class SearchTruck
         '
         'cmdSearch
         '
+        Me.cmdSearch.BackColor = System.Drawing.Color.MediumSeaGreen
+        Me.cmdSearch.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cmdSearch.ForeColor = System.Drawing.Color.MediumBlue
         Me.cmdSearch.Location = New System.Drawing.Point(382, 29)
         Me.cmdSearch.Name = "cmdSearch"
         Me.cmdSearch.Size = New System.Drawing.Size(75, 23)
         Me.cmdSearch.TabIndex = 1
         Me.cmdSearch.Text = "ค้นหา"
-        Me.cmdSearch.UseVisualStyleBackColor = True
+        Me.cmdSearch.UseVisualStyleBackColor = False
         '
         'txtSearch_Truck
         '
@@ -79,8 +85,10 @@ Partial Class SearchTruck
         '
         'GroupBox2
         '
+        Me.GroupBox2.BackColor = System.Drawing.Color.Transparent
         Me.GroupBox2.Controls.Add(Me.cbTypeSearch)
         Me.GroupBox2.Controls.Add(Me.Label1)
+        Me.GroupBox2.ForeColor = System.Drawing.Color.Cyan
         Me.GroupBox2.Location = New System.Drawing.Point(6, 35)
         Me.GroupBox2.Name = "GroupBox2"
         Me.GroupBox2.Size = New System.Drawing.Size(275, 67)
@@ -118,6 +126,7 @@ Partial Class SearchTruck
         '
         'PictureBox1
         '
+        Me.PictureBox1.BackColor = System.Drawing.Color.Black
         Me.PictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.PictureBox1.Location = New System.Drawing.Point(1, -1)
         Me.PictureBox1.Name = "PictureBox1"

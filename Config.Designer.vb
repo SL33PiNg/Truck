@@ -34,7 +34,9 @@ Partial Class Config
         'Label1
         '
         Me.Label1.AutoSize = True
+        Me.Label1.BackColor = System.Drawing.Color.Transparent
         Me.Label1.Font = New System.Drawing.Font("AngsanaUPC", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.ForeColor = System.Drawing.Color.Cyan
         Me.Label1.Location = New System.Drawing.Point(13, 12)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(246, 33)
@@ -44,8 +46,10 @@ Partial Class Config
         'Label2
         '
         Me.Label2.AutoSize = True
+        Me.Label2.BackColor = System.Drawing.Color.Transparent
         Me.Label2.Font = New System.Drawing.Font("AngsanaUPC", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(13, 53)
+        Me.Label2.ForeColor = System.Drawing.Color.Cyan
+        Me.Label2.Location = New System.Drawing.Point(13, 57)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(246, 33)
         Me.Label2.TabIndex = 1
@@ -54,7 +58,7 @@ Partial Class Config
         'txt1
         '
         Me.txt1.Font = New System.Drawing.Font("AngsanaUPC", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txt1.Location = New System.Drawing.Point(265, 12)
+        Me.txt1.Location = New System.Drawing.Point(265, 9)
         Me.txt1.Name = "txt1"
         Me.txt1.Size = New System.Drawing.Size(86, 40)
         Me.txt1.TabIndex = 2
@@ -62,7 +66,7 @@ Partial Class Config
         'txt2
         '
         Me.txt2.Font = New System.Drawing.Font("AngsanaUPC", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txt2.Location = New System.Drawing.Point(265, 50)
+        Me.txt2.Location = New System.Drawing.Point(265, 54)
         Me.txt2.Name = "txt2"
         Me.txt2.Size = New System.Drawing.Size(86, 40)
         Me.txt2.TabIndex = 3
@@ -70,7 +74,9 @@ Partial Class Config
         'Label3
         '
         Me.Label3.AutoSize = True
+        Me.Label3.BackColor = System.Drawing.Color.Transparent
         Me.Label3.Font = New System.Drawing.Font("AngsanaUPC", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.ForeColor = System.Drawing.Color.Cyan
         Me.Label3.Location = New System.Drawing.Point(356, 12)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(35, 33)
@@ -80,8 +86,10 @@ Partial Class Config
         'Label4
         '
         Me.Label4.AutoSize = True
+        Me.Label4.BackColor = System.Drawing.Color.Transparent
         Me.Label4.Font = New System.Drawing.Font("AngsanaUPC", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(356, 53)
+        Me.Label4.ForeColor = System.Drawing.Color.Cyan
+        Me.Label4.Location = New System.Drawing.Point(356, 57)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(35, 33)
         Me.Label4.TabIndex = 5
@@ -89,19 +97,22 @@ Partial Class Config
         '
         'cmdSave
         '
+        Me.cmdSave.BackColor = System.Drawing.Color.SpringGreen
         Me.cmdSave.Font = New System.Drawing.Font("AngsanaUPC", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmdSave.Location = New System.Drawing.Point(287, 101)
+        Me.cmdSave.ForeColor = System.Drawing.Color.MediumBlue
+        Me.cmdSave.Location = New System.Drawing.Point(248, 112)
         Me.cmdSave.Name = "cmdSave"
-        Me.cmdSave.Size = New System.Drawing.Size(64, 32)
+        Me.cmdSave.Size = New System.Drawing.Size(103, 32)
         Me.cmdSave.TabIndex = 6
         Me.cmdSave.Text = "บันทึก"
-        Me.cmdSave.UseVisualStyleBackColor = True
+        Me.cmdSave.UseVisualStyleBackColor = False
         '
         'Config
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(429, 140)
+        Me.BackColor = System.Drawing.Color.Black
+        Me.ClientSize = New System.Drawing.Size(415, 171)
         Me.Controls.Add(Me.cmdSave)
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.Label3)

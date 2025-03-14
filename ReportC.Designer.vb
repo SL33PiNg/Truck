@@ -85,6 +85,7 @@ Partial Class ReportC
         Me.GroupBox1.Controls.Add(Me.op2)
         Me.GroupBox1.Controls.Add(Me.op1)
         Me.GroupBox1.Font = New System.Drawing.Font("AngsanaUPC", 15.75!)
+        Me.GroupBox1.ForeColor = System.Drawing.Color.Cyan
         Me.GroupBox1.Location = New System.Drawing.Point(10, 10)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Size = New System.Drawing.Size(449, 191)
@@ -97,6 +98,7 @@ Partial Class ReportC
         Me.op5.AutoSize = True
         Me.op5.Checked = True
         Me.op5.Font = New System.Drawing.Font("AngsanaUPC", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.op5.ForeColor = System.Drawing.Color.Cyan
         Me.op5.Location = New System.Drawing.Point(5, 156)
         Me.op5.Name = "op5"
         Me.op5.Size = New System.Drawing.Size(73, 33)
@@ -109,6 +111,7 @@ Partial Class ReportC
         '
         Me.opMonth.AutoSize = True
         Me.opMonth.Font = New System.Drawing.Font("AngsanaUPC", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.opMonth.ForeColor = System.Drawing.Color.Cyan
         Me.opMonth.Location = New System.Drawing.Point(5, 129)
         Me.opMonth.Name = "opMonth"
         Me.opMonth.Size = New System.Drawing.Size(355, 33)
@@ -120,6 +123,7 @@ Partial Class ReportC
         '
         Me.op4.AutoSize = True
         Me.op4.Font = New System.Drawing.Font("AngsanaUPC", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.op4.ForeColor = System.Drawing.Color.Cyan
         Me.op4.Location = New System.Drawing.Point(5, 103)
         Me.op4.Name = "op4"
         Me.op4.Size = New System.Drawing.Size(242, 33)
@@ -131,6 +135,7 @@ Partial Class ReportC
         '
         Me.op3.AutoSize = True
         Me.op3.Font = New System.Drawing.Font("AngsanaUPC", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.op3.ForeColor = System.Drawing.Color.Cyan
         Me.op3.Location = New System.Drawing.Point(5, 77)
         Me.op3.Name = "op3"
         Me.op3.Size = New System.Drawing.Size(380, 33)
@@ -142,6 +147,7 @@ Partial Class ReportC
         '
         Me.op2.AutoSize = True
         Me.op2.Font = New System.Drawing.Font("AngsanaUPC", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.op2.ForeColor = System.Drawing.Color.Cyan
         Me.op2.Location = New System.Drawing.Point(5, 51)
         Me.op2.Name = "op2"
         Me.op2.Size = New System.Drawing.Size(323, 33)
@@ -153,6 +159,7 @@ Partial Class ReportC
         '
         Me.op1.AutoSize = True
         Me.op1.Font = New System.Drawing.Font("AngsanaUPC", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.op1.ForeColor = System.Drawing.Color.Cyan
         Me.op1.Location = New System.Drawing.Point(5, 25)
         Me.op1.Name = "op1"
         Me.op1.Size = New System.Drawing.Size(323, 33)
@@ -166,6 +173,7 @@ Partial Class ReportC
         Me.framTime.Controls.Add(Me.Label1)
         Me.framTime.Controls.Add(Me.dt1)
         Me.framTime.Font = New System.Drawing.Font("AngsanaUPC", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.framTime.ForeColor = System.Drawing.Color.Cyan
         Me.framTime.Location = New System.Drawing.Point(471, 12)
         Me.framTime.Name = "framTime"
         Me.framTime.Size = New System.Drawing.Size(437, 84)
@@ -200,6 +208,7 @@ Partial Class ReportC
         '
         Me.framMonth.Controls.Add(Me.dtMonth)
         Me.framMonth.Font = New System.Drawing.Font("AngsanaUPC", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.framMonth.ForeColor = System.Drawing.Color.Cyan
         Me.framMonth.Location = New System.Drawing.Point(465, 12)
         Me.framMonth.Name = "framMonth"
         Me.framMonth.Size = New System.Drawing.Size(443, 84)
@@ -210,7 +219,7 @@ Partial Class ReportC
         'dtMonth
         '
         Me.dtMonth.CustomFormat = "MMMM yyyy"
-        Me.dtMonth.Location = New System.Drawing.Point(5, 30)
+        Me.dtMonth.Location = New System.Drawing.Point(27, 29)
         Me.dtMonth.Name = "dtMonth"
         Me.dtMonth.Size = New System.Drawing.Size(172, 36)
         Me.dtMonth.TabIndex = 0
@@ -221,6 +230,7 @@ Partial Class ReportC
         Me.GroupBox3.Controls.Add(Me.op_sort2)
         Me.GroupBox3.Controls.Add(Me.op_sort1)
         Me.GroupBox3.Font = New System.Drawing.Font("AngsanaUPC", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.GroupBox3.ForeColor = System.Drawing.Color.Cyan
         Me.GroupBox3.Location = New System.Drawing.Point(465, 99)
         Me.GroupBox3.Name = "GroupBox3"
         Me.GroupBox3.Size = New System.Drawing.Size(443, 87)
@@ -231,6 +241,7 @@ Partial Class ReportC
         'op_sort3
         '
         Me.op_sort3.AutoSize = True
+        Me.op_sort3.ForeColor = System.Drawing.Color.Cyan
         Me.op_sort3.Location = New System.Drawing.Point(234, 33)
         Me.op_sort3.Name = "op_sort3"
         Me.op_sort3.Size = New System.Drawing.Size(93, 33)
@@ -242,6 +253,7 @@ Partial Class ReportC
         'op_sort2
         '
         Me.op_sort2.AutoSize = True
+        Me.op_sort2.ForeColor = System.Drawing.Color.Cyan
         Me.op_sort2.Location = New System.Drawing.Point(145, 33)
         Me.op_sort2.Name = "op_sort2"
         Me.op_sort2.Size = New System.Drawing.Size(65, 33)
@@ -254,6 +266,7 @@ Partial Class ReportC
         '
         Me.op_sort1.AutoSize = True
         Me.op_sort1.Checked = True
+        Me.op_sort1.ForeColor = System.Drawing.Color.Cyan
         Me.op_sort1.Location = New System.Drawing.Point(27, 33)
         Me.op_sort1.Name = "op_sort1"
         Me.op_sort1.Size = New System.Drawing.Size(93, 33)
@@ -264,13 +277,15 @@ Partial Class ReportC
         '
         'cmdConfig
         '
+        Me.cmdConfig.BackColor = System.Drawing.Color.MediumSpringGreen
         Me.cmdConfig.Font = New System.Drawing.Font("AngsanaUPC", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cmdConfig.ForeColor = System.Drawing.Color.MediumBlue
         Me.cmdConfig.Location = New System.Drawing.Point(10, 207)
         Me.cmdConfig.Name = "cmdConfig"
         Me.cmdConfig.Size = New System.Drawing.Size(147, 33)
         Me.cmdConfig.TabIndex = 3
         Me.cmdConfig.Text = "ตั้งค่าวันแจ้งเตือน"
-        Me.cmdConfig.UseVisualStyleBackColor = True
+        Me.cmdConfig.UseVisualStyleBackColor = False
         '
         'Label2
         '
@@ -294,33 +309,39 @@ Partial Class ReportC
         '
         'cmdVD
         '
+        Me.cmdVD.BackColor = System.Drawing.Color.MediumSpringGreen
         Me.cmdVD.Font = New System.Drawing.Font("AngsanaUPC", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cmdVD.ForeColor = System.Drawing.Color.MediumBlue
         Me.cmdVD.Location = New System.Drawing.Point(536, 199)
         Me.cmdVD.Name = "cmdVD"
         Me.cmdVD.Size = New System.Drawing.Size(130, 38)
         Me.cmdVD.TabIndex = 6
         Me.cmdVD.Text = "View display"
-        Me.cmdVD.UseVisualStyleBackColor = True
+        Me.cmdVD.UseVisualStyleBackColor = False
         '
         'cmdVR
         '
+        Me.cmdVR.BackColor = System.Drawing.Color.MediumSpringGreen
         Me.cmdVR.Font = New System.Drawing.Font("AngsanaUPC", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cmdVR.ForeColor = System.Drawing.Color.MediumBlue
         Me.cmdVR.Location = New System.Drawing.Point(672, 199)
         Me.cmdVR.Name = "cmdVR"
         Me.cmdVR.Size = New System.Drawing.Size(120, 38)
         Me.cmdVR.TabIndex = 7
         Me.cmdVR.Text = "View report"
-        Me.cmdVR.UseVisualStyleBackColor = True
+        Me.cmdVR.UseVisualStyleBackColor = False
         '
         'cmdPrint_report
         '
+        Me.cmdPrint_report.BackColor = System.Drawing.Color.MediumSpringGreen
         Me.cmdPrint_report.Font = New System.Drawing.Font("AngsanaUPC", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cmdPrint_report.ForeColor = System.Drawing.Color.MediumBlue
         Me.cmdPrint_report.Location = New System.Drawing.Point(798, 199)
         Me.cmdPrint_report.Name = "cmdPrint_report"
         Me.cmdPrint_report.Size = New System.Drawing.Size(110, 38)
         Me.cmdPrint_report.TabIndex = 8
         Me.cmdPrint_report.Text = "Print report"
-        Me.cmdPrint_report.UseVisualStyleBackColor = True
+        Me.cmdPrint_report.UseVisualStyleBackColor = False
         '
         'grdComment
         '
@@ -394,23 +415,27 @@ Partial Class ReportC
         '
         'cmd1
         '
+        Me.cmd1.BackColor = System.Drawing.Color.MediumSpringGreen
         Me.cmd1.Font = New System.Drawing.Font("AngsanaUPC", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmd1.Location = New System.Drawing.Point(536, 697)
+        Me.cmd1.ForeColor = System.Drawing.Color.MediumBlue
+        Me.cmd1.Location = New System.Drawing.Point(610, 696)
         Me.cmd1.Name = "cmd1"
         Me.cmd1.Size = New System.Drawing.Size(145, 38)
         Me.cmd1.TabIndex = 10
         Me.cmd1.Text = "ปลดล็อกการแจ้งเตือน"
-        Me.cmd1.UseVisualStyleBackColor = True
+        Me.cmd1.UseVisualStyleBackColor = False
         '
         'cmd2
         '
+        Me.cmd2.BackColor = System.Drawing.Color.MediumSpringGreen
         Me.cmd2.Font = New System.Drawing.Font("AngsanaUPC", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmd2.Location = New System.Drawing.Point(686, 697)
+        Me.cmd2.ForeColor = System.Drawing.Color.MediumBlue
+        Me.cmd2.Location = New System.Drawing.Point(778, 696)
         Me.cmd2.Name = "cmd2"
         Me.cmd2.Size = New System.Drawing.Size(130, 38)
         Me.cmd2.TabIndex = 11
         Me.cmd2.Text = "พิมพ์ใบแจ้งเตือน"
-        Me.cmd2.UseVisualStyleBackColor = True
+        Me.cmd2.UseVisualStyleBackColor = False
         '
         'mBypass1
         '
@@ -465,6 +490,7 @@ Partial Class ReportC
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.BackColor = System.Drawing.Color.Black
         Me.ClientSize = New System.Drawing.Size(920, 747)
         Me.Controls.Add(Me.framMonth)
         Me.Controls.Add(Me.cmd2)

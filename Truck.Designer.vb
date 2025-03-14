@@ -109,12 +109,15 @@ Partial Class Truck
         Me.Btn_Search = New System.Windows.Forms.Button()
         Me.Btn_Save = New System.Windows.Forms.Button()
         Me.Btn_Cancle = New System.Windows.Forms.Button()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.Panel5 = New System.Windows.Forms.Panel()
         CType(Me.grdTruck, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
         Me.Panel2.SuspendLayout()
         Me.Panel4.SuspendLayout()
         Me.Panel3.SuspendLayout()
         Me.menu_process.SuspendLayout()
+        Me.Panel5.SuspendLayout()
         Me.SuspendLayout()
         '
         'l25
@@ -122,7 +125,7 @@ Partial Class Truck
         Me.l25.AutoSize = True
         Me.l25.BackColor = System.Drawing.Color.Transparent
         Me.l25.Font = New System.Drawing.Font("AngsanaUPC", 36.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.l25.ForeColor = System.Drawing.SystemColors.ButtonFace
+        Me.l25.ForeColor = System.Drawing.Color.Yellow
         Me.l25.Location = New System.Drawing.Point(326, 8)
         Me.l25.Name = "l25"
         Me.l25.Size = New System.Drawing.Size(305, 68)
@@ -134,6 +137,7 @@ Partial Class Truck
         Me.l21.AutoSize = True
         Me.l21.BackColor = System.Drawing.Color.Transparent
         Me.l21.Font = New System.Drawing.Font("AngsanaUPC", 26.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.l21.ForeColor = System.Drawing.Color.Yellow
         Me.l21.Location = New System.Drawing.Point(326, 69)
         Me.l21.Name = "l21"
         Me.l21.Size = New System.Drawing.Size(213, 47)
@@ -157,8 +161,8 @@ Partial Class Truck
         Me.l24.AutoSize = True
         Me.l24.BackColor = System.Drawing.Color.Transparent
         Me.l24.Font = New System.Drawing.Font("BrowalliaUPC", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.l24.ForeColor = System.Drawing.SystemColors.ButtonFace
-        Me.l24.Location = New System.Drawing.Point(28, 160)
+        Me.l24.ForeColor = System.Drawing.Color.Yellow
+        Me.l24.Location = New System.Drawing.Point(29, 114)
         Me.l24.Name = "l24"
         Me.l24.Size = New System.Drawing.Size(193, 30)
         Me.l24.TabIndex = 3
@@ -167,21 +171,22 @@ Partial Class Truck
         'l22
         '
         Me.l22.AutoSize = True
-        Me.l22.Font = New System.Drawing.Font("Segoe UI", 24.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.l22.ForeColor = System.Drawing.Color.White
-        Me.l22.Location = New System.Drawing.Point(1166, 66)
+        Me.l22.Font = New System.Drawing.Font("Tahoma", 24.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.l22.ForeColor = System.Drawing.Color.SpringGreen
+        Me.l22.Location = New System.Drawing.Point(808, 77)
         Me.l22.Name = "l22"
-        Me.l22.Size = New System.Drawing.Size(258, 45)
+        Me.l22.Size = New System.Drawing.Size(305, 39)
         Me.l22.TabIndex = 4
         Me.l22.Text = "ข้อมูลรถบรรทุกก๊าซ"
         '
         'cmdAct
         '
-        Me.cmdAct.BackColor = System.Drawing.Color.White
-        Me.cmdAct.ForeColor = System.Drawing.Color.Black
-        Me.cmdAct.Location = New System.Drawing.Point(1060, 180)
+        Me.cmdAct.BackColor = System.Drawing.Color.SpringGreen
+        Me.cmdAct.Font = New System.Drawing.Font("Tahoma", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
+        Me.cmdAct.ForeColor = System.Drawing.Color.MediumBlue
+        Me.cmdAct.Location = New System.Drawing.Point(1099, 27)
         Me.cmdAct.Name = "cmdAct"
-        Me.cmdAct.Size = New System.Drawing.Size(64, 30)
+        Me.cmdAct.Size = New System.Drawing.Size(103, 44)
         Me.cmdAct.TabIndex = 5
         Me.cmdAct.Text = "ตกลง"
         Me.cmdAct.UseVisualStyleBackColor = False
@@ -192,21 +197,21 @@ Partial Class Truck
         Me.grdTruck.AllowUserToDeleteRows = False
         Me.grdTruck.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells
         Me.grdTruck.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.grdTruck.Location = New System.Drawing.Point(12, 205)
+        Me.grdTruck.Location = New System.Drawing.Point(12, 167)
         Me.grdTruck.Name = "grdTruck"
         Me.grdTruck.ReadOnly = True
-        Me.grdTruck.Size = New System.Drawing.Size(1011, 774)
+        Me.grdTruck.Size = New System.Drawing.Size(1045, 774)
         Me.grdTruck.TabIndex = 11
         '
         'l1
         '
         Me.l1.AutoSize = True
-        Me.l1.BackColor = System.Drawing.Color.Transparent
+        Me.l1.BackColor = System.Drawing.Color.Black
         Me.l1.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.l1.ForeColor = System.Drawing.Color.Cyan
-        Me.l1.Location = New System.Drawing.Point(1072, 274)
+        Me.l1.Location = New System.Drawing.Point(1151, 274)
         Me.l1.Name = "l1"
-        Me.l1.Size = New System.Drawing.Size(129, 16)
+        Me.l1.Size = New System.Drawing.Size(128, 16)
         Me.l1.TabIndex = 12
         Me.l1.Text = "หมายเลขทะเบียนตัวถัง"
         Me.l1.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -214,12 +219,12 @@ Partial Class Truck
         'l2
         '
         Me.l2.AutoSize = True
-        Me.l2.BackColor = System.Drawing.Color.Transparent
+        Me.l2.BackColor = System.Drawing.Color.Black
         Me.l2.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.l2.ForeColor = System.Drawing.Color.Cyan
-        Me.l2.Location = New System.Drawing.Point(1064, 301)
+        Me.l2.Location = New System.Drawing.Point(1143, 301)
         Me.l2.Name = "l2"
-        Me.l2.Size = New System.Drawing.Size(137, 16)
+        Me.l2.Size = New System.Drawing.Size(136, 16)
         Me.l2.TabIndex = 13
         Me.l2.Text = "หมายเลขทะเบียนหัวลาก"
         Me.l2.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -227,12 +232,12 @@ Partial Class Truck
         'l3
         '
         Me.l3.AutoSize = True
-        Me.l3.BackColor = System.Drawing.Color.Transparent
+        Me.l3.BackColor = System.Drawing.Color.Black
         Me.l3.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.l3.ForeColor = System.Drawing.Color.Cyan
-        Me.l3.Location = New System.Drawing.Point(1123, 332)
+        Me.l3.Location = New System.Drawing.Point(1202, 332)
         Me.l3.Name = "l3"
-        Me.l3.Size = New System.Drawing.Size(78, 16)
+        Me.l3.Size = New System.Drawing.Size(77, 16)
         Me.l3.TabIndex = 14
         Me.l3.Text = "เลขที่ถังโยธา"
         Me.l3.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -240,12 +245,12 @@ Partial Class Truck
         'l4
         '
         Me.l4.AutoSize = True
-        Me.l4.BackColor = System.Drawing.Color.Transparent
+        Me.l4.BackColor = System.Drawing.Color.Black
         Me.l4.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.l4.ForeColor = System.Drawing.Color.Cyan
-        Me.l4.Location = New System.Drawing.Point(1079, 358)
+        Me.l4.Location = New System.Drawing.Point(1158, 358)
         Me.l4.Name = "l4"
-        Me.l4.Size = New System.Drawing.Size(122, 16)
+        Me.l4.Size = New System.Drawing.Size(121, 16)
         Me.l4.TabIndex = 15
         Me.l4.Text = "เลขที่ใบอนุญาติขนส่ง"
         Me.l4.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -253,12 +258,12 @@ Partial Class Truck
         'l5
         '
         Me.l5.AutoSize = True
-        Me.l5.BackColor = System.Drawing.Color.Transparent
+        Me.l5.BackColor = System.Drawing.Color.Black
         Me.l5.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.l5.ForeColor = System.Drawing.Color.Cyan
-        Me.l5.Location = New System.Drawing.Point(1124, 385)
+        Me.l5.Location = New System.Drawing.Point(1203, 385)
         Me.l5.Name = "l5"
-        Me.l5.Size = New System.Drawing.Size(77, 16)
+        Me.l5.Size = New System.Drawing.Size(76, 16)
         Me.l5.TabIndex = 16
         Me.l5.Text = "รถของบริษัท"
         Me.l5.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -266,12 +271,12 @@ Partial Class Truck
         'l6
         '
         Me.l6.AutoSize = True
-        Me.l6.BackColor = System.Drawing.Color.Transparent
+        Me.l6.BackColor = System.Drawing.Color.Black
         Me.l6.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.l6.ForeColor = System.Drawing.Color.Cyan
-        Me.l6.Location = New System.Drawing.Point(1091, 415)
+        Me.l6.Location = New System.Drawing.Point(1170, 415)
         Me.l6.Name = "l6"
-        Me.l6.Size = New System.Drawing.Size(110, 16)
+        Me.l6.Size = New System.Drawing.Size(109, 16)
         Me.l6.TabIndex = 17
         Me.l6.Text = "หมายเลข พขร./ชื่อ"
         Me.l6.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -279,12 +284,12 @@ Partial Class Truck
         'l7
         '
         Me.l7.AutoSize = True
-        Me.l7.BackColor = System.Drawing.Color.Transparent
+        Me.l7.BackColor = System.Drawing.Color.Black
         Me.l7.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.l7.ForeColor = System.Drawing.Color.Cyan
-        Me.l7.Location = New System.Drawing.Point(1121, 444)
+        Me.l7.Location = New System.Drawing.Point(1200, 444)
         Me.l7.Name = "l7"
-        Me.l7.Size = New System.Drawing.Size(80, 16)
+        Me.l7.Size = New System.Drawing.Size(79, 16)
         Me.l7.TabIndex = 18
         Me.l7.Text = "หมายเลขบัตร"
         Me.l7.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -292,12 +297,12 @@ Partial Class Truck
         'l8
         '
         Me.l8.AutoSize = True
-        Me.l8.BackColor = System.Drawing.Color.Transparent
+        Me.l8.BackColor = System.Drawing.Color.Black
         Me.l8.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.l8.ForeColor = System.Drawing.Color.Cyan
-        Me.l8.Location = New System.Drawing.Point(1040, 473)
+        Me.l8.Location = New System.Drawing.Point(1119, 473)
         Me.l8.Name = "l8"
-        Me.l8.Size = New System.Drawing.Size(161, 16)
+        Me.l8.Size = New System.Drawing.Size(160, 16)
         Me.l8.TabIndex = 19
         Me.l8.Text = "ปริมาณน้ำมันค้างรถ (Factor)"
         Me.l8.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -305,12 +310,12 @@ Partial Class Truck
         'l9
         '
         Me.l9.AutoSize = True
-        Me.l9.BackColor = System.Drawing.Color.Transparent
+        Me.l9.BackColor = System.Drawing.Color.Black
         Me.l9.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.l9.ForeColor = System.Drawing.Color.Cyan
-        Me.l9.Location = New System.Drawing.Point(1037, 504)
+        Me.l9.Location = New System.Drawing.Point(1116, 504)
         Me.l9.Name = "l9"
-        Me.l9.Size = New System.Drawing.Size(164, 16)
+        Me.l9.Size = New System.Drawing.Size(163, 16)
         Me.l9.TabIndex = 20
         Me.l9.Text = "ความจุของรถตามปล.2 (ลิตร)"
         Me.l9.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -318,12 +323,12 @@ Partial Class Truck
         'l10
         '
         Me.l10.AutoSize = True
-        Me.l10.BackColor = System.Drawing.Color.Transparent
+        Me.l10.BackColor = System.Drawing.Color.Black
         Me.l10.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.l10.ForeColor = System.Drawing.Color.Cyan
-        Me.l10.Location = New System.Drawing.Point(1080, 533)
+        Me.l10.Location = New System.Drawing.Point(1159, 533)
         Me.l10.Name = "l10"
-        Me.l10.Size = New System.Drawing.Size(121, 16)
+        Me.l10.Size = New System.Drawing.Size(120, 16)
         Me.l10.TabIndex = 21
         Me.l10.Text = "Vapour Factor (Kg.)"
         Me.l10.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -331,19 +336,19 @@ Partial Class Truck
         'l11
         '
         Me.l11.AutoSize = True
-        Me.l11.BackColor = System.Drawing.Color.Transparent
+        Me.l11.BackColor = System.Drawing.Color.Black
         Me.l11.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.l11.ForeColor = System.Drawing.Color.Cyan
-        Me.l11.Location = New System.Drawing.Point(1119, 560)
+        Me.l11.Location = New System.Drawing.Point(1198, 560)
         Me.l11.Name = "l11"
-        Me.l11.Size = New System.Drawing.Size(82, 16)
+        Me.l11.Size = New System.Drawing.Size(81, 16)
         Me.l11.TabIndex = 22
         Me.l11.Text = "เลขที่ใบ ปล.2"
         Me.l11.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'Panel1
         '
-        Me.Panel1.BackColor = System.Drawing.Color.Transparent
+        Me.Panel1.BackColor = System.Drawing.Color.Black
         Me.Panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.Panel1.Controls.Add(Me.cmdConfirm)
         Me.Panel1.Controls.Add(Me.txtConfirm_Name)
@@ -356,7 +361,7 @@ Partial Class Truck
         Me.Panel1.Controls.Add(Me.Label27)
         Me.Panel1.Controls.Add(Me.Label28)
         Me.Panel1.ForeColor = System.Drawing.Color.Yellow
-        Me.Panel1.Location = New System.Drawing.Point(1150, 631)
+        Me.Panel1.Location = New System.Drawing.Point(1216, 631)
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(291, 132)
         Me.Panel1.TabIndex = 23
@@ -426,7 +431,7 @@ Partial Class Truck
         Me.Label26.ForeColor = System.Drawing.Color.Cyan
         Me.Label26.Location = New System.Drawing.Point(14, 93)
         Me.Label26.Name = "Label26"
-        Me.Label26.Size = New System.Drawing.Size(64, 16)
+        Me.Label26.Size = New System.Drawing.Size(63, 16)
         Me.Label26.TabIndex = 51
         Me.Label26.Text = "ชื่อผู้ยืนยัน"
         Me.Label26.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -438,7 +443,7 @@ Partial Class Truck
         Me.Label17.ForeColor = System.Drawing.Color.Red
         Me.Label17.Location = New System.Drawing.Point(10, 10)
         Me.Label17.Name = "Label17"
-        Me.Label17.Size = New System.Drawing.Size(68, 16)
+        Me.Label17.Size = New System.Drawing.Size(67, 16)
         Me.Label17.TabIndex = 0
         Me.Label17.Text = "Black List"
         '
@@ -449,7 +454,7 @@ Partial Class Truck
         Me.Label27.ForeColor = System.Drawing.Color.Cyan
         Me.Label27.Location = New System.Drawing.Point(15, 62)
         Me.Label27.Name = "Label27"
-        Me.Label27.Size = New System.Drawing.Size(63, 16)
+        Me.Label27.Size = New System.Drawing.Size(62, 16)
         Me.Label27.TabIndex = 50
         Me.Label27.Text = "Password"
         Me.Label27.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -461,7 +466,7 @@ Partial Class Truck
         Me.Label28.ForeColor = System.Drawing.Color.Cyan
         Me.Label28.Location = New System.Drawing.Point(15, 34)
         Me.Label28.Name = "Label28"
-        Me.Label28.Size = New System.Drawing.Size(34, 16)
+        Me.Label28.Size = New System.Drawing.Size(33, 16)
         Me.Label28.TabIndex = 49
         Me.Label28.Text = "User"
         Me.Label28.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -470,7 +475,7 @@ Partial Class Truck
         '
         Me.cmdReportP.BackColor = System.Drawing.Color.Yellow
         Me.cmdReportP.ForeColor = System.Drawing.Color.Black
-        Me.cmdReportP.Location = New System.Drawing.Point(1236, 606)
+        Me.cmdReportP.Location = New System.Drawing.Point(1302, 606)
         Me.cmdReportP.Name = "cmdReportP"
         Me.cmdReportP.Size = New System.Drawing.Size(117, 20)
         Me.cmdReportP.TabIndex = 24
@@ -479,28 +484,28 @@ Partial Class Truck
         '
         'txtTruck_No
         '
-        Me.txtTruck_No.Location = New System.Drawing.Point(1243, 274)
+        Me.txtTruck_No.Location = New System.Drawing.Point(1304, 274)
         Me.txtTruck_No.Name = "txtTruck_No"
         Me.txtTruck_No.Size = New System.Drawing.Size(115, 20)
         Me.txtTruck_No.TabIndex = 25
         '
         'txtTruck_No_Head
         '
-        Me.txtTruck_No_Head.Location = New System.Drawing.Point(1243, 301)
+        Me.txtTruck_No_Head.Location = New System.Drawing.Point(1304, 301)
         Me.txtTruck_No_Head.Name = "txtTruck_No_Head"
         Me.txtTruck_No_Head.Size = New System.Drawing.Size(115, 20)
         Me.txtTruck_No_Head.TabIndex = 26
         '
         'txtTruck_No_Tank
         '
-        Me.txtTruck_No_Tank.Location = New System.Drawing.Point(1243, 331)
+        Me.txtTruck_No_Tank.Location = New System.Drawing.Point(1304, 331)
         Me.txtTruck_No_Tank.Name = "txtTruck_No_Tank"
         Me.txtTruck_No_Tank.Size = New System.Drawing.Size(153, 20)
         Me.txtTruck_No_Tank.TabIndex = 27
         '
         'txtTruck_No_License
         '
-        Me.txtTruck_No_License.Location = New System.Drawing.Point(1243, 358)
+        Me.txtTruck_No_License.Location = New System.Drawing.Point(1304, 358)
         Me.txtTruck_No_License.Name = "txtTruck_No_License"
         Me.txtTruck_No_License.Size = New System.Drawing.Size(153, 20)
         Me.txtTruck_No_License.TabIndex = 28
@@ -508,7 +513,7 @@ Partial Class Truck
         'txtTruck_Company
         '
         Me.txtTruck_Company.FormattingEnabled = True
-        Me.txtTruck_Company.Location = New System.Drawing.Point(1243, 385)
+        Me.txtTruck_Company.Location = New System.Drawing.Point(1304, 385)
         Me.txtTruck_Company.Name = "txtTruck_Company"
         Me.txtTruck_Company.Size = New System.Drawing.Size(199, 21)
         Me.txtTruck_Company.TabIndex = 29
@@ -516,7 +521,7 @@ Partial Class Truck
         'txtDriver_No
         '
         Me.txtDriver_No.FormattingEnabled = True
-        Me.txtDriver_No.Location = New System.Drawing.Point(1243, 415)
+        Me.txtDriver_No.Location = New System.Drawing.Point(1304, 415)
         Me.txtDriver_No.Name = "txtDriver_No"
         Me.txtDriver_No.Size = New System.Drawing.Size(199, 21)
         Me.txtDriver_No.TabIndex = 30
@@ -524,35 +529,35 @@ Partial Class Truck
         'txtCard_No
         '
         Me.txtCard_No.FormattingEnabled = True
-        Me.txtCard_No.Location = New System.Drawing.Point(1243, 444)
+        Me.txtCard_No.Location = New System.Drawing.Point(1304, 444)
         Me.txtCard_No.Name = "txtCard_No"
         Me.txtCard_No.Size = New System.Drawing.Size(91, 21)
         Me.txtCard_No.TabIndex = 31
         '
         'txtWeight_Oil
         '
-        Me.txtWeight_Oil.Location = New System.Drawing.Point(1243, 473)
+        Me.txtWeight_Oil.Location = New System.Drawing.Point(1304, 473)
         Me.txtWeight_Oil.Name = "txtWeight_Oil"
         Me.txtWeight_Oil.Size = New System.Drawing.Size(153, 20)
         Me.txtWeight_Oil.TabIndex = 32
         '
         'txtCapacity
         '
-        Me.txtCapacity.Location = New System.Drawing.Point(1243, 504)
+        Me.txtCapacity.Location = New System.Drawing.Point(1304, 504)
         Me.txtCapacity.Name = "txtCapacity"
         Me.txtCapacity.Size = New System.Drawing.Size(153, 20)
         Me.txtCapacity.TabIndex = 33
         '
         'txtCalibration
         '
-        Me.txtCalibration.Location = New System.Drawing.Point(1243, 560)
+        Me.txtCalibration.Location = New System.Drawing.Point(1304, 560)
         Me.txtCalibration.Name = "txtCalibration"
         Me.txtCalibration.Size = New System.Drawing.Size(153, 20)
         Me.txtCalibration.TabIndex = 35
         '
         'txtVapor
         '
-        Me.txtVapor.Location = New System.Drawing.Point(1243, 531)
+        Me.txtVapor.Location = New System.Drawing.Point(1304, 531)
         Me.txtVapor.Name = "txtVapor"
         Me.txtVapor.Size = New System.Drawing.Size(153, 20)
         Me.txtVapor.TabIndex = 34
@@ -560,26 +565,26 @@ Partial Class Truck
         'l20
         '
         Me.l20.AutoSize = True
-        Me.l20.BackColor = System.Drawing.Color.Transparent
+        Me.l20.BackColor = System.Drawing.Color.Black
         Me.l20.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.l20.ForeColor = System.Drawing.Color.Yellow
-        Me.l20.Location = New System.Drawing.Point(1363, 301)
+        Me.l20.Location = New System.Drawing.Point(1424, 301)
         Me.l20.Name = "l20"
-        Me.l20.Size = New System.Drawing.Size(128, 16)
+        Me.l20.Size = New System.Drawing.Size(127, 16)
         Me.l20.TabIndex = 36
         Me.l20.Text = "[รูปแบบ ทบ.00-0000]"
         '
         'Panel2
         '
-        Me.Panel2.BackColor = System.Drawing.Color.Transparent
+        Me.Panel2.BackColor = System.Drawing.Color.Black
         Me.Panel2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.Panel2.Controls.Add(Me.OptWeight_Other)
         Me.Panel2.Controls.Add(Me.OptWeight_Oil)
         Me.Panel2.Controls.Add(Me.OptWeight_Lpg)
         Me.Panel2.Controls.Add(Me.Label19)
-        Me.Panel2.Location = New System.Drawing.Point(1588, 274)
+        Me.Panel2.Location = New System.Drawing.Point(1674, 114)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(133, 87)
+        Me.Panel2.Size = New System.Drawing.Size(165, 100)
         Me.Panel2.TabIndex = 37
         '
         'OptWeight_Other
@@ -627,18 +632,18 @@ Partial Class Truck
         Me.Label19.ForeColor = System.Drawing.Color.White
         Me.Label19.Location = New System.Drawing.Point(9, 9)
         Me.Label19.Name = "Label19"
-        Me.Label19.Size = New System.Drawing.Size(126, 16)
+        Me.Label19.Size = New System.Drawing.Size(125, 16)
         Me.Label19.TabIndex = 0
         Me.Label19.Text = "ชนิดของรถ (ขึ้นตาชั่ง)"
         '
         'Panel4
         '
-        Me.Panel4.BackColor = System.Drawing.Color.Transparent
+        Me.Panel4.BackColor = System.Drawing.Color.Black
         Me.Panel4.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.Panel4.Controls.Add(Me.OptTruck_Ptt)
         Me.Panel4.Controls.Add(Me.OptTruck_Cus)
         Me.Panel4.Controls.Add(Me.Label20)
-        Me.Panel4.Location = New System.Drawing.Point(1588, 367)
+        Me.Panel4.Location = New System.Drawing.Point(1672, 367)
         Me.Panel4.Name = "Panel4"
         Me.Panel4.Size = New System.Drawing.Size(165, 105)
         Me.Panel4.TabIndex = 38
@@ -676,19 +681,19 @@ Partial Class Truck
         Me.Label20.ForeColor = System.Drawing.Color.White
         Me.Label20.Location = New System.Drawing.Point(23, 5)
         Me.Label20.Name = "Label20"
-        Me.Label20.Size = New System.Drawing.Size(128, 16)
+        Me.Label20.Size = New System.Drawing.Size(127, 16)
         Me.Label20.TabIndex = 0
         Me.Label20.Text = "ชนิดของรถบรรทุกก๊าซ"
         '
         'l12
         '
         Me.l12.AutoSize = True
-        Me.l12.BackColor = System.Drawing.Color.Transparent
+        Me.l12.BackColor = System.Drawing.Color.Black
         Me.l12.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.l12.ForeColor = System.Drawing.Color.Cyan
-        Me.l12.Location = New System.Drawing.Point(1511, 489)
+        Me.l12.Location = New System.Drawing.Point(1595, 489)
         Me.l12.Name = "l12"
-        Me.l12.Size = New System.Drawing.Size(76, 16)
+        Me.l12.Size = New System.Drawing.Size(75, 16)
         Me.l12.TabIndex = 39
         Me.l12.Text = "วันที่วัด ปล.2"
         Me.l12.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -696,12 +701,12 @@ Partial Class Truck
         'l13
         '
         Me.l13.AutoSize = True
-        Me.l13.BackColor = System.Drawing.Color.Transparent
+        Me.l13.BackColor = System.Drawing.Color.Black
         Me.l13.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.l13.ForeColor = System.Drawing.Color.Cyan
-        Me.l13.Location = New System.Drawing.Point(1487, 518)
+        Me.l13.Location = New System.Drawing.Point(1571, 518)
         Me.l13.Name = "l13"
-        Me.l13.Size = New System.Drawing.Size(104, 16)
+        Me.l13.Size = New System.Drawing.Size(103, 16)
         Me.l13.TabIndex = 40
         Me.l13.Text = "วันที่หมดอายุปล.2"
         Me.l13.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -709,12 +714,12 @@ Partial Class Truck
         'l15
         '
         Me.l15.AutoSize = True
-        Me.l15.BackColor = System.Drawing.Color.Transparent
+        Me.l15.BackColor = System.Drawing.Color.Black
         Me.l15.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.l15.ForeColor = System.Drawing.Color.Cyan
-        Me.l15.Location = New System.Drawing.Point(1479, 574)
+        Me.l15.Location = New System.Drawing.Point(1563, 574)
         Me.l15.Name = "l15"
-        Me.l15.Size = New System.Drawing.Size(118, 16)
+        Me.l15.Size = New System.Drawing.Size(117, 16)
         Me.l15.TabIndex = 42
         Me.l15.Text = "น้ำหนักรถเปล่า (Kg.)"
         Me.l15.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -722,12 +727,12 @@ Partial Class Truck
         'l14
         '
         Me.l14.AutoSize = True
-        Me.l14.BackColor = System.Drawing.Color.Transparent
+        Me.l14.BackColor = System.Drawing.Color.Black
         Me.l14.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.l14.ForeColor = System.Drawing.Color.Cyan
-        Me.l14.Location = New System.Drawing.Point(1444, 545)
+        Me.l14.Location = New System.Drawing.Point(1528, 545)
         Me.l14.Name = "l14"
-        Me.l14.Size = New System.Drawing.Size(154, 16)
+        Me.l14.Size = New System.Drawing.Size(153, 16)
         Me.l14.TabIndex = 41
         Me.l14.Text = "ความจุของรถที่ 85 % (Kg.)"
         Me.l14.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -736,7 +741,7 @@ Partial Class Truck
         '
         Me.Cal_Date.CustomFormat = "dd/mm/yyyy"
         Me.Cal_Date.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.Cal_Date.Location = New System.Drawing.Point(1610, 485)
+        Me.Cal_Date.Location = New System.Drawing.Point(1694, 485)
         Me.Cal_Date.MinDate = New Date(2007, 1, 1, 0, 0, 0, 0)
         Me.Cal_Date.Name = "Cal_Date"
         Me.Cal_Date.Size = New System.Drawing.Size(149, 20)
@@ -747,7 +752,7 @@ Partial Class Truck
         '
         Me.Cal_Expire.CustomFormat = "dd/mm/yyyy"
         Me.Cal_Expire.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.Cal_Expire.Location = New System.Drawing.Point(1610, 514)
+        Me.Cal_Expire.Location = New System.Drawing.Point(1694, 514)
         Me.Cal_Expire.MinDate = New Date(2007, 1, 1, 0, 0, 0, 0)
         Me.Cal_Expire.Name = "Cal_Expire"
         Me.Cal_Expire.Size = New System.Drawing.Size(149, 20)
@@ -758,7 +763,7 @@ Partial Class Truck
         '
         Me.txtCapacity_85.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.txtCapacity_85.Enabled = False
-        Me.txtCapacity_85.Location = New System.Drawing.Point(1609, 541)
+        Me.txtCapacity_85.Location = New System.Drawing.Point(1693, 541)
         Me.txtCapacity_85.Name = "txtCapacity_85"
         Me.txtCapacity_85.ReadOnly = True
         Me.txtCapacity_85.Size = New System.Drawing.Size(150, 20)
@@ -766,14 +771,14 @@ Partial Class Truck
         '
         'txtWeight
         '
-        Me.txtWeight.Location = New System.Drawing.Point(1609, 571)
+        Me.txtWeight.Location = New System.Drawing.Point(1693, 571)
         Me.txtWeight.Name = "txtWeight"
         Me.txtWeight.Size = New System.Drawing.Size(150, 20)
         Me.txtWeight.TabIndex = 46
         '
         'txtSpecial
         '
-        Me.txtSpecial.Location = New System.Drawing.Point(1563, 642)
+        Me.txtSpecial.Location = New System.Drawing.Point(1647, 642)
         Me.txtSpecial.Multiline = True
         Me.txtSpecial.Name = "txtSpecial"
         Me.txtSpecial.Size = New System.Drawing.Size(158, 92)
@@ -782,10 +787,10 @@ Partial Class Truck
         'l16
         '
         Me.l16.AutoSize = True
-        Me.l16.BackColor = System.Drawing.Color.Transparent
+        Me.l16.BackColor = System.Drawing.Color.Black
         Me.l16.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.l16.ForeColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.l16.Location = New System.Drawing.Point(1563, 621)
+        Me.l16.ForeColor = System.Drawing.Color.Cyan
+        Me.l16.Location = New System.Drawing.Point(1645, 615)
         Me.l16.Name = "l16"
         Me.l16.Size = New System.Drawing.Size(54, 14)
         Me.l16.TabIndex = 48
@@ -793,21 +798,21 @@ Partial Class Truck
         '
         'Panel3
         '
-        Me.Panel3.BackColor = System.Drawing.Color.Transparent
+        Me.Panel3.BackColor = System.Drawing.Color.Black
         Me.Panel3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.Panel3.Controls.Add(Me.txtDetial)
         Me.Panel3.Controls.Add(Me.Opt3)
         Me.Panel3.Controls.Add(Me.Opt2)
         Me.Panel3.Controls.Add(Me.Opt1)
         Me.Panel3.Controls.Add(Me.Label29)
-        Me.Panel3.Location = New System.Drawing.Point(1150, 768)
+        Me.Panel3.Location = New System.Drawing.Point(1216, 768)
         Me.Panel3.Name = "Panel3"
-        Me.Panel3.Size = New System.Drawing.Size(587, 87)
+        Me.Panel3.Size = New System.Drawing.Size(637, 87)
         Me.Panel3.TabIndex = 49
         '
         'txtDetial
         '
-        Me.txtDetial.Location = New System.Drawing.Point(376, 14)
+        Me.txtDetial.Location = New System.Drawing.Point(450, 10)
         Me.txtDetial.Multiline = True
         Me.txtDetial.Name = "txtDetial"
         Me.txtDetial.Size = New System.Drawing.Size(177, 61)
@@ -818,9 +823,9 @@ Partial Class Truck
         Me.Opt3.AutoSize = True
         Me.Opt3.Font = New System.Drawing.Font("Tahoma", 9.75!)
         Me.Opt3.ForeColor = System.Drawing.Color.Cyan
-        Me.Opt3.Location = New System.Drawing.Point(309, 36)
+        Me.Opt3.Location = New System.Drawing.Point(382, 36)
         Me.Opt3.Name = "Opt3"
-        Me.Opt3.Size = New System.Drawing.Size(63, 20)
+        Me.Opt3.Size = New System.Drawing.Size(62, 20)
         Me.Opt3.TabIndex = 59
         Me.Opt3.TabStop = True
         Me.Opt3.Text = "3. อื่นๆ"
@@ -831,9 +836,9 @@ Partial Class Truck
         Me.Opt2.AutoSize = True
         Me.Opt2.Font = New System.Drawing.Font("Tahoma", 9.75!)
         Me.Opt2.ForeColor = System.Drawing.Color.Cyan
-        Me.Opt2.Location = New System.Drawing.Point(177, 36)
+        Me.Opt2.Location = New System.Drawing.Point(226, 36)
         Me.Opt2.Name = "Opt2"
-        Me.Opt2.Size = New System.Drawing.Size(132, 20)
+        Me.Opt2.Size = New System.Drawing.Size(131, 20)
         Me.Opt2.TabIndex = 58
         Me.Opt2.TabStop = True
         Me.Opt2.Text = "2. รถปล.2 หมดอายุ"
@@ -844,9 +849,9 @@ Partial Class Truck
         Me.Opt1.AutoSize = True
         Me.Opt1.Font = New System.Drawing.Font("Tahoma", 9.75!)
         Me.Opt1.ForeColor = System.Drawing.Color.Cyan
-        Me.Opt1.Location = New System.Drawing.Point(15, 36)
+        Me.Opt1.Location = New System.Drawing.Point(17, 36)
         Me.Opt1.Name = "Opt1"
-        Me.Opt1.Size = New System.Drawing.Size(169, 20)
+        Me.Opt1.Size = New System.Drawing.Size(168, 20)
         Me.Opt1.TabIndex = 57
         Me.Opt1.TabStop = True
         Me.Opt1.Text = "1. รถสภาพต่ำกว่ามาตรฐาน"
@@ -859,7 +864,7 @@ Partial Class Truck
         Me.Label29.ForeColor = System.Drawing.Color.Red
         Me.Label29.Location = New System.Drawing.Point(11, 0)
         Me.Label29.Name = "Label29"
-        Me.Label29.Size = New System.Drawing.Size(134, 16)
+        Me.Label29.Size = New System.Drawing.Size(133, 16)
         Me.Label29.TabIndex = 56
         Me.Label29.Text = "เหตุผลการ Black List"
         '
@@ -867,7 +872,7 @@ Partial Class Truck
         '
         Me.txtCreate.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.txtCreate.Enabled = False
-        Me.txtCreate.Location = New System.Drawing.Point(1220, 864)
+        Me.txtCreate.Location = New System.Drawing.Point(1288, 896)
         Me.txtCreate.Name = "txtCreate"
         Me.txtCreate.Size = New System.Drawing.Size(115, 20)
         Me.txtCreate.TabIndex = 51
@@ -875,12 +880,12 @@ Partial Class Truck
         'l17
         '
         Me.l17.AutoSize = True
-        Me.l17.BackColor = System.Drawing.Color.Transparent
+        Me.l17.BackColor = System.Drawing.Color.Black
         Me.l17.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.l17.ForeColor = System.Drawing.Color.Cyan
-        Me.l17.Location = New System.Drawing.Point(1151, 865)
+        Me.l17.Location = New System.Drawing.Point(1196, 900)
         Me.l17.Name = "l17"
-        Me.l17.Size = New System.Drawing.Size(75, 16)
+        Me.l17.Size = New System.Drawing.Size(74, 16)
         Me.l17.TabIndex = 50
         Me.l17.Text = "Create date"
         Me.l17.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -889,7 +894,7 @@ Partial Class Truck
         '
         Me.txtUpdate.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.txtUpdate.Enabled = False
-        Me.txtUpdate.Location = New System.Drawing.Point(1421, 864)
+        Me.txtUpdate.Location = New System.Drawing.Point(1514, 900)
         Me.txtUpdate.Name = "txtUpdate"
         Me.txtUpdate.Size = New System.Drawing.Size(115, 20)
         Me.txtUpdate.TabIndex = 53
@@ -897,12 +902,12 @@ Partial Class Truck
         'l18
         '
         Me.l18.AutoSize = True
-        Me.l18.BackColor = System.Drawing.Color.Transparent
+        Me.l18.BackColor = System.Drawing.Color.Black
         Me.l18.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.l18.ForeColor = System.Drawing.Color.Cyan
-        Me.l18.Location = New System.Drawing.Point(1351, 865)
+        Me.l18.Location = New System.Drawing.Point(1432, 900)
         Me.l18.Name = "l18"
-        Me.l18.Size = New System.Drawing.Size(77, 16)
+        Me.l18.Size = New System.Drawing.Size(76, 16)
         Me.l18.TabIndex = 52
         Me.l18.Text = "Update date"
         Me.l18.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -911,7 +916,7 @@ Partial Class Truck
         '
         Me.txtUpdateBy.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.txtUpdateBy.Enabled = False
-        Me.txtUpdateBy.Location = New System.Drawing.Point(1623, 864)
+        Me.txtUpdateBy.Location = New System.Drawing.Point(1738, 901)
         Me.txtUpdateBy.Name = "txtUpdateBy"
         Me.txtUpdateBy.Size = New System.Drawing.Size(115, 20)
         Me.txtUpdateBy.TabIndex = 55
@@ -919,12 +924,12 @@ Partial Class Truck
         'l19
         '
         Me.l19.AutoSize = True
-        Me.l19.BackColor = System.Drawing.Color.Transparent
+        Me.l19.BackColor = System.Drawing.Color.Black
         Me.l19.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.l19.ForeColor = System.Drawing.Color.Cyan
-        Me.l19.Location = New System.Drawing.Point(1563, 865)
+        Me.l19.Location = New System.Drawing.Point(1668, 902)
         Me.l19.Name = "l19"
-        Me.l19.Size = New System.Drawing.Size(65, 16)
+        Me.l19.Size = New System.Drawing.Size(64, 16)
         Me.l19.TabIndex = 54
         Me.l19.Text = "Update by"
         Me.l19.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -958,7 +963,7 @@ Partial Class Truck
         '
         Me.Command1.BackColor = System.Drawing.Color.White
         Me.Command1.ForeColor = System.Drawing.Color.Black
-        Me.Command1.Location = New System.Drawing.Point(1448, 386)
+        Me.Command1.Location = New System.Drawing.Point(1509, 386)
         Me.Command1.Name = "Command1"
         Me.Command1.Size = New System.Drawing.Size(64, 20)
         Me.Command1.TabIndex = 58
@@ -969,7 +974,7 @@ Partial Class Truck
         '
         Me.cmdAdd.BackColor = System.Drawing.Color.White
         Me.cmdAdd.ForeColor = System.Drawing.Color.Black
-        Me.cmdAdd.Location = New System.Drawing.Point(1448, 414)
+        Me.cmdAdd.Location = New System.Drawing.Point(1509, 414)
         Me.cmdAdd.Name = "cmdAdd"
         Me.cmdAdd.Size = New System.Drawing.Size(64, 20)
         Me.cmdAdd.TabIndex = 59
@@ -978,10 +983,10 @@ Partial Class Truck
         '
         'Btn_Add
         '
-        Me.Btn_Add.BackColor = System.Drawing.Color.White
-        Me.Btn_Add.Font = New System.Drawing.Font("AngsanaUPC", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.Btn_Add.ForeColor = System.Drawing.Color.Black
-        Me.Btn_Add.Location = New System.Drawing.Point(1152, 166)
+        Me.Btn_Add.BackColor = System.Drawing.Color.SpringGreen
+        Me.Btn_Add.Font = New System.Drawing.Font("Tahoma", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
+        Me.Btn_Add.ForeColor = System.Drawing.Color.MediumBlue
+        Me.Btn_Add.Location = New System.Drawing.Point(1228, 167)
         Me.Btn_Add.Name = "Btn_Add"
         Me.Btn_Add.Size = New System.Drawing.Size(118, 58)
         Me.Btn_Add.TabIndex = 71
@@ -990,10 +995,10 @@ Partial Class Truck
         '
         'Btn_Edit
         '
-        Me.Btn_Edit.BackColor = System.Drawing.Color.White
-        Me.Btn_Edit.Font = New System.Drawing.Font("AngsanaUPC", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.Btn_Edit.ForeColor = System.Drawing.Color.Black
-        Me.Btn_Edit.Location = New System.Drawing.Point(1276, 166)
+        Me.Btn_Edit.BackColor = System.Drawing.Color.SpringGreen
+        Me.Btn_Edit.Font = New System.Drawing.Font("Tahoma", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
+        Me.Btn_Edit.ForeColor = System.Drawing.Color.MediumBlue
+        Me.Btn_Edit.Location = New System.Drawing.Point(1352, 167)
         Me.Btn_Edit.Name = "Btn_Edit"
         Me.Btn_Edit.Size = New System.Drawing.Size(118, 58)
         Me.Btn_Edit.TabIndex = 72
@@ -1002,10 +1007,10 @@ Partial Class Truck
         '
         'Btn_Delete
         '
-        Me.Btn_Delete.BackColor = System.Drawing.Color.White
-        Me.Btn_Delete.Font = New System.Drawing.Font("AngsanaUPC", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.Btn_Delete.ForeColor = System.Drawing.Color.Black
-        Me.Btn_Delete.Location = New System.Drawing.Point(1400, 166)
+        Me.Btn_Delete.BackColor = System.Drawing.Color.SpringGreen
+        Me.Btn_Delete.Font = New System.Drawing.Font("Tahoma", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
+        Me.Btn_Delete.ForeColor = System.Drawing.Color.MediumBlue
+        Me.Btn_Delete.Location = New System.Drawing.Point(1476, 167)
         Me.Btn_Delete.Name = "Btn_Delete"
         Me.Btn_Delete.Size = New System.Drawing.Size(118, 58)
         Me.Btn_Delete.TabIndex = 73
@@ -1014,10 +1019,10 @@ Partial Class Truck
         '
         'Btn_Print
         '
-        Me.Btn_Print.BackColor = System.Drawing.Color.White
-        Me.Btn_Print.Font = New System.Drawing.Font("AngsanaUPC", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.Btn_Print.ForeColor = System.Drawing.Color.Black
-        Me.Btn_Print.Location = New System.Drawing.Point(1524, 166)
+        Me.Btn_Print.BackColor = System.Drawing.Color.SpringGreen
+        Me.Btn_Print.Font = New System.Drawing.Font("Tahoma", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
+        Me.Btn_Print.ForeColor = System.Drawing.Color.MediumBlue
+        Me.Btn_Print.Location = New System.Drawing.Point(1600, 167)
         Me.Btn_Print.Name = "Btn_Print"
         Me.Btn_Print.Size = New System.Drawing.Size(118, 58)
         Me.Btn_Print.TabIndex = 74
@@ -1026,10 +1031,10 @@ Partial Class Truck
         '
         'Btn_Search
         '
-        Me.Btn_Search.BackColor = System.Drawing.Color.White
-        Me.Btn_Search.Font = New System.Drawing.Font("AngsanaUPC", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.Btn_Search.ForeColor = System.Drawing.Color.Black
-        Me.Btn_Search.Location = New System.Drawing.Point(1648, 166)
+        Me.Btn_Search.BackColor = System.Drawing.Color.SpringGreen
+        Me.Btn_Search.Font = New System.Drawing.Font("Tahoma", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
+        Me.Btn_Search.ForeColor = System.Drawing.Color.MediumBlue
+        Me.Btn_Search.Location = New System.Drawing.Point(1724, 167)
         Me.Btn_Search.Name = "Btn_Search"
         Me.Btn_Search.Size = New System.Drawing.Size(118, 58)
         Me.Btn_Search.TabIndex = 75
@@ -1038,21 +1043,48 @@ Partial Class Truck
         '
         'Btn_Save
         '
-        Me.Btn_Save.Location = New System.Drawing.Point(1384, 903)
+        Me.Btn_Save.BackColor = System.Drawing.Color.SpringGreen
+        Me.Btn_Save.Font = New System.Drawing.Font("Tahoma", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
+        Me.Btn_Save.ForeColor = System.Drawing.Color.MediumBlue
+        Me.Btn_Save.Location = New System.Drawing.Point(1379, 800)
         Me.Btn_Save.Name = "Btn_Save"
         Me.Btn_Save.Size = New System.Drawing.Size(107, 52)
         Me.Btn_Save.TabIndex = 76
         Me.Btn_Save.Text = "บันทึก"
-        Me.Btn_Save.UseVisualStyleBackColor = True
+        Me.Btn_Save.UseVisualStyleBackColor = False
         '
         'Btn_Cancle
         '
-        Me.Btn_Cancle.Location = New System.Drawing.Point(1588, 903)
+        Me.Btn_Cancle.BackColor = System.Drawing.Color.SpringGreen
+        Me.Btn_Cancle.Font = New System.Drawing.Font("Tahoma", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
+        Me.Btn_Cancle.ForeColor = System.Drawing.Color.MediumBlue
+        Me.Btn_Cancle.Location = New System.Drawing.Point(1555, 800)
         Me.Btn_Cancle.Name = "Btn_Cancle"
         Me.Btn_Cancle.Size = New System.Drawing.Size(109, 52)
         Me.Btn_Cancle.TabIndex = 77
         Me.Btn_Cancle.Text = "ยกเลิก"
-        Me.Btn_Cancle.UseVisualStyleBackColor = True
+        Me.Btn_Cancle.UseVisualStyleBackColor = False
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
+        Me.Label1.Location = New System.Drawing.Point(812, 958)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(0, 16)
+        Me.Label1.TabIndex = 78
+        '
+        'Panel5
+        '
+        Me.Panel5.BackColor = System.Drawing.Color.Black
+        Me.Panel5.Controls.Add(Me.Btn_Cancle)
+        Me.Panel5.Controls.Add(Me.Btn_Save)
+        Me.Panel5.Controls.Add(Me.cmdAct)
+        Me.Panel5.Controls.Add(Me.Panel2)
+        Me.Panel5.Location = New System.Drawing.Point(-2, 147)
+        Me.Panel5.Name = "Panel5"
+        Me.Panel5.Size = New System.Drawing.Size(1906, 863)
+        Me.Panel5.TabIndex = 79
         '
         'Truck
         '
@@ -1061,11 +1093,10 @@ Partial Class Truck
         Me.AutoScroll = True
         Me.AutoSize = True
         Me.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
-        Me.BackColor = System.Drawing.Color.Black
+        Me.BackColor = System.Drawing.Color.DodgerBlue
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.ClientSize = New System.Drawing.Size(1904, 1011)
-        Me.Controls.Add(Me.Btn_Cancle)
-        Me.Controls.Add(Me.Btn_Save)
+        Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.Btn_Search)
         Me.Controls.Add(Me.Btn_Print)
         Me.Controls.Add(Me.Btn_Delete)
@@ -1090,7 +1121,6 @@ Partial Class Truck
         Me.Controls.Add(Me.l13)
         Me.Controls.Add(Me.l12)
         Me.Controls.Add(Me.Panel1)
-        Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.Panel3)
         Me.Controls.Add(Me.Panel4)
         Me.Controls.Add(Me.l20)
@@ -1118,12 +1148,12 @@ Partial Class Truck
         Me.Controls.Add(Me.l2)
         Me.Controls.Add(Me.l1)
         Me.Controls.Add(Me.grdTruck)
-        Me.Controls.Add(Me.cmdAct)
         Me.Controls.Add(Me.l25)
         Me.Controls.Add(Me.l21)
         Me.Controls.Add(Me.l23)
         Me.Controls.Add(Me.l24)
         Me.Controls.Add(Me.l22)
+        Me.Controls.Add(Me.Panel5)
         Me.ForeColor = System.Drawing.Color.DimGray
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Name = "Truck"
@@ -1139,6 +1169,7 @@ Partial Class Truck
         Me.Panel3.ResumeLayout(False)
         Me.Panel3.PerformLayout()
         Me.menu_process.ResumeLayout(False)
+        Me.Panel5.ResumeLayout(False)
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -1230,4 +1261,6 @@ Partial Class Truck
     Friend WithEvents Btn_Search As Button
     Friend WithEvents Btn_Save As Button
     Friend WithEvents Btn_Cancle As Button
+    Friend WithEvents Label1 As Label
+    Friend WithEvents Panel5 As Panel
 End Class

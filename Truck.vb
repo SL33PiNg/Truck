@@ -316,7 +316,7 @@ Public Class Truck
 
         If TotalRec <= 0 Then
             MsgBox("ยังไม่มีข้อมูลอยู่ในระบบ.", MsgBoxStyle.OkOnly + MsgBoxStyle.Exclamation, "รายงาน")
-            l1.Text = "จำนวนรถบรรทุกก๊าซ : " & TotalRec & "  คัน"
+            Label1.Text = "จำนวนรถบรรทุกก๊าซ : " & TotalRec & "  คัน"
             Exit Sub
         End If
 
